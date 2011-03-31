@@ -1,1 +1,81 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_documents_stage_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record id="view_documents_template_stage_form" model="ir.ui.view">
+            <field name="model">ekd.document.template.stage</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Document Template Stage" >
+                        <group col="10" colspan="8" id="gr_head">
+                            <label name="name"/>
+                            <field colspan="3" name="name"/>
+                            <label name="shortcut"/>
+                            <field colspan="1" name="shortcut"/>
+                            <label name="date_start"/>
+                            <field colspan="1" name="date_start"/>
+                            <label name="date_end"/>
+                            <field colspan="1" name="date_end"/>
+                            <label name="sequence"/>
+                            <field colspan="1" name="sequence"/>
+                            <label name="code_call"/>
+                            <field colspan="1" name="code_call"/>
+                            <label name="active"/>
+                            <field colspan="1" name="active"/>
+                        </group>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_template_stage_tree" model="ir.ui.view">
+            <field name="model">ekd.document.template.stage</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree string="Template Stages" >
+                        <field name="sequence"/>
+                        <field name="name" select="1"/>
+                        <field name="shortcut" select="1"/>
+                        <field name="date_start" select="1"/>
+                        <field name="date_end" select="1"/>
+                        <field name="code_call" select="1"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_template_stage_form">
+            <field name="name">Document Template Stages</field>
+            <field name="res_model">ekd.document.template.stage</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_template_stage_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_template_stage_tree"/>
+            <field name="act_window" ref="act_documents_template_stage_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_template_stage_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_template_stage_form"/>
+            <field name="act_window" ref="act_documents_template_stage_form"/>
+        </record>
+
+        <record model="ir.model.access" id="access_documents_template_stage">
+            <field name="model" search="[('model', '=', 'ekd.document.template.stage')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_documents_template_stage_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.template.stage')]"/>
+            <field name="group" ref="group_document_template_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

@@ -1,1 +1,308 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_documents_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <!-- Группа Управления документами -->
+        <record model="res.group" id="group_document_admin">
+            <field name="name">Documents Administration</field>
+        </record>
+
+        <!-- Группа Управления шаблонами документов -->
+        <record model="res.group" id="group_document_template_admin">
+            <field name="name">Documents Template Administration</field>
+        </record>
+
+        <!-- Группа Документы -->
+        <record model="res.group" id="group_document">
+            <field name="name">Documents (all)</field>
+        </record>
+
+        <menuitem name="Document Management" id="menu_documents"
+             groups="group_document,group_document_admin" sequence="5"/>
+        <menuitem name="Configuration" groups="group_document_admin" sequence="5"
+            id="menu_conf_documents" parent="menu_documents"/>
+        <menuitem name="New Documents" groups="group_document" sequence="10"
+            id="menu_new_documents" parent="menu_documents"/>
+        <menuitem name="My Documents" groups="group_document" sequence="20"
+            id="menu_my_documents" parent="menu_documents"/>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_form" model="ir.ui.view">
+            <field name="model">ekd.document</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="List of documents">
+                        <group col="10" colspan="4" id="gr_head">
+                            <group col="8" colspan="8" id="gr_head">
+                                <label name="company" />
+                                <field name="company" select="1"/>
+                                <newline/>
+                                <label name="template" />
+                                <field name="template" widget="selection" select="1"/>
+                                <label name="number_our"/>
+                                <field name="number_our" select="1"/>
+                                <label name="number_in"/>
+                                <field name="number_in" select="1"/>
+                                <label name="date_document" />
+                                <field name="date_document" select="1"/>
+                            </group>
+                            <group col="2" colspan="2" id="buttons">
+                                <label name="date_account" />
+                                <field name="date_account" select="1"/>
+                                <label name="state"/>
+                                <field name="state" select="1"/>
+                                <group col="2" colspan="2" id="buttons">
+                                    <button string="Post" name="button_post" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state'), 'draft'))}"/>
+                                    <button string="Draft" name="button_draft" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state'), 'posted'))}"/>
+                                    <button string="Restore" name="button_restore" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state'), 'deleted'))}"/>
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                        <page string="General" id="general">
+                            <group col="4" colspan="4" id="gr_spec">
+                                <group col="2" colspan="2" id="gr_party">
+                                    <label name="from_party"/>
+                                    <field name="from_party" select="1"/>
+                                    <label name="to_party"/>
+                                    <field name="to_party" select="1"/>
+                                    <label name="employee"/>
+                                    <field name="employee" select="1"/>
+                                </group>
+                                <group col="2" colspan="2" id="gr_amount">
+                                    <label name="amount"/>
+                                    <field name="amount"/>
+                                    <label name="amount_payment"/>
+                                    <field name="amount_payment"/>
+                                    <label name="amount_paid"/>
+                                    <field name="amount_paid"/>
+                                </group>
+                            </group>
+                            <group col="4" colspan="4" id="gr_note">
+                                <field name="note"/>
+                            </group>
+                            <field name="currency_digits" invisible="1"/>
+                        </page>
+                        <page string="Parent and Child" col="2" id="parent_child">
+                            <label name="parent"/>
+                            <field name="parent"/>
+                            <field name="childs" colspan="2" />
+                        </page>
+                        <page string="Journal Change Stages" id="journal">
+                            <field name="journal_work">
+                                <tree>
+                                    <field name="date_change"/>
+                                    <field name="employee"/>
+                                    <field name="state_from"/>
+                                    <field name="state_to"/>
+                                    <field name="stage_from"/>
+                                    <field name="stage_to"/>
+                                </tree>
+                            </field>
+                        </page>
+                        </notebook>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_tree" model="ir.ui.view">
+            <field name="model">ekd.document</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Documents">
+                    <field name="template" select="1"/>
+                    <field name="number_our" select="1"/>
+                    <field name="number_in" select="2"/>
+                    <field name="date_document" select="2"/>
+                    <field name="date_account" select="1"/>
+                    <field name="from_party" select="2"/>
+                    <field name="to_party" select="2"/>
+                    <field name="amount" select="2"/>
+                    <field name="state" select="2"/>
+                    <field name="currency_digits" tree_invisible="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_form">
+            <field name="name">Document</field>
+            <field name="res_model">ekd.document</field>
+            <field name="view_type">form</field>
+            <field name="context">{'model': Eval('template'), 'document_id': Eval('id')}</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_tree"/>
+            <field name="act_window" ref="act_documents_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_form"/>
+            <field name="act_window" ref="act_documents_form"/>
+        </record>
+
+        <menuitem
+            name="List of documents" groups="group_document_admin" sequence="8"
+            id="menu_all_documents" parent="menu_documents"/>
+        <menuitem
+            name="All Documents" sequence="8"
+            action="act_documents_form" id="menu_documents_all" parent="menu_all_documents"/>
+
+
+        <record id="view_documents_template_form" model="ir.ui.view">
+            <field name="model">ekd.document.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Document Template" >
+                            <group col="10" colspan="8" id="gr_head">
+                                <label name="name"/>
+                                <field colspan="3" name="name"/>
+                                <label name="shortcut"/>
+                                <field colspan="1" name="shortcut"/>
+                                <label name="direction"/>
+                                <field colspan="1" name="direction"/>
+                                <label name="type_account"/>
+                                <field colspan="1" name="type_account"/>
+                            </group>
+                            <notebook>
+                                <page string="General" id="general">
+                                    <group col="2" colspan="2" id="gr_code">
+                                        <label name="code_call"/>
+                                        <field name="code_call"/>
+                                        <label name="sort"/>
+                                        <field name="sort"/>
+                                        <label name="sequence"/>
+                                        <field name="sequence"/>
+                                    </group>
+                                    <group col="2" colspan="2" id="gr_date" fill="0">
+                                        <label name="date_start" />
+                                        <field name="date_start" width="200"/>
+                                        <label name="date_end"/>
+                                        <field name="date_end" width="200"/>
+                                        <label name="active"/>
+                                        <field name="active"/>
+                                    </group>
+                                    <newline/>
+                                    <group col="2" colspan="4" id="gr_model">
+                                        <separator colspan="2" string="System setup" id="sp_system"/>
+                                        <label name="model"/>
+                                        <field name="model"/>
+                                        <label name="model_str"/>
+                                        <field name="model_str"/>
+                                        <label name="view_form"/>
+                                        <field name="view_form"/>
+                                        <label name="report"/>
+                                        <field name="report"/>
+                                    </group>
+                                </page>
+                                <page string="Stage" id="stage">
+                                    <field name="stages"/>
+                                </page>
+                            </notebook>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_template_tree" model="ir.ui.view">
+            <field name="model">ekd.document.template</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <tree string="Document Template" >
+                        <field name="type_account" select="1"/>
+                        <field name="name" select="1"/>
+                        <field name="shortcut" select="1"/>
+                    </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_template_form">
+            <field name="name">Document Template</field>
+            <field name="res_model">ekd.document.template</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_template_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_template_tree"/>
+            <field name="act_window" ref="act_documents_template_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_template_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_template_form"/>
+            <field name="act_window" ref="act_documents_template_form"/>
+        </record>
+
+        <menuitem parent="menu_conf_documents" action="act_documents_template_form"
+            id="menu_documents_template_form" sequence="10"/>
+
+        <record model="ir.action.wizard" id="wizard_document_tree_open">
+            <field name="name">Document Open (Tree Open)</field>
+            <field name="wiz_name">ekd.document.wizard.open</field>
+        </record>
+        <record model="ir.action.keyword"
+            id="act_document_tree_open_keyword">
+            <field name="keyword">tree_open</field>
+            <field name="model">ekd.document,0</field>
+            <field name="action" ref="wizard_document_tree_open"/>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_document_open">
+            <field name="name">Open Document</field>
+            <field name="wiz_name">ekd.document.wizard.open</field>
+        </record>
+        <record model="ir.action.keyword"
+            id="act_document_open_keyword">
+            <field name="keyword">form_action</field>
+            <field name="model">ekd.document,0</field>
+            <field name="action" ref="wizard_document_open"/>
+        </record>
+
+        <record model="ir.model.access" id="access_documents">
+            <field name="model" search="[('model', '=', 'ekd.document')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_documents_admin">
+            <field name="model" search="[('model', '=', 'ekd.document')]"/>
+            <field name="group" ref="group_document_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_documents_template">
+            <field name="model" search="[('model', '=', 'ekd.document.template')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_documents_template_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.template')]"/>
+            <field name="group" ref="group_document_template_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+    </data>
+</tryton>

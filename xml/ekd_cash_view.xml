@@ -1,1 +1,304 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_cash_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_cash_admin">
+            <field name="name">Documents of Cash Administration</field>
+        </record>
+
+        <record model="res.group" id="group_cash">
+            <field name="name">Documents of Cash</field>
+        </record>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_cash_form" model="ir.ui.view">
+            <field name="model">ekd.document.head.cash</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Document Cash Order">
+                        <group col="10" colspan="10" id="head">
+                            <group col="8" colspan="8" id="doc_head">
+                                <label name="company" />
+                                <field name="company" select="1"/>
+                                <label name="type_transaction" />
+                                <field name="type_transaction"/>
+                                <newline/>
+                                <label name="template_cash" />
+                                <field name="template_cash"/>
+                                <group colspan="2" col="2" id="gr_number">
+                                    <label name="number_our"/>
+                                    <field name="number_our" />
+                                    <button name="button_add_number" colspan="2"
+                                        states="{'invisible': Bool(Eval('number_our'))}" 
+                                        string="Add Number" type="object"
+                                        />
+                                </group>
+                                <label name="date_account" />
+                                <field name="date_account"/>
+                            </group>
+                            <group col="2" colspan="2" id="gr_state_doc">
+                                <label name="state_doc"/>
+                                <field name="state_doc"/>
+                                <group col="2" colspan="2" id="buttons">
+                                    <button string="Post" name="button_post" type="object" 
+                                            states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}"/>
+                                    <button string="Draft" name="button_draft" type="object" 
+                                            states="{'invisible': Not(Equal(Eval('state_doc'), 'posted'))}"/>
+                                    <button string="Restore" name="button_restore" type="object" 
+                                            states="{'invisible': Not(Equal(Eval('state_doc'), 'deleted'))}"/>
+                                </group>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="General" id="general">
+                                <group col="4" id="spec">
+                                    <separator colspan="4" string="Document Base and Application" id="doc_base"/>
+                                    <label align="0.0" name="document_base_ref" />
+                                    <field name="document_base_ref" select="1"/>
+                                    <field name="parent" invisible="1"/>
+                                    <newline/>
+                                    <label align="0.0" name="name" string="Application" />
+                                    <field name="name" select="2"/>
+                                </group>
+                                <group col="4" colspan="4" id="spec">
+                                    <separator  colspan="4" string="Entry" id="head"/>
+                                    <group col="2" colspan="2" id="spec">
+                                        <label name="cash_account_txt"/>
+                                        <field colspan="1"  name="cash_account_txt" select="1"/>
+                                        <label name="corr_account_txt" />
+                                        <field colspan="1" name="corr_account_txt" select="1"/>
+                                        <label name="from_to_party"/>
+                                        <field colspan="1" name="from_to_party" select="1"/>
+                                    </group>
+                                    <group col="2" colspan="2" id="gr_amount">
+                                        <label name="amount"/>
+                                        <field name="amount"/>
+                                    </group>
+                                    <group col="2" colspan="4" id="note">
+                                        <separator  colspan="2" string="Notes" id="id_note"/>
+                                        <field name="note"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page id="lines_payment" string="Line Analityc Payment">
+                                <group col="6" colspan="4" id="analytic">
+                                    <field colspan="4" name="lines_payment" mode="tree" >
+                                        <tree>
+                                            <field name="line_request"/>
+                                            <field name="amount_payment"/>
+                                            <field name="state"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                        <field name="currency_digits" invisible="1"/>
+                        <field name="from_party" invisible="1"/>
+                        <field name="to_party" invisible="1"/>
+                        <field name="child" invisible="1"/>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_cash_tree" model="ir.ui.view">
+            <field name="model">ekd.document.head.cash</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Documents of Cash">
+                    <field name="template" select="2"/>
+                    <field name="number_our" select="1"/>
+                    <field name="date_account" select="1"/>
+                    <field name="from_to_party" select="1"/>
+                    <field name="cash_account_txt" select="2"/>
+                    <field name="corr_account_txt" select="2"/>
+                    <field name="income" sum="Total Income"/>
+                    <field name="expense" sum="Total Expense" />
+                    <field name="state_doc" select="2" />
+                    <field name="currency" tree_invisible="1"/>
+                    <field name="cash_account" tree_invisible="1"/>
+                    <field name="currency_digits" tree_invisible="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_cash_form">
+            <field name="name">Document Cash</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_cash_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_cash_tree"/>
+            <field name="act_window" ref="act_documents_cash_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_cash_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_cash_form"/>
+            <field name="act_window" ref="act_documents_cash_form"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_cash_income_form">
+            <field name="name">Document Cash (Income)</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="domain">[('type_transaction','=','income')]</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_documents_cash_expense_form">
+            <field name="name">Document Cash (expense)</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="domain">[('type_transaction','=','expense')]</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_cash_period_form">
+            <field name="name">Document Cash (Current period)</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('date_account',"&gt;=", Get(Eval('context', {}), 'start_period')),
+                                  ('date_account','&lt;=', Get(Eval('context', {}), 'end_period'))]</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_cash_income_period_form">
+            <field name="name">Document Cash (Income)</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="domain">[('type_transaction','=','income'),
+            ('date_account','&gt;=', Get(Eval('context', {}), 'start_period')),
+            ('date_account','&lt;=', Get(Eval('context', {}), 'end_period'))]</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_documents_cash_expense_period_form">
+            <field name="name">Document Cash (expense)</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="domain">[('type_transaction','=','expense'),
+            ('date_account','&gt;=', Get(Eval('context', {}), 'start_period')),
+            ('date_account','&lt;=', Get(Eval('context', {}), 'end_period'))]</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_cash_date_form">
+            <field name="name">Document Cash (Current date)</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('date_account','=', Get(Eval('context', {}), 'current_date'))]</field>
+        </record>
+
+        <menuitem name="Documents of Cash" sequence="45" groups="group_cash,group_cash_admin"
+            id="menu_documents_cash" parent="menu_documents"/>
+
+        <menuitem name="All Documents (Cash)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_form" id="menu_documents_cash_all" parent="menu_documents_cash"/>
+
+        <menuitem name="All Documents (Income)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_income_form" id="menu_documents_cash_all_income" parent="menu_documents_cash_all"/>
+
+        <menuitem name="All Documents (Expense)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_expense_form" id="menu_documents_cash_all_expense" parent="menu_documents_cash_all"/>
+
+        <menuitem name="Documents of Cash (Current Period)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_period_form" id="menu_documents_cash_current" parent="menu_documents_cash"/>
+
+        <menuitem name="Documents of Cash (Income)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_income_period_form" id="menu_documents_cash_current_income" parent="menu_documents_cash_current"/>
+
+        <menuitem name="Documents of Cash (Expense)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_expense_period_form" 
+            id="menu_documents_cash_current_expense" parent="menu_documents_cash_current"/>
+
+        <menuitem name="Documents of Cash (Current Date)" groups="group_cash,group_cash_admin"
+            action="act_documents_cash_date_form" id="menu_documents_cash_date" parent="menu_documents_cash"/>
+
+        <record id="act_documents_cash_income_new" model="ir.action.act_window">
+            <field name="name">New Income Cash</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="view_type">form</field>
+            <field name="context">{'type_transaction': 'income'}</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_documents_cash_income_new">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_cash_form"/>
+            <field name="act_window" ref="act_documents_cash_income_new"/>
+        </record>
+
+        <menuitem action="act_documents_cash_income_new" id="menu_documents_cash_income_new" 
+            parent="menu_new_documents" groups="group_cash" sequence="45"/>
+
+        <record id="act_documents_cash_expense_new" model="ir.action.act_window">
+            <field name="name">New Expense Cash</field>
+            <field name="res_model">ekd.document.head.cash</field>
+            <field name="view_type">form</field>
+            <field name="context">{'type_transaction': 'expense'}</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_documents_cash_expense_new">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_cash_form"/>
+            <field name="act_window" ref="act_documents_cash_expense_new"/>
+        </record>
+
+        <menuitem action="act_documents_cash_expense_new" id="menu_documents_cash_expense_new" 
+            parent="menu_new_documents" groups="group_cash" sequence="50"/>
+
+        <record model="ir.model.access" id="access_account_cash">
+            <field name="model" search="[('model', '=', 'ekd.document.head.cash')]"/>
+            <field name="group" ref="group_cash"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_account_cash_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.head.cash')]"/>
+            <field name="group" ref="group_cash_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_payment_cash">
+            <field name="model" search="[('model', '=', 'ekd.document.line.payment')]"/>
+            <field name="group" ref="group_cash"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_payment_cash_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.line.payment')]"/>
+            <field name="group" ref="group_cash_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_cash_income">
+            <field name="name">Document of cash income</field>
+            <field name="code">ekd.document.sequence.cash.income</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_cash_admin'))]"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_cash_expense">
+            <field name="name">Document of cash expense</field>
+            <field name="code">ekd.document.sequence.cash.expense</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_cash_admin'))]"/>
+        </record>
+
+    </data>
+</tryton>

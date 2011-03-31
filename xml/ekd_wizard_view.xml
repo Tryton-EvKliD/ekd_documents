@@ -1,1 +1,160 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_wizard_view.xml
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="view_document_payment_init_wizard">
+            <field name="model">ekd.document.wizard.payment.init</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Create Document Cash" col="2">
+                        <image name="tryton-dialog-information"/>
+                        <group col="1" id="labels">
+                            <label string="Please enter the amount of payment or return and choose a form of payment."
+                            align="0.0" id="add"/>
+                            <label name="amount_payment" />
+                            <field name="amount_payment" />
+                        </group>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_document_payment_init_wizard_cash">
+            <field name="model">ekd.document.wizard.payment.cash</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+            <![CDATA[
+                <form string="Create payment of document" col="2">
+                    <group col="4" id="labels">
+                        <group col="4" colspan="2" id="gr_head">
+                            <label name="company" />
+                            <field name="company" />
+                            <newline/>
+                            <label name="template_cash" />
+                            <field name="template_cash" />
+                            <label name="date_account" />
+                            <field name="date_account" />
+                            <newline/>
+                            <label name="document_base_ref" />
+                            <field colspan="4" name="document_base_ref" />
+                            <newline/>
+                            <separator colspan="4" string="Note" id="sep_note" />
+                            <field colspan="4" name="description" />
+                        </group>
+                        <group col="2" colspan="2" id="gr_amount">
+                            <label name="balance_cash" />
+                            <field name="balance_cash" />
+                            <label name="amount_request" />
+                            <field name="amount_request" />
+                            <label name="amount_received" />
+                            <field name="amount_received" />
+                            <label name="amount_balance"/>
+                            <field name="amount_balance"/>
+                            <label name="amount_payment" />
+                            <field name="amount_payment" />
+                            <label name="cash_account" />
+                            <field name="cash_account" widget="selection" />
+                            <label name="corr_account" />
+                            <field name="corr_account" widget="selection" />
+                            <label name="from_to_party" />
+                            <field name="from_to_party" />
+                        </group>
+                        <newline/>
+                        <field colspan="4"  name="lines" mode="tree" height="300" >
+                            <form string="Lines Request">
+                                <group col="2" colspan="2" id="product">
+                                    <separator colspan="2" string="Product Information" id="sep_product"/>
+                                    <label name="analytic"/>
+                                    <field name="analytic"/>
+                                    <label name="name"/>
+                                    <field name="name"/>
+                                </group>
+                                <group col="2" colspan="2" id="amount">
+                                    <separator colspan="2" string="Finance Information" id="sep_amount"/>
+                                    <label name="amount_request"/>
+                                    <field name="amount_request"/>
+                                    <label name="amount_received"/>
+                                    <field name="amount_received"/>
+                                    <label name="amount_balance"/>
+                                    <field name="amount_balance"/>
+                                    <label name="amount_payment"/>
+                                    <field name="amount_payment"/>
+                                    <label name="state" />
+                                    <field name="state" />
+                               </group>
+                                <group colspan="4" id="note">
+                                    <separator colspan="4" string="Note" id="sep_note"/>
+                                    <field name="note"/>
+                                </group>
+                           </form>
+                           <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="analytic"/>
+                                <field name="amount_request"/>
+                                <field name="amount_received"/>
+                                <field name="amount_balance"/>
+                                <field name="amount_payment"/>
+                                <field name="state" />
+                           </tree>
+                        </field>
+                    </group>
+                    <field name="type_transaction" invisible="1" />
+                </form>
+            ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_document_payment">
+            <field name="name">Payment of document 1</field>
+            <field name="wiz_name">ekd.document.wizard.payment</field>
+            <field name="model">ekd.document.payment</field>
+        </record>
+
+        <record model="ir.action.keyword"
+            id="act_document_payment_keyword1">
+            <field name="keyword">form_relate</field>
+            <field name="model">ekd.document.payment,0</field>
+            <field name="action" ref="wizard_document_payment"/>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_document_payment2">
+            <field name="name">Payment of document 2</field>
+            <field name="wiz_name">ekd.document.wizard.payment</field>
+            <field name="model">ekd.document.payment</field>
+        </record>
+
+        <record model="ir.action.keyword"
+            id="act_document_payment_keyword2">
+            <field name="keyword">form_action</field>
+            <field name="model">ekd.document.payment,0</field>
+            <field name="action" ref="wizard_document_payment2"/>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_document_payment3">
+            <field name="name">Payment of document 3</field>
+            <field name="wiz_name">ekd.document.wizard.payment</field>
+            <field name="model">ekd.document.payment</field>
+        </record>
+
+        <record model="ir.action.keyword"
+            id="act_document_payment_keyword3">
+            <field name="keyword">tree_open</field>
+            <field name="model">ekd.document.payment,0</field>
+            <field name="action" ref="wizard_document_payment3"/>
+        </record>
+
+        <record model="ir.action.wizard" id="wizard_document_payment4">
+            <field name="name">Payment of document 4</field>
+            <field name="wiz_name">ekd.document.wizard.payment</field>
+            <field name="model">ekd.document.payment</field>
+        </record>
+
+        <record model="ir.action.keyword"
+            id="act_document_payment_keyword4">
+            <field name="keyword">tree_action</field>
+            <field name="model">ekd.document.payment,0</field>
+            <field name="action" ref="wizard_document_payment4"/>
+        </record>
+    </data>
+</tryton>

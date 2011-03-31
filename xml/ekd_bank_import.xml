@@ -1,1 +1,176 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_bank_import.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_bank_import_form" model="ir.ui.view">
+            <field name="model">ekd.document.bank.import</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Import of documents bank">
+                        <group col="10" colspan="10" id="head">
+                            <group col="7" colspan="7" id="doc_head">
+                                <label name="company"/>
+                                <field name="company"/>
+                                <newline/>
+                                <label name="template_bank"/>
+                                <field name="template_bank" widget="selection"/>
+                                <label name="number_doc"/>
+                                <field name="number_doc"/>
+                                <label name="date_document"/>
+                                <field name="date_document"/>
+                            </group>
+                            <group col="3" colspan="3" id="doc_head">
+                                <label name="date_account"/>
+                                <field colspan="2" name="date_account"/>
+                                <label name="state_doc"/>
+                                <field colspan="2" name="state_doc" />
+                                <group col="1" colspan="3" id="buttons">
+                                    <button string="Canceling" name="button_cancel" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'imported'))}"/>
+                                    <button string="Import file" name="button_import" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}"/>
+                                    <button string="Restore" name="button_restore" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'deleted'))}"/>
+                                </group>
+                            </group>
+                        </group>
+                       <notebook>
+                           <page string="General" id="general">
+                                <group col="2" id="spec">
+                                    <label name="from_bank"/>
+                                    <field name="from_bank"/>
+                                </group>
+                                <newline/>
+                                <group col="2" id="spec">
+                                    <separator colspan="2" string="Notes" id="notes"/>
+                                    <field name="note" spell="Eval('company_lang')"/>
+                                </group>
+                            </page>
+                           <page string="Import" id="import">
+                                <group col="10" id="spec">
+                                    <label name="file_import"/>
+                                    <field name="file_import"/>
+                                    <label name="type_file"/>
+                                    <field name="type_file"/>
+                                    <label name="section_line"/>
+                                    <field name="section_line"/>
+                                    <label name="file_codepage"/>
+                                    <field name="file_codepage"/>
+                                    <button string="Load file in view" name="button_load_view" type="object"/>
+                                </group>
+                                <newline/>
+                                <group col="2" id="spec" fill="1">
+                                    <group col="2" id="spec" fill="1">
+                                        <separator colspan="2" string="View Text File" id="view"/>
+                                        <field fill="1" name="view_file" height="300"/>
+                                    </group>
+                                    <group col="2" id="spec" fill="1">
+                                        <separator colspan="2" string="View Import lines" id="view"/>
+                                        <field name="temp_import" >
+                                            <tree string="Lines for import">
+                                                <field name="name_document"/>
+                                                <field name="number_document"/>
+                                                <field name="date_document"/>
+                                                <field name="amount"/>
+                                                <field name="payer_tax_number"/>
+                                                <field name="payer"/>
+                                                <field name="payer_tax_number"/>
+                                                <field name="payer_bank_account"/>
+                                                <field name="payer_bank1"/>
+                                                <field name="addressee"/>
+                                                <field name="addressee_tax_number"/>
+                                                <field name="addressee_tax_number"/>
+                                                <field name="addressee_bank_account"/>
+                                                <field name="addressee_bank1"/>
+                                                <field name="payment_function"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Imported lines" id="imported">
+                                <field name="lines_import" mode="tree">
+                                    <tree>
+                                        <field name="template"/>
+                                        <field name="amount"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_bank_import_tree" model="ir.ui.view">
+            <field name="model">ekd.document.bank.import</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Import Documents of Bank">
+                    <field name="template" select="2"/>
+                    <field name="number_our" select="2"/>
+                    <field name="date_document" select="2"/>
+                    <field name="date_account" select="1"/>
+                    <field name="from_bank" select="1"/>
+                    <field name="state" select="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_bank_import_form">
+            <field name="name">Import Document bank</field>
+            <field name="res_model">ekd.document.bank.import</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_bank_import_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_bank_import_tree"/>
+            <field name="act_window" ref="act_documents_bank_import_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_bank_import_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_bank_import_form"/>
+            <field name="act_window" ref="act_documents_bank_import_form"/>
+        </record>
+
+        <menuitem name="Import Documents of bank"  sequence="28" groups="group_bank"
+            id="menu_documents_bank_import" parent="menu_documents"/>
+
+        <menuitem
+            name="All import Documents of bank" groups="group_bank"
+            action="act_documents_bank_import_form" id="menu_documents_bank_import_all" parent="menu_documents_bank_import"/>
+
+        <menuitem
+            name="Import Documents of bank (Current period)" groups="group_bank"
+            action="act_documents_bank_import_form" id="menu_documents_bank_import_current" parent="menu_documents_bank_import"/>
+
+        <record model="ir.model.access" id="access_account_bank_import">
+            <field name="model" search="[('model', '=', 'ekd.document.bank.import')]"/>
+            <field name="group" ref="group_bank"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_account_bank_import_line">
+            <field name="model" search="[('model', '=', 'ekd.document.bank.import.line')]"/>
+            <field name="group" ref="group_bank"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>

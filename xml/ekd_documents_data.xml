@@ -1,1 +1,152 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_documents_data.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data update="True">
+            <record id="doc_contract_010" model="ekd.document.template">
+                    <field name="type_account">contracts_supp</field>
+                    <field name="name">Contract with supplier</field>
+                    <field name="code_call">contract_suppler</field>
+                    <field name="shortcut">contract</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="doc_contract_020" model="ekd.document.template">
+                    <field name="type_account">contracts_cust</field>
+                    <field name="name">Contract with customer</field>
+                    <field name="code_call">contract_customer</field>
+                    <field name="shortcut">contract</field>
+                    <field name="sort">020</field>
+            </record>
+            <record id="doc_contract_030" model="ekd.document.template">
+                    <field name="type_account">contracts_empl</field>
+                    <field name="name">Contract with employee</field>
+                    <field name="code_call">contract_employee</field>
+                    <field name="shortcut">contract</field>
+                    <field name="sort">030</field>
+            </record>
+<!-->
+            <record id="doc_acts_010" model="ekd.document.template">
+                    <field name="type_account">acts</field>
+                    <field name="name">Acts</field>
+                    <field name="code">acts</field>
+                    <field name="shortcut">acts</field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">010</field>
+            </record>
+<-->
+            <record id="doc_orders_010" model="ekd.document.template">
+                    <field name="type_account">orders</field>
+                    <field name="name">Orders</field>
+                    <field name="shortcut">Orders</field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_letters_010" model="ekd.document.template">
+                    <field name="type_account">letters</field>
+                    <field name="name">Letters output</field>
+                    <field name="shortcut">letters output</field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">070</field>
+            </record>
+            <record id="doc_letters_020" model="ekd.document.template">
+                    <field name="type_account">letters</field>
+                    <field name="name">Letters input</field>
+                    <field name="shortcut">letters input </field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">080</field>
+            </record>
+
+            <record id="doc_cash_income" model="ekd.document.template">
+                    <field name="type_account">cash_documents</field>
+                    <field name="name">Income Cash Order</field>
+                    <field name="code_call">income</field>
+                    <field name="shortcut">ICO</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="doc_cash_expense" model="ekd.document.template">
+                    <field name="type_account">cash_documents</field>
+                    <field name="name">Expense Cash Order</field>
+                    <field name="code_call">expense</field>
+                    <field name="shortcut">RCO</field>
+                    <field name="sort">020</field>
+            </record>
+            <record id="doc_cash_request" model="ekd.document.template">
+                    <field name="type_account">request_monies</field>
+                    <field name="name">Request on Monies</field>
+                    <field name="code_call">request on monies</field>
+                    <field name="shortcut">RC</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_bank_010" model="ekd.document.template">
+                    <field name="type_account">bank_documents</field>
+                    <field name="name">Payment Order</field>
+                    <field name="code_call">payorder</field>
+                    <field name="shortcut">PO</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="doc_invoice0_010" model="ekd.document.template">
+                    <field name="type_account">invoice_expense</field>
+                    <field name="name">Invoice from suppliers</field>
+                    <field name="code_call">bill</field>
+                    <field name="shortcut">invoice_supp</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="doc_invoice0_020" model="ekd.document.template">
+                    <field name="type_account">invoice_revenue</field>
+                    <field name="name">Invoice for customer</field>
+                    <field name="code_call">bill</field>
+                    <field name="shortcut">invoice_cust</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_invoice1_010" model="ekd.document.template">
+                    <field name="type_account">input_goods</field>
+                    <field name="name">Invoice goods (input)</field>
+                    <field name="shortcut">invoice_goods_input</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_invoice1_020" model="ekd.document.template">
+                    <field name="type_account">move_goods</field>
+                    <field name="name">Invoice goods (internal move)</field>
+                    <field name="shortcut">invoice_goods_move</field>
+                    <field name="sort">020</field>
+            </record>
+
+            <record id="doc_invoice1_030" model="ekd.document.template">
+                    <field name="type_account">output_goods</field>
+                    <field name="name">Invoice goods (output)</field>
+                    <field name="shortcut">invoice_goods_output</field>
+                    <field name="sort">030</field>
+            </record>
+
+            <record id="doc_invoice2_010" model="ekd.document.template">
+                    <field name="type_account">invoice_tax_input</field>
+                    <field name="name">Invoice Tax (Input)</field>
+                    <field name="shortcut">invoice_tax_input</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="doc_invoice2_020" model="ekd.document.template">
+                    <field name="type_account">invoice_tax_output</field>
+                    <field name="name">Invoice Tax (Output)</field>
+                    <field name="shortcut">invoice_tax_output</field>
+                    <field name="sort">020</field>
+            </record>
+
+            <record id="doc_advance_010" model="ekd.document.template">
+                    <field name="type_account">advance_report</field>
+                    <field name="name">Advance Report</field>
+                    <field name="code_call">advance_report</field>
+                    <field name="shortcut">AP</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_power_of_attorney_010" model="ekd.document.template">
+                    <field name="type_account">power_of_attorney</field>
+                    <field name="name">Power of attorney</field>
+                    <field name="code_call">power_of_attorney</field>
+                    <field name="shortcut">PA</field>
+                    <field name="sort">010</field>
+            </record>
+    </data>
+</tryton>

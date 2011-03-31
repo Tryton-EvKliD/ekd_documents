@@ -1,1 +1,401 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_invoice_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+    <record model="res.group" id="group_invoice_admin">
+                <field name="name">Documents of Invoice Administration</field>
+    </record>
+
+    <record model="res.group" id="group_invoice">
+                <field name="name">Documents of Invoice</field>
+    </record>
+
+    <record model="res.group" id="group_invoice_input">
+                <field name="name">Documents of Invoice (Input)</field>
+    </record>
+
+    <record model="res.group" id="group_invoice_output">
+                <field name="name">Documents of Invoice (Output)</field>
+    </record>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+    <record id="view_documents_invoice_form" model="ir.ui.view">
+        <field name="model">ekd.document.head.invoice</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+        <![CDATA[
+            <form string="Invoice" >
+                <group col="12" id="head">
+                    <group col="6" colspan="8" id="document">
+                        <group col="6" colspan="6" id="company">
+                            <label name="company" />
+                            <field name="company" />
+                            <label name="direct_document"/>
+                            <field name="direct_document" />
+                        </group>
+                        <label name="template_invoice" />
+                        <field name="template_invoice" />
+                        <group colspan="2" col="2" id="number">
+                            <label name="number_doc"/>
+                            <field name="number_doc" />
+                            <button name="button_add_number" colspan="2"
+                                states="{'invisible':Or(Bool(Eval('number_doc')),
+                                            Equal(Eval('direct_document',''),'invoice_expense'))}" 
+                                string="Add Number" type="object"/>
+                        </group>
+                        <label name="date_document"/>
+                        <field name="date_document" />
+                        <newline/>
+                        <label name="from_to_party"/>
+                        <field colspan="3" name="from_to_party" />
+                        <label name="type_tax"/>
+                        <field name="type_tax"/>
+                    </group>
+                    <!-->
+                    <group col="2" colspan="2" id="gr_party">
+                        <label name="amount_doc"/>
+                        <field name="amount_doc"/>
+                        <label name="amount_tax"/>
+                        <field name="amount_tax"/>
+                        <label name="currency"/>
+                        <field name="currency"/>
+                    </group>
+                    <-->
+                    <group col="2" colspan="2" id="gr_party">
+                        <label name="payment_term"/>
+                        <field name="payment_term"/>
+                        <label name="form_payment"/>
+                        <field name="form_payment"/>
+                        <label name="kind_payment"/>
+                        <field name="kind_payment"/>
+                    </group>
+                    <group col="2" colspan="2" id="state">
+                        <label name="date_account" />
+                        <field name="date_account" />
+                        <label name="state_doc"/>
+                        <field name="state_doc" />
+                        <group col="1" colspan="2" id="buttons">
+                            <button name="button_post" 
+                                states="{'invisible': Not(In(Eval('state_doc'), ['paid', 'part_paid']))}" 
+                                string="Posted" type="object"/>
+                            <button name="button_paid" 
+                                states="{'invisible': Not(In(Eval('state_doc'), ['sended', 'part_paid', 'to_pay']))}" 
+                                string="Paid" type="object"/>
+                            <button name="button_obtained" 
+                                states="{'invisible': Not(In(Eval('state_doc'), ['sended', 'paid', 'part_paid', 'to_pay']))}" 
+                                string="Obtained" type="object"/>
+                            <button name="button_delivered" 
+                                states="{'invisible': Not(In(Eval('state_doc'), ['sended', 'paid', 'part_paid', 'to_pay']))}" 
+                                string="Delivered" type="object"/>
+                            <button name="button_part_paid" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'sended'))}" 
+                                string="Partial payment" type="object"/>
+                            <button name="button_to_pay" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}" 
+                                string="To Pay" type="object"/>
+                            <button name="button_print" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}" 
+                                string="Print" type="object"/>
+                            <button name="button_send" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'printed'))}" 
+                                string="Send" type="object"/>
+                            <button name="button_cancel" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'sended'))}" 
+                                string="Cancel" type="object"/>
+                            <button name="button_cancel" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'posted'))}" 
+                                string="Cancel" type="object"/>
+                            <button name="button_draft" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'canceled'))}" 
+                                string="Restore" type="object"/>
+                            <button name="button_restore" 
+                                states="{'invisible': Not(Equal(Eval('state_doc'), 'deleted'))}" 
+                                string="Restore" type="object"/>
+                        </group>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Lines Invoice" id="lines">
+                        <group col="10" colspan="4" id="gr_document_base">
+                            <field name="parent" invisible="1"/>
+                            <label name="document_base" />
+                            <field name="document_base" colspan="3"/>
+                            <label name="amount_doc"/>
+                            <field name="amount_doc"/>
+                            <label name="amount_tax"/>
+                            <field name="amount_tax"/>
+                            <label name="currency"/>
+                            <field name="currency"/>
+                        </group>
+                        <newline/>
+                        <field name="lines" colspan="4" >
+                            <form string="Invoice Lines">
+                                <group col="6" colspan="4" id="product">
+                                <group col="6" colspan="4" id="product">
+                                    <separator colspan="6" 
+                                        string="Information of Product or Documents" id="sep_product"/>
+                                    <label name="product_ref"/>
+                                    <field colspan="4" name="product_ref"/>
+                                    <separator colspan="6" string="Description" id="sep_descr"/>
+                                    <field colspan="6" name="description"/>
+                                    <label name="quantity"/>
+                                    <field name="quantity"/>
+                                    <label name="unit"/>
+                                    <field name="unit"/>
+                                    <label name="unit_price"/>
+                                    <field name="unit_price"/>
+                                </group>
+                                <group col="2" colspan="2" id="amount">
+                                    <separator colspan="2" string="Finance Information" id="sep_amount"/>
+                                    <label name="amount"/>
+                                    <field name="amount"/>
+                                    <label name="type"/>
+                                    <field name="type"/>
+                                    <label name="type_product"/>
+                                    <field name="type_product"/>
+                                    <label name="state"/>
+                                    <field name="state"/>
+                                    <group col="2" colspan="2" id="button">
+                                        <button name="button_posted" 
+                                    states="{'invisible': Or(Not(Equal(Eval('state'), 'draft')), Not(Equal(Eval('type'), 'line')))}"
+                                            string="Posted" type="object"/>
+                                    <button name="button_cancel" 
+                                        states="{'invisible': Or(Not(Equal(Eval('state'), 'posted')), Not(Equal(Eval('type'), 'line')))}"
+                                            string="Cancel" type="object"/>
+                                        <button name="button_restore" 
+                                            states="{'invisible': Or(Not(Equal(Eval('state'), 'deleted')),
+                                                                    Not(Equal(Eval('type'), 'line')))}"
+                                            string="Restore" type="object"/>
+                                    </group>
+                               </group>
+                               </group>
+                                <group col="2" colspan="4" id="tax">
+                                    <field name="tax">
+                                        <tree>
+                                            <field name="type_tax"/>
+                                            <field name="tax"/>
+                                            <field name="type_compute"/>
+                                            <field name="percentage"/>
+                                            <field name="amount"/>
+                                        </tree>
+                                        <form string="Tax">
+                                            <group col="6" colspan="4" id="tax">
+                                                <label name="tax"/>
+                                                <field colspan="3" name="tax"/>
+                                                <label name="type_tax"/>
+                                                <field name="type_tax"/>
+                                                <label name="type_compute" />
+                                                <field name="type_compute" />
+                                                <label name="percentage" />
+                                                <field name="percentage" />
+                                                <label name="amount" />
+                                                <field name="amount" />
+                                           </group>
+                                        </form>
+                                    </field>
+                                </group>
+                               <field name="unit_digits" invisible="1"/>
+                               <field name="currency_digits" invisible="1"/>
+                           </form>
+                           <tree>
+                                <field name="product_ref"/>
+                                <field name="description"/>
+                                <field name="quantity"/>
+                                <field name="unit"/>
+                                <field name="unit_price"/>
+                                <field name="amount"/>
+                                <field name="amount_tax"/>
+                                <field name="currency"/>
+                                <field name="state" />
+                                <field name="type" tree_invisible="1" />
+                                <field name="currency_digits" tree_invisible="1" />
+                                <field name="unit_digits" tree_invisible="1" />
+                           </tree>
+                        </field>
+                    </page>
+                    <page string="Payments" id="payment">
+                    </page>
+                    <page string="Delivery" id="payment">
+                    </page>
+                    <page string="Notes" id="general">
+                        <separator colspan="4" string="Note" id="sep_note"/>
+                        <field name="note" spell="Eval('company_lang')" colspan="4"/>
+                    </page>
+                </notebook>
+                <field name="currency" invisible="1" />
+                <field name="currency_digits" invisible="1" />
+            </form>
+        ]]>
+        </field>
+    </record>
+
+    <record id="view_documents_invoice_tree" model="ir.ui.view">
+        <field name="model">ekd.document.head.invoice</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+        <![CDATA[
+            <tree string="Invoices">
+                <field name="template_invoice" select="2"/>
+                <field name="number_doc" select="2"/>
+                <field name="date_document" select="2"/>
+                <field name="from_to_party" select="1"/>
+                <field name="payment_term"/>
+                <field name="amount" select="2"/>
+                <field name="state_doc" select="1"/>
+                <field name="date_account" select="1"/>
+                <field name="lines" select="2"/>
+            </tree>
+        ]]>
+        </field>
+    </record>
+
+    <record model="ir.action.act_window" id="act_documents_invoice_form">
+        <field name="name">Document of invoice</field>
+        <field name="res_model">ekd.document.head.invoice</field>
+        <field name="view_type">form</field>
+    </record>
+    <record model="ir.action.act_window.view" id="act_documents_invoice_form_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="view_documents_invoice_tree"/>
+        <field name="act_window" ref="act_documents_invoice_form"/>
+    </record>
+    <record model="ir.action.act_window.view" id="act_documents_invoice_form_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="view_documents_invoice_form"/>
+        <field name="act_window" ref="act_documents_invoice_form"/>
+    </record>
+
+    <menuitem name="Documents of invoice"  sequence="50" 
+        groups="group_invoice,group_invoice_admin"
+        id="menu_documents_invoice" parent="menu_documents"/>
+
+    <menuitem
+        name="All Documents of invoice" groups="group_invoice,group_invoice_admin"
+        action="act_documents_invoice_form" id="menu_documents_invoice_all" parent="menu_documents_invoice"/>
+
+    <record model="ir.action.act_window" id="act_documents_invoice_customer_form">
+        <field name="name">Document of invoice (For Customer)</field>
+        <field name="res_model">ekd.document.head.invoice</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('direct_document', '=', 'invoice_revenue')]</field>
+        <field name="context">{'direct_document': 'invoice_revenue'}</field>
+        <field name="search_value">{'create_date': ['between', Date(delta_years=-1)]}</field>
+    </record>
+    <record model="ir.action.act_window.view" id="act_documents_invoice_customer_form_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="view_documents_invoice_tree"/>
+        <field name="act_window" ref="act_documents_invoice_customer_form"/>
+    </record>
+    <record model="ir.action.act_window.view" id="act_documents_invoice_customer_form_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="view_documents_invoice_form"/>
+        <field name="act_window" ref="act_documents_invoice_customer_form"/>
+    </record>
+
+    <menuitem
+        name="Documents of invoice Payable" groups="group_invoice,group_invoice_admin"
+            action="act_documents_invoice_customer_form" 
+            id="menu_documents_invoice_customer"  parent="menu_documents_invoice_all"/>
+
+    <record model="ir.action.act_window" id="act_documents_invoice_supplier_form">
+        <field name="name">Document of invoice (From Supplier)</field>
+        <field name="res_model">ekd.document.head.invoice</field>
+        <field name="view_type">form</field>
+        <field name="domain">[('direct_document', '=', 'invoice_expense')]</field>
+        <field name="context">{'direct_document': 'invoice_expense'}</field>
+        <field name="search_value">{'create_date': ['between', Date(delta_years=-1)]}</field>
+    </record>
+    <record model="ir.action.act_window.view" id="act_documents_invoice_supplier_form_view1">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="view_documents_invoice_tree"/>
+        <field name="act_window" ref="act_documents_invoice_supplier_form"/>
+    </record>
+    <record model="ir.action.act_window.view" id="act_documents_invoice_supplier_form_view2">
+        <field name="sequence" eval="20"/>
+        <field name="view" ref="view_documents_invoice_form"/>
+        <field name="act_window" ref="act_documents_invoice_supplier_form"/>
+    </record>
+
+    <menuitem
+        name="Documents of invoice Received" groups="group_invoice,group_invoice_admin"
+        action="act_documents_invoice_supplier_form" 
+        id="menu_documents_invoice_supplier" parent="menu_documents_invoice_all"/>
+
+    <menuitem
+        name="All Documents of invoice (Current Period)" groups="group_invoice,group_invoice_admin"
+        action="act_documents_invoice_form" id="menu_documents_invoice_current" parent="menu_documents_invoice"/>
+
+    <menuitem
+        name="Documents of invoice payable" groups="group_invoice,group_invoice_admin"
+        action="act_documents_invoice_form" id="menu_documents_invoice_income" parent="menu_documents_invoice_current"/>
+
+    <menuitem
+        name="Documents of invoice received" groups="group_invoice,group_invoice_admin"
+        action="act_documents_invoice_form" id="menu_documents_invoice_received" parent="menu_documents_invoice_current"/>
+
+    <record id="act_documents_invoice_input_new" model="ir.action.act_window">
+        <field name="name">New Invoice from Supplier</field>
+        <field name="res_model">ekd.document.head.invoice</field>
+        <field name="view_type">form</field>
+        <field name="context">{'direct_document': 'invoice_expense'}</field>
+    </record>
+
+    <record model="ir.action.act_window.view"
+            id="view_act_documents_invoice_input_new">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="view_documents_invoice_form"/>
+        <field name="act_window" ref="act_documents_invoice_input_new"/>
+    </record>
+
+    <menuitem action="act_documents_invoice_input_new" id="menu_documents_invoice_input_new" 
+        parent="menu_new_documents" groups="group_invoice" sequence="100"/>
+
+    <record id="act_documents_invoice_output_new" model="ir.action.act_window">
+        <field name="name">New Invoice for Customer</field>
+        <field name="res_model">ekd.document.head.invoice</field>
+        <field name="view_type">form</field>
+        <field name="context">{'direct_document': 'invoice_revenue'}</field>
+    </record>
+
+    <record model="ir.action.act_window.view"
+            id="view_act_documents_invoice_output_new">
+        <field name="sequence" eval="10"/>
+        <field name="view" ref="view_documents_invoice_form"/>
+        <field name="act_window" ref="act_documents_invoice_output_new"/>
+    </record>
+
+    <menuitem action="act_documents_invoice_output_new" id="menu_documents_invoice_output_new" 
+        parent="menu_new_documents" groups="group_invoice" sequence="110"/>
+
+    <record model="ir.model.access" id="access_account_invoice">
+        <field name="model" search="[('model', '=', 'ekd.document.head.invoice')]"/>
+        <field name="group" ref="group_invoice"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_delete" eval="False"/>
+    </record>
+
+    <record model="ir.model.access" id="access_account_invoice_admin">
+        <field name="model" search="[('model', '=', 'ekd.document.head.invoice')]"/>
+        <field name="group" ref="group_invoice_admin"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_delete" eval="True"/>
+    </record>
+
+    <record model="ir.sequence.type" id="sequence_type_doc_invoice">
+        <field name="name">Document of Invoice</field>
+        <field name="code">ekd.document.sequence.invoice</field>
+        <field name="groups"
+            eval="[('add', ref('res.group_admin')), ('add', ref('group_invoice_admin'))]"/>
+    </record>
+
+    </data>
+</tryton>

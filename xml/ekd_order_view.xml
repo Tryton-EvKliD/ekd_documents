@@ -1,1 +1,166 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_order_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_document_order_admin">
+                    <field name="name">Administration (Order) </field>
+        </record>
+        <record model="res.group" id="group_document_order">
+                    <field name="name">Documents of order </field>
+        </record>
+
+        <menuitem name="Orders"  groups="group_document_order,group_document_order_admin" sequence="80"
+            id="menu_documents_order" parent="menu_documents"/>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_order_form" model="ir.ui.view">
+            <field name="model">ekd.document.head.order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Order">
+                        <group col="6" id="gr_head">
+                            <group col="6" colspan="4" id="gr_head">
+                                <group col="6" colspan="6" id="gr_note">
+                                    <label name="company" />
+                                    <field name="company" />
+                                    <newline/>
+                                    <label name="template" />
+                                    <field name="template" widget="selection" select="1"/>
+                                    <group colspan="2" col="2" id="gr_number">
+                                        <label name="number_our"/>
+                                        <field name="number_our" />
+                                        <button name="button_add_number" colspan="2"
+                                            states="{'invisible': Bool(Eval('number_our'))}" 
+                                            string="Add Number" type="object"
+                                            />
+                                    </group>
+                                    <label name="date_document" />
+                                    <field name="date_document"/>
+                                </group>
+                                <group col="4" colspan="6" id="gr_note">
+                                    <label name="employee"/>
+                                    <field name="employee"/>
+                                    <label name="from_party"/>
+                                    <field name="from_party"/>
+                                    <label name="to_party"/>
+                                    <field name="to_party" />
+                                </group>
+                            </group>
+                            <group col="2" colspan="2" id="gr_spec">
+                                    <label name="date_account" />
+                                    <field name="date_account"/>
+                                    <label name="amount"/>
+                                    <field name="amount"/>
+                                    <label name="state"/>
+                                    <field colspan="3" name="state"/>
+<!-->
+                                <group col="2" colspan="2" id="buttons">
+                                    <button string="Post" name="button_post" type="object"
+                                            states="{'invisible': Not(Equal(Eval('state'), 'payment'))}"/>
+                                    <button string="Draft" name="button_draft" type="object"
+                                            states="{'invisible': Not(Equal(Eval('state'), 'posted'))}"/>
+                                    <button string="Restore" name="button_restore" type="object"
+                                            states="{'invisible': Not(Equal(Eval('state'), 'deleted'))}"/>
+                                    <button string="Confirm" name="button_confimed" type="object"
+                                            states="{'invisible': Not(Equal(Eval('state'), 'confirmed'))}"/>
+                                    <button string="At Issued" name="button_issued" type="object"
+                                            states="{'invisible': Not(Equal(Eval('state'), 'confirmed'))}"/>
+                                    <button string="Pay" name="button_payment" type="object"
+                                            states="{'invisible': Not(Equal(Eval('state'), 'at_issued'))}"/>
+                                </group>
+<-->
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Text Order" id="pg_lines">
+                                <field name="description"/>
+                            </page>
+                            <page string="Note" id="pg_lines">
+                                <field name="note" spell="Eval('company_lang')"/>
+                            </page>
+                        </notebook>
+                    </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_order_tree" model="ir.ui.view">
+            <field name="model">ekd.document.head.order</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Partner">
+                    <field name="template" select="1"/>
+                    <field name="number_our" select="1"/>
+                    <field name="number_in" select="1"/>
+                    <field name="date_document" select="1"/>
+                    <field name="date_account" select="1"/>
+                    <field name="description"/>
+                    <field name="note"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_order_form">
+            <field name="name">Document order</field>
+            <field name="res_model">ekd.document.head.order</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_order_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_order_tree"/>
+            <field name="act_window" ref="act_documents_order_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_order_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_order_form"/>
+            <field name="act_window" ref="act_documents_order_form"/>
+        </record>
+
+        <menuitem 
+            name="All orders"
+            action="act_documents_order_form" id="menu_documents_order_form" parent="menu_documents_order"/>
+<!-->
+        <menuitem
+            name="Orders (Current Period)"
+            action="act_documents_order_form" id="menu_documents_order_current" parent="menu_documents_order"/>
+
+        <menuitem
+            name="Orders (Active)"
+            action="act_documents_order_form" id="menu_documents_order_active" parent="menu_documents_order"/>
+<-->
+        <record model="ir.model.access" id="access_documents_order">
+            <field name="model" search="[('model', '=', 'ekd.document.head.order')]"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_group_document_order">
+            <field name="model" search="[('model', '=', 'ekd.document.head.order')]"/>
+            <field name="group" ref="group_document_order"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_documents_order_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.head.order')]"/>
+            <field name="group" ref="group_document_order_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+    </data>
+</tryton>

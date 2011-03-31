@@ -1,1 +1,2085 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/ru_RU.csv
+type,name,res_id,src,value,fuzzy
+error,access_error,0,"You try to bypass an access rule!
+(Document type: %s)","Вы пытаетесь нарушить правила доступа!
+(Тип модели:%s)",0
+error,company.company,0,You can not create recursive companies!,Вы не можете создать взаимоподчинённые организации,0
+error,delete_workflow_record,0,You cannot delete a record with a running workflow.,Вы не можете удалять записи с запущенным рабочим процессом.,0
+error,delete_xml_record,0,You are not allowed to delete this record.,Вы не можете удалить эту запись.,0
+error,domain_validation_record,0,"The value of the field ""%s"" on ""%s"" is not valid according to its domain.","Значение поля ""%s"" на ""%s"" не действует в соответствии с его домена.",0
+error,ekd.company.employee.category,0,The name of a party category must be unique by parent!,,0
+error,ekd.company.employee.category,0,You can not create recursive categories!,Вы не можете создавать рекурсивные категории!,0
+error,ekd.company.employee.category,0,"You can not use "" / "" in name field!",,0
+error,ekd.document.head.request,0,Employee as User don't found,,0
+error,ekd.document.head.request,0,Manager as User don't found,,0
+error,ekd.document.head.request,0,You can not confirm this request on money!,,0
+error,ekd.document.payment_term,0,Invalid payment term line!,,0
+error,ekd.document.payment_term,0,Payment term missing a remainder line!,,0
+error,ekd.document.payment_term.line.delay,0,The code must be unique!,Код должен быть уникальным,0
+error,ekd.document.payment_term.line.type,0,The code must be unique!,Код должен быть уникальным,0
+error,foreign_model_exist,0,"Could not delete ""%s"" records because they are used on field ""%s"" of ""%s"".","Не удалось удалить ""%s"" записей, поскольку они ссылаются на поле ""%s"" в таблице ""%s"".",0
+error,foreign_model_missing,0,"The value of field ""%s"" on ""%s"" doesn't exist.","Значение поля ""%s"" в таблице ""%s"" не существует.",0
+error,ir.action.keyword,0,Wrong wizard model!,Неправильный шаблон мастера,0
+error,ir.action.report,0,The internal name must be unique by module!,Наименование модуля должно быть уникальным!,0
+error,ir.attachment,0,The names of attachments must be unique by record!,Имена вложений должны быть уникальными!,0
+error,ir.attachment,0,"You can not create an attachment
+in a collection with the name
+of an existing child collection!","Вы не можете сохранить вложение
+в каталоге с именем
+ которое уже существует!",0
+error,ir.cron,0,Scheduled action failed,Запланированное действие не удалось выполнить,0
+error,ir.cron,0,"The following action failed to execute properly: ""%s""
+ Traceback: 
+
+%s
+","Следующие операции не смогли выполниться должным образом: ""%s""
+ Сообщение отладчика:
+
+%s",0
+error,ir.lang,0,Invalid Grouping!,Неверное Группировка!,0
+error,ir.lang,0,The date format is not valid!,Неправильный формат даты!,0
+error,ir.lang,0,decimal_point and thousands_sep must be different!,Десятичный разделитель и Разделитель тысяч должны быть разными!,0
+error,ir.model,0,The model must be unique!,Модель должна быть уникальным!,0
+error,ir.model.access,0,Only one record by model and group is allowed!,Разрешается только одна запись от модели и группы!,0
+error,ir.model.access,0,You can not create this kind of document! (%s),Вы не можете создать такой документ! (%s),0
+error,ir.model.access,0,You can not delete this document! (%s),Вы не можете удалить этот документ! (%s),0
+error,ir.model.access,0,You can not read this document! (%s),Вы не можете прочитать этот документ! (%s),0
+error,ir.model.access,0,You can not write in this document! (%s),Вы не можете сохранить документ! (%s),0
+error,ir.model.data,0,"The triple (fs_id, module, model) must be unique!","Тройка (fs_id, модуль, модель) должен быть уникальным!",0
+error,ir.model.field,0,The field name in model must be unique!,Наименование поля в шаблоне должно быть уникальным!,0
+error,ir.module.module,0,"Missing dependencies %s for module ""%s""","Отсутствуют зависимости %s для модуля ""%s""",0
+error,ir.module.module,0,The modules you are trying to uninstall depends on installed modules:,"Модулей, которые вы пытаетесь удалить, зависит от установленных модулей:",0
+error,ir.module.module,0,The name of the module must be unique!,Наименование модуля должно быть уникальным,0
+error,ir.module.module,0,You can not remove a module that is installed or will be installed,"Вы не можете удалить модуль, который установлен или будет установлен",0
+error,ir.module.module.dependency,0,Dependency must be unique by module!,Зависимость должно быть уникальным модулем!,0
+error,ir.rule.group,0,Global and Default are mutually exclusive!,Глобальные и по умолчанию являются взаимоисключающими!,0
+error,ir.sequence,0,Invalid prefix/suffix!,Ошибка в префиксе/суффиксе!,0
+error,ir.sequence,0,Missing sequence!,Ошибка в нумерации,0
+error,ir.sequence.strict,0,Invalid prefix/suffix!,Ошибка в префиксе/суффиксе!,0
+error,ir.sequence.strict,0,Missing sequence!,Ошибка в нумерации,0
+error,ir.translation,0,Translation must be unique,Перевод должен быть уникальным,0
+error,ir.ui.view,0,Invalid XML for View!,Ошибка в XML просмотре,0
+error,read_error,0,"You try to read records that don't exist anymore!
+(Document type: %s)","Вы пытаетесь прочитать запись, которой больше не существует!
+(Тип модели:%s)",0
+error,required_field,0,"The field ""%s"" on ""%s"" is required.","Поле ""%s"" на ""%s"" необходимо.",0
+error,required_validation_record,0,"The field ""%s"" on ""%s"" is required.","Поле ""%s"" на ""%s"" необходимо.",0
+error,res.group,0,The name of the group must be unique!,Наименование группы должно быть уникальным,0
+error,res.user,0,End of period longer than the beginning of the period,Дата окончания меньше чем дата начала! ,0
+error,res.user,0,Wrong password!,Не правильный пароль!,0
+error,res.user,0,You can not have two users with the same login!,Вы не можете имет двух пользователей с одним именем!,0
+error,res.user,0,"You can not remove the root user
+as it is used internally for resources
+created by the system (updates, module installation, ...)","Вы не можете удалить суперпользователя
+как она используется внутри ресурсов
+создана система (обновления, установки модуля, ...)",0
+error,res.user,0,You can not set a company that is not a child of your main company!,"вы не можете установить учетную организацию, отсутвуют подразделения вашей компании",0
+error,size_validation_record,0,"The field ""%s"" on ""%s"" is too long.","Поле ""%s"" в таблице ""%s"" слишком большое.",0
+error,webdav.collection,0,The collection name must be unique inside a collection!,Имя каталога должно быть уникальным внутри каталога!,0
+error,webdav.collection,0,"You can not create a collection
+in a collection with the name of an existing file!","Вы не можете создать каталог
+в каталоге с именем существующего файла!",0
+error,webdav.collection,0,You can not create recursive collections!,Вы не можете создавать рекурсивные категории!,0
+error,workflow,0,No workflow defined!,Процесс не определен!,0
+error,workflow.instance,0,No workflow instance defined!,Не определен экземпляр процесса!,0
+error,write_error,0,"You try to write on records that don't exist anymore!
+(Document type: %s)","Вы пытаетесь сохранить запись, которой больше не существуют!
+(Тип модели:%s)",0
+error,write_xml_record,0,You are not allowed to modify this record.,Вы не можете изменить эту запись.,0
+error,xml_record_desc,0,This record is part of the base configuration.,Эта запись является частью базовой конфиурации.,0
+field,"company.company,advance_day",0,Day Advance,День аванса,0
+field,"company.company,cao",0,Chief Accountant,Главный бухгалтер,0
+field,"company.company,cco",0,Chief Cashier,Главный кассир,0
+field,"company.company,ceo",0,Chief Executive Officer,Главный управляющий,0
+field,"company.company,ceo2",0,Chief Economic Officer,Зам. главного управляющего,0
+field,"company.company,ceo_acts",0,Acts on the basis,Действует на основании,0
+field,"company.company,cfo",0,Chief Finance Officer,Управляющий по финансам,0
+field,"company.company,childs",0,Children,Подчиненый,0
+field,"company.company,cpo",0,Chief Personnel Officer,Управляющий по персоналу,0
+field,"company.company,currency",0,Currency,Валюта,0
+field,"company.company,employees",0,Employees,Сотрудники,0
+field,"company.company,footer",0,Footer,Нижний колонтитул,0
+field,"company.company,header",0,Header,Верхний колонтитул,0
+field,"company.company,parent",0,Parent,Основной,0
+field,"company.company,party",0,Party,Контрагент,0
+field,"company.company,pay_day",0,Day Salary,День зарплаты,0
+field,"company.company,rec_name",0,Name,Наименование,0
+field,"company.employee,children",0,Children of Employee,Дети сотрудника,0
+field,"company.employee,company",0,Company,Учет.орг.,0
+field,"company.employee,department",0,Department,Отдел и Структура Компании,0
+field,"company.employee,dismissal_date",0,Date dismissal,Дата увольнения,0
+field,"company.employee,education",0,Education,Образование,0
+field,"company.employee,educations",0,Educations,Образования,0
+field,"company.employee,experience",0,Work Experience,Опыт работы (Стаж),0
+field,"company.employee,fluro_date",0,Date Flyurografiya,Дата флюрографии,0
+field,"company.employee,gender",0,Gender,Пол,0
+field,"company.employee,job_function",0,Officer position,Должность,0
+field,"company.employee,marital",0,Marital Status,Семейное положение,0
+field,"company.employee,medical_date",0,Date of medical review,Дата мед. осмотра,0
+field,"company.employee,party",0,Person,Контрагент,0
+field,"company.employee,pension_number",0,Pension Number,Пенсионный номер,0
+field,"company.employee,peripatetic",0,Peripatetic,Внештатный,0
+field,"company.employee,personal_account",0,Personal Accounts,Лицевой счет,0
+field,"company.employee,photo",0,Photo,Фото,0
+field,"company.employee,prof_education",0,Profession Education,Профессия,0
+field,"company.employee,properties",0,Advanced Properties,Дополнительные свойства,0
+field,"company.employee,rec_name",0,Name,Наименование,0
+field,"company.employee,social_number",0,Social Number,Номер мед.полиса,0
+field,"company.employee,starting_date",0,Starting Date,Работает с,0
+field,"company.employee,state",0,State,Состояние,0
+field,"company.employee,uid_employee",0,UID Officer,Табельный номер,0
+field,"company.employee.children,birthday",0,Birthday,День рождения,0
+field,"company.employee.children,employee",0,Employee,Сотрудник,0
+field,"company.employee.children,gender",0,Gender,Пол,0
+field,"company.employee.children,name",0,Full Name,Полное наименование,0
+field,"company.employee.children,place",0,Place of Study,Место учёбы,0
+field,"company.employee.children,rec_name",0,Name,Наименование,0
+field,"company.employee.education,date_end",0,End date,Дата окончания,0
+field,"company.employee.education,date_start",0,Start date,Дата начала,0
+field,"company.employee.education,employee",0,Employee,Сотрудник,0
+field,"company.employee.education,name",0,Education Name,Наименование образовательного учреждения,0
+field,"company.employee.education,prof_education",0,Profession Education,Профессия,0
+field,"company.employee.education,rec_name",0,Name,Наименование,0
+field,"company.employee.experience,company",0,Company,Учетные организации,0
+field,"company.employee.experience,date_end",0,End date,Дата окончания,0
+field,"company.employee.experience,date_start",0,Start date,Дата начала,0
+field,"company.employee.experience,employee",0,Employee,Сотрудник,0
+field,"company.employee.experience,function",0,Function,Функция,0
+field,"company.employee.experience,rec_name",0,Name,Наименование,0
+field,"company.employee.properties,active",0,Active,Действующий,0
+field,"company.employee.properties,employee",0,Employee,Сотрудник,0
+field,"company.employee.properties,key",0,Type value,Тип значения,0
+field,"company.employee.properties,rec_name",0,Name,Наименование,0
+field,"company.employee.properties,value",0,Value,Значение,0
+field,"company.job_function,company",0,Company,Учетные организации,0
+field,"company.job_function,name",0,Name,Наименование,0
+field,"company.job_function,note",0,Notes,Комментарии,0
+field,"company.job_function,notes",0,Notes,Комментарии,0
+field,"company.job_function,pay_period",0,Salary Period,Расчетный период ,0
+field,"company.job_function,premium",0,Premium,Премия,0
+field,"company.job_function,rec_name",0,Name,Наименование,0
+field,"company.job_function,salary",0,Salary,Оклад,0
+field,"company.job_function,shortname",0,Short Name,Кратко,0
+field,"company.job_function,type_timesheet",0,Type Timesheet,Тип ,0
+field,"ekd.company.department,active",0,Active,Действующий,0
+field,"ekd.company.department,as_stock",0,As Stock,Как Склад,0
+field,"ekd.company.department,chief",0,Chief of Division,Начальник подразделения,0
+field,"ekd.company.department,childs",0,Subdivision,Подчиненные подразделения,0
+field,"ekd.company.department,code",0,Code,Код подразделения,0
+field,"ekd.company.department,company",0,Company,Учет.орг.,0
+field,"ekd.company.department,employees",0,Employees of department,Сотрудники подразделения,0
+field,"ekd.company.department,end_date",0,Date End,Дата окончания,0
+field,"ekd.company.department,name",0,Name,Наименование,0
+field,"ekd.company.department,note",0,Note,Комментарий,0
+field,"ekd.company.department,parent",0,Parent,Основной,0
+field,"ekd.company.department,rec_name",0,Name,Наименование,0
+field,"ekd.company.department,shortname",0,ShortName,Кратко,0
+field,"ekd.company.department,start_date",0,Date Start,Дата начала,0
+field,"ekd.company.department,state",0,State,Статус,0
+field,"ekd.company.department,type_department",0,Type,Тип подразделения,0
+field,"ekd.company.department.stock,department",0,Department,Отдел и Структура Компании,0
+field,"ekd.company.department.stock,rec_name",0,Name,Наименование,0
+field,"ekd.company.employee.account,active",0,Active,Действующий,0
+field,"ekd.company.employee.account,employee",0,Employee,Сотрудник,0
+field,"ekd.company.employee.account,rec_name",0,Name,Наименование,0
+field,"ekd.company.employee.account,staff_list",0,Staff list,Штатное расписание,0
+field,"ekd.company.employee.account,state",0,State,Состояние,0
+field,"ekd.company.employee.account,work_rate",0,Number of bets,Кол-во ставок,0
+field,"ekd.company.employee.category,active",0,Active,Действующий,0
+field,"ekd.company.employee.category,childs",0,Children,Подчиненый,0
+field,"ekd.company.employee.category,name",0,Name,Наименование,0
+field,"ekd.company.employee.category,parent",0,Parent,Основной,0
+field,"ekd.company.employee.category,rec_name",0,Name,Наименование,0
+field,"ekd.company.employee.category,shortname",0,ShortName,Кратко,0
+field,"ekd.company.job_function,company",0,Company,Учет.орг.,0
+field,"ekd.company.job_function,name",0,Name,Наименование,0
+field,"ekd.company.job_function,note",0,Note,Комментарий,0
+field,"ekd.company.job_function,pay_period",0,Salary Period,Расчетный период ,0
+field,"ekd.company.job_function,premium",0,Premium,Премия,0
+field,"ekd.company.job_function,rec_name",0,Name,Наименование,0
+field,"ekd.company.job_function,salary",0,Salary,Расчет заработной платы сотрудников,0
+field,"ekd.company.job_function,shortname",0,Short Name,Кратко,0
+field,"ekd.company.job_function,type_timesheet",0,Type Timesheet,Тип ,0
+field,"ekd.company.staff,active",0,Active,Действующий,0
+field,"ekd.company.staff,company",0,Company,Учет.орг.,0
+field,"ekd.company.staff,end_date",0,End Date,Дата окончания,0
+field,"ekd.company.staff,line",0,Lines,Строки,0
+field,"ekd.company.staff,name",0,Name,Наименование,0
+field,"ekd.company.staff,rec_name",0,Name,Наименование,0
+field,"ekd.company.staff,start_date",0,Start Date,Дата начала,0
+field,"ekd.company.staff,state",0,State,Статус,0
+field,"ekd.company.staff_list,active",0,Active,Действующий,0
+field,"ekd.company.staff_list,category",0,Category,Категории,0
+field,"ekd.company.staff_list,company",0,Company,Учет.орг.,0
+field,"ekd.company.staff_list,department",0,Department,Отдел и Структура Компании,0
+field,"ekd.company.staff_list,end_date",0,End Date,Дата окончания,0
+field,"ekd.company.staff_list,free_rate",0,Free of bets,Свобод. ставки,0
+field,"ekd.company.staff_list,job_function",0,Job function,Должность,0
+field,"ekd.company.staff_list,name",0,Name,Наименование,0
+field,"ekd.company.staff_list,note",0,Note,Комментарий,0
+field,"ekd.company.staff_list,payroll",0,Payroll,,0
+field,"ekd.company.staff_list,personal",0,Employee,Сотрудник,0
+field,"ekd.company.staff_list,rate_payroll",0,Rate payroll,,0
+field,"ekd.company.staff_list,rec_name",0,Name,Наименование,0
+field,"ekd.company.staff_list,regular",0,Regular appointment,,0
+field,"ekd.company.staff_list,staff",0,Staff list,Штатное расписание,0
+field,"ekd.company.staff_list,start_date",0,Start Date,Дата начала,0
+field,"ekd.company.staff_list,state",0,State,Статус,0
+field,"ekd.company.staff_list,time_management",0,Time management,,0
+field,"ekd.company.staff_list,work_rate",0,Number of bets,Кол-во ставок,0
+field,"ekd.company.staff_list.payroll,coefficient",0,Coefficient,Коэфф.,0
+field,"ekd.company.staff_list.payroll,currency",0,Currency,Валюта,0
+field,"ekd.company.staff_list.payroll,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.company.staff_list.payroll,end_date",0,End Date,Дата окончания,0
+field,"ekd.company.staff_list.payroll,name",0,Name,Наименование,0
+field,"ekd.company.staff_list.payroll,rate",0,Rate,Ставка,0
+field,"ekd.company.staff_list.payroll,rec_name",0,Name,Наименование,0
+field,"ekd.company.staff_list.payroll,sequence",0,Sequence,Последовательность,0
+field,"ekd.company.staff_list.payroll,staff_list",0,Staff list,Штатное расписание,0
+field,"ekd.company.staff_list.payroll,start_date",0,Start Date,Дата начала,0
+field,"ekd.company.staff_list.payroll,type_coefficient",0,Type Coefficient,Тип коэфф.,0
+field,"ekd.document,active",0,Active,Действующий,0
+field,"ekd.document,amount",0,Amount Document,Сумма,0
+field,"ekd.document,amount_paid",0,Amount Paid,Оплата,0
+field,"ekd.document,amount_payment",0,Amount Payment,Сумма платежа,0
+field,"ekd.document,child",0,Child document,,0
+field,"ekd.document,company",0,Company,Учет.орг.,0
+field,"ekd.document,currency",0,Currency,Валюта,0
+field,"ekd.document,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document,date_account",0,Date Account,Учетная дата,0
+field,"ekd.document,date_document",0,Date Create,Дата создания,0
+field,"ekd.document,deleting",0,Flag Deleting,Флаг удаления,0
+field,"ekd.document,direction",0,Direction document,Направление,0
+field,"ekd.document,document_base",0,Document Base,Документ основание,0
+field,"ekd.document,employee",0,Employee,Сотрудник,0
+field,"ekd.document,from_party",0,From partner,От кого,0
+field,"ekd.document,id_1c",0,ID import from 1C,,0
+field,"ekd.document,lines",0,Lines,Строки,0
+field,"ekd.document,model",0,Model,Шаблон,0
+field,"ekd.document,model_str",0,Model Name,Наименование шаблона,0
+field,"ekd.document,name",0,Description,Описание,0
+field,"ekd.document,note",0,Note document,Комментарий,0
+field,"ekd.document,number_in",0,Number of incoming,Входящий,0
+field,"ekd.document,number_our",0,Number Outgoing,Исходящий,0
+field,"ekd.document,parent",0,Parent document,Основной,0
+field,"ekd.document,post_date",0,Date Post,Дата отработки,0
+field,"ekd.document,rec_name",0,Name,Наименование,0
+field,"ekd.document,state",0,State,Статус,0
+field,"ekd.document,template",0,Document Name,Документ,0
+field,"ekd.document,to_party",0,To partner,Кому,0
+field,"ekd.document.bank.statement,balance_end",0,Balance End,"Остаток
+на конец",0
+field,"ekd.document.bank.statement,balance_start",0,Balance Start,,0
+field,"ekd.document.bank.statement,date_end",0,Date End,Дата окончания,0
+field,"ekd.document.bank.statement,date_start",0,Date Start,Дата начала,0
+field,"ekd.document.bank.statement,document",0,Document,Документ,0
+field,"ekd.document.bank.statement,documents",0,Lines imported,,0
+field,"ekd.document.bank.statement,from_bank",0,From Bank Account,,0
+field,"ekd.document.bank.statement,number_doc",0,Number Document,Номер,0
+field,"ekd.document.bank.statement,rec_name",0,Name,Наименование,0
+field,"ekd.document.bank.statement,state_doc",0,State,Статус,0
+field,"ekd.document.bank.statement,template_bank",0,Document Name,Документ,0
+field,"ekd.document.bank.statement,turnover_expence",0,Expense,Расходный,0
+field,"ekd.document.bank.statement,turnover_expense",0,Expense,Расходный,0
+field,"ekd.document.bank.statement,turnover_income",0,Income,Приход,0
+field,"ekd.document.head.advancecash,advance_lines",0,Lines Advance,Строки отчета,0
+field,"ekd.document.head.advancecash,amount_advance",0,Total Advanced,,0
+field,"ekd.document.head.advancecash,date_report",0,Date of report,,0
+field,"ekd.document.head.advancecash,document",0,Document,Документ,0
+field,"ekd.document.head.advancecash,document_name",0,Document Name,Документ,0
+field,"ekd.document.head.advancecash,document_ref",0,Base,Основание,0
+field,"ekd.document.head.advancecash,employee",0,Employee,Сотрудник,0
+field,"ekd.document.head.advancecash,lines",0,Lines Advance,Строки Отчета,0
+field,"ekd.document.head.advancecash,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.advancecash,state_doc",0,State,Статус,0
+field,"ekd.document.head.advancecash,template_advance",0,Document,Документ,0
+field,"ekd.document.head.bank,add_options",0,Add options,,0
+field,"ekd.document.head.bank,content",0,Content payment,,0
+field,"ekd.document.head.bank,deleting",0,Flag deleting,Флаг удаления,0
+field,"ekd.document.head.bank,document",0,Document,Документ,0
+field,"ekd.document.head.bank,document_base",0,Document Base,Документ основание,0
+field,"ekd.document.head.bank,document_base_ref",0,Document Base,Документ основание,0
+field,"ekd.document.head.bank,from_bank",0,From Bank Account,,0
+field,"ekd.document.head.bank,kbk_indicator",0,KBK,,0
+field,"ekd.document.head.bank,kind_payment_tax",0,Payment Details,,0
+field,"ekd.document.head.bank,lines_payment",0,Line Spec Amounts,,0
+field,"ekd.document.head.bank,number_doc",0,Number Document,Номер,0
+field,"ekd.document.head.bank,number_doc_base_tax",0,Number and date,,0
+field,"ekd.document.head.bank,okato_indicator",0,OKATO,,0
+field,"ekd.document.head.bank,payment_details_tax",0,Payment Details,,0
+field,"ekd.document.head.bank,percent_vat",0,Percentage of VAT,НДС,0
+field,"ekd.document.head.bank,pole_code",0,Code,Код,0
+field,"ekd.document.head.bank,pole_detail",0,Details of payment,,0
+field,"ekd.document.head.bank,pole_maturity",0,Maturity,,0
+field,"ekd.document.head.bank,pole_order",0,Order of payments,,0
+field,"ekd.document.head.bank,pole_reserve",0,Backing field,,0
+field,"ekd.document.head.bank,pole_type",0,Payment Type,тип платежа,0
+field,"ekd.document.head.bank,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.bank,state_doc",0,State,Статус,0
+field,"ekd.document.head.bank,status_payer_tax",0,Status Payer,,0
+field,"ekd.document.head.bank,tax_period",0,Tax period,,0
+field,"ekd.document.head.bank,template_bank",0,Document Name,Документ,0
+field,"ekd.document.head.bank,to_bank",0,To Bank Account,,0
+field,"ekd.document.head.bank,type_reference",0,Type of payment,Тип платежа,0
+field,"ekd.document.head.bank,type_transaction",0,Type Transaction,Тип,0
+field,"ekd.document.head.cash,cash_account_txt",0,Cash Account,Кассовый счет,0
+field,"ekd.document.head.cash,corr_account_txt",0,Corr. Account,Корр. счет,0
+field,"ekd.document.head.cash,deleting",0,Flag deleting,Флаг удаления,0
+field,"ekd.document.head.cash,document",0,Document,Документ,0
+field,"ekd.document.head.cash,document_base_ref",0,Document Base,Документ основание,0
+field,"ekd.document.head.cash,expense",0,expense,Расход,0
+field,"ekd.document.head.cash,from_to_party",0,From or To Party,От кого или кому,0
+field,"ekd.document.head.cash,income",0,Income,Приход,0
+field,"ekd.document.head.cash,lines_payment",0,Line Spec Amounts,,0
+field,"ekd.document.head.cash,note_cash",0,Note,Комментарий,0
+field,"ekd.document.head.cash,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.cash,state_doc",0,State,Статус,0
+field,"ekd.document.head.cash,template_cash",0,Document Name,Документ,0
+field,"ekd.document.head.cash,type_transaction",0,Type Transaction,Тип,0
+field,"ekd.document.head.invoice,amount_doc",0,Amount,Сумма,0
+field,"ekd.document.head.invoice,amount_tax",0,Amount Tax,Налог,0
+field,"ekd.document.head.invoice,currency",0,Currency,Валюта,0
+field,"ekd.document.head.invoice,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.head.invoice,deleting",0,Flag deleting,Флаг удаления,0
+field,"ekd.document.head.invoice,direct_document",0,Direct Document,Направление,0
+field,"ekd.document.head.invoice,document",0,Document,Документ,0
+field,"ekd.document.head.invoice,form_payment",0,Form of payment,Форма типа платежа,0
+field,"ekd.document.head.invoice,from_to_party",0,Party,Контрагенты,0
+field,"ekd.document.head.invoice,kind_payment",0,Kind of payment,Тип срока платежа,0
+field,"ekd.document.head.invoice,lines",0,Lines,Строки,0
+field,"ekd.document.head.invoice,number_doc",0,Number Document,Номер,0
+field,"ekd.document.head.invoice,payment_term",0,Payment Term,Срок платежа,0
+field,"ekd.document.head.invoice,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.invoice,state_doc",0,State,Статус,0
+field,"ekd.document.head.invoice,template_invoice",0,Document Name,Документ,0
+field,"ekd.document.head.invoice,type_product",0,Type Product,Тип ТМЦ,0
+field,"ekd.document.head.invoice,type_tax",0,Type Compute Tax,Тип расчета налога,0
+field,"ekd.document.head.invoice_goods,amount_doc",0,Amount,Сумма,0
+field,"ekd.document.head.invoice_goods,amount_tax",0,Amount Tax,Налог,0
+field,"ekd.document.head.invoice_goods,currency",0,Currency,Валюта,0
+field,"ekd.document.head.invoice_goods,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.head.invoice_goods,deleting",0,Flag deleting,Флаг удаления,0
+field,"ekd.document.head.invoice_goods,direct_document",0,Direct Document,Направление,0
+field,"ekd.document.head.invoice_goods,document",0,Document,Документ,0
+field,"ekd.document.head.invoice_goods,from_party_fnc",0,From Party,От кого,0
+field,"ekd.document.head.invoice_goods,from_to_party",0,Party,Контрагенты,0
+field,"ekd.document.head.invoice_goods,lines",0,Lines,Строки,0
+field,"ekd.document.head.invoice_goods,number_doc",0,Number,номер,0
+field,"ekd.document.head.invoice_goods,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.invoice_goods,state_doc",0,State,Статус,0
+field,"ekd.document.head.invoice_goods,template_invoice",0,Name,Наименование,0
+field,"ekd.document.head.invoice_goods,to_party_fnc",0,To Party,Кому,0
+field,"ekd.document.head.invoice_goods,type_product",0,Type Product,Тип ТМЦ,0
+field,"ekd.document.head.invoice_goods,type_tax",0,Type Compute Tax,Тип расчета,0
+field,"ekd.document.head.invoice_tax,amount_doc",0,Amount,Сумма,0
+field,"ekd.document.head.invoice_tax,amount_tax",0,Amount Tax,Налог,0
+field,"ekd.document.head.invoice_tax,currency",0,Currency,Валюта,0
+field,"ekd.document.head.invoice_tax,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.head.invoice_tax,deleting",0,Flag deleting,Флаг удаления,0
+field,"ekd.document.head.invoice_tax,direct_document",0,Direct Document,Направление,0
+field,"ekd.document.head.invoice_tax,document",0,Document,Документ,0
+field,"ekd.document.head.invoice_tax,from_to_party",0,Party,Контрагенты,0
+field,"ekd.document.head.invoice_tax,lines",0,Lines,Строки,0
+field,"ekd.document.head.invoice_tax,number_doc",0,Number,номер,0
+field,"ekd.document.head.invoice_tax,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.invoice_tax,state_doc",0,State,Статус,0
+field,"ekd.document.head.invoice_tax,template_invoice",0,Name,Наименование,0
+field,"ekd.document.head.invoice_tax,type_tax",0,Type Compute Tax,Тип расчета налога,0
+field,"ekd.document.head.letter,description",0,Text Letter,Текст письма,0
+field,"ekd.document.head.letter,document",0,Document,Документ,0
+field,"ekd.document.head.letter,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.order,description",0,Text Order,Текст Приказа,0
+field,"ekd.document.head.order,document",0,Document,Документ,0
+field,"ekd.document.head.order,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.request,amount_balance",0,Balance,"Остаток 
+на начало",0
+field,"ekd.document.head.request,amount_received",0,Total Received,Всего получено,0
+field,"ekd.document.head.request,amount_request",0,Total Request,Всего по заявке,0
+field,"ekd.document.head.request,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.head.request,date_issued",0,Date of issue,Дата выдача,0
+field,"ekd.document.head.request,document",0,Document,Документ,0
+field,"ekd.document.head.request,document_name",0,Document Name,Документ,0
+field,"ekd.document.head.request,document_ref",0,Base,Основание,0
+field,"ekd.document.head.request,invoice_ref",0,Invoice,Счет,0
+field,"ekd.document.head.request,lines",0,Lines Request,Строки заявки,0
+field,"ekd.document.head.request,manager",0,Manager to confirm,Подтверждающее лицо,0
+field,"ekd.document.head.request,rec_name",0,Name,Наименование,0
+field,"ekd.document.head.request,recipient",0,Recipient,Получатель,0
+field,"ekd.document.head.request,state_doc",0,State,Статус,0
+field,"ekd.document.head.request,template_request",0,Document,Документ,0
+field,"ekd.document.head.request,type_request",0,Type request,Тип,0
+field,"ekd.document.line.advancecash,advance",0,Document advance Head,,0
+field,"ekd.document.line.advancecash,advance_amount",0,Amount Advance,По отчету,0
+field,"ekd.document.line.advancecash,amount_advance",0,Amount Advance,По отчету,0
+field,"ekd.document.line.advancecash,amount_advance_total",0,Total Advance,Всего по отчету,0
+field,"ekd.document.line.advancecash,amount_received",0,Amount Received,Получено,0
+field,"ekd.document.line.advancecash,lines_received",0,Line Amount Received,,0
+field,"ekd.document.line.advancecash,name",0,Description,Описание,0
+field,"ekd.document.line.advancecash,name_advance",0,Description,Описание,0
+field,"ekd.document.line.advancecash,rec_name",0,Name,Наименование,0
+field,"ekd.document.line.advancecash,requestcash",0,Document Request,Заявка,0
+field,"ekd.document.line.advancecash,state",0,State,Статус,0
+field,"ekd.document.line.advancecash,state_advance",0,State,Статус,0
+field,"ekd.document.line.advancecash.amounts,advance",0,Document advance Head,,0
+field,"ekd.document.line.advancecash.amounts,advance_line",0,Document line advance,,0
+field,"ekd.document.line.advancecash.amounts,amount_advance",0,Amount Advance,По отчету,0
+field,"ekd.document.line.advancecash.amounts,balance",0,Balance Amount,Остаток,0
+field,"ekd.document.line.advancecash.amounts,name",0,Description,Описание,0
+field,"ekd.document.line.advancecash.amounts,product",0,Product,ТМЦ,0
+field,"ekd.document.line.advancecash.amounts,quantity",0,Quantity,Кол-во,0
+field,"ekd.document.line.advancecash.amounts,rec_name",0,Name,Наименование,0
+field,"ekd.document.line.advancecash.amounts,unit_digits",0,Unit Digits,цифры ед.изм.,0
+field,"ekd.document.line.advancecash.amounts,unit_price",0,Price Unit,Цена за ед.,0
+field,"ekd.document.line.advancecash.amounts,uom",0,Unit,Ед.изм.,0
+field,"ekd.document.line.payment,amount_payment",0,Amount Payment,Сумма платежа,0
+field,"ekd.document.line.payment,doc_base",0,Document Base,Документ основание,0
+field,"ekd.document.line.payment,doc_payment",0,Document Payment,,0
+field,"ekd.document.line.payment,line_ref",0,Ref.,Ссылка,0
+field,"ekd.document.line.payment,line_request",0,Line Request of money,Строка заявки,0
+field,"ekd.document.line.payment,rec_name",0,Name,Наименование,0
+field,"ekd.document.line.payment,state",0,State,Статус,0
+field,"ekd.document.line.payment,type_transaction",0,Type Transaction,Тип,0
+field,"ekd.document.line.product,amount",0,Amount,Сумма,0
+field,"ekd.document.line.product,amount_tax",0,Amount Tax,Налог,0
+field,"ekd.document.line.product,child",0,Childs,,0
+field,"ekd.document.line.product,currency",0,Currency,Валюта,0
+field,"ekd.document.line.product,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.line.product,description",0,Description,Описание,0
+field,"ekd.document.line.product,invoice",0,Invoice Head,,0
+field,"ekd.document.line.product,invoice_tax",0,Invoice Tax Head,,0
+field,"ekd.document.line.product,parent",0,Parent,Основной,0
+field,"ekd.document.line.product,product",0,Product,ТМЦ,0
+field,"ekd.document.line.product,product_ref",0,Product ref,Ссылка на ТМЦ,0
+field,"ekd.document.line.product,quantity",0,Quantity,Кол-во,0
+field,"ekd.document.line.product,rec_name",0,Name,Наименование,0
+field,"ekd.document.line.product,state",0,State,Статус,0
+field,"ekd.document.line.product,tax",0,Taxes and Excises,Налоги и Акцизы,0
+field,"ekd.document.line.product,type",0,Type line,Тип строки,0
+field,"ekd.document.line.product,type_product",0,Type Product,Тип ТМЦ,0
+field,"ekd.document.line.product,type_tax",0,Type Amount,,0
+field,"ekd.document.line.product,unit",0,Unit,Ед.изм.,0
+field,"ekd.document.line.product,unit_digits",0,Unit Digits,цифры ед.изм.,0
+field,"ekd.document.line.product,unit_price",0,Unit Price,Цена за единицу,0
+field,"ekd.document.line.product.tax,amount",0,Amount Tax,Налог,0
+field,"ekd.document.line.product.tax,line",0,Line,Строка,0
+field,"ekd.document.line.product.tax,percentage",0,Percentage Tax,Процент,0
+field,"ekd.document.line.product.tax,rec_name",0,Name,Наименование,0
+field,"ekd.document.line.product.tax,type_compute",0,Type Compute,Тип расчета,0
+field,"ekd.document.line.request,amount_balance",0,Balance,"Остаток 
+на начало",0
+field,"ekd.document.line.request,amount_payment",0,Amount Payment,Сумма платежа,0
+field,"ekd.document.line.request,amount_received",0,Amount Received,Получено,0
+field,"ekd.document.line.request,amount_request",0,Amount Request,Сумма заявки,0
+field,"ekd.document.line.request,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.line.request,lines_received",0,Line Amount Received,,0
+field,"ekd.document.line.request,name",0,Description,Описание,0
+field,"ekd.document.line.request,note",0,Note,Комментарий,0
+field,"ekd.document.line.request,product",0,Product,ТМЦ,0
+field,"ekd.document.line.request,quantity",0,Quantity,Кол-во,0
+field,"ekd.document.line.request,rec_name",0,Name,Наименование,0
+field,"ekd.document.line.request,requestcash",0,Document Request,Заявка,0
+field,"ekd.document.line.request,state",0,State,Статус,0
+field,"ekd.document.line.request,type",0,Type,Тип ставки,0
+field,"ekd.document.line.request,unit_digits",0,Unit Digits,цифры ед.изм.,0
+field,"ekd.document.line.request,unit_price",0,Price Unit,Цена за ед.,0
+field,"ekd.document.line.request,uom",0,Unit,Ед.изм.,0
+field,"ekd.document.payment,amount",0,Amount Document,Сумма,0
+field,"ekd.document.payment,amount_balance",0,Amount Balance,Остаток,0
+field,"ekd.document.payment,amount_paid",0,Amount Paid,Оплата,0
+field,"ekd.document.payment,amount_payment",0,Amount Payment,Сумма платежа,0
+field,"ekd.document.payment,child",0,Parent document,Основной,0
+field,"ekd.document.payment,company",0,Company,Учет.орг.,0
+field,"ekd.document.payment,date_account",0,Date Account,Учетная дата,0
+field,"ekd.document.payment,date_document",0,Date Create,Дата создания,0
+field,"ekd.document.payment,direction",0,Direction document,Направление,0
+field,"ekd.document.payment,from_party",0,Manager,Менеджер,0
+field,"ekd.document.payment,lines",0,Lines Request,Строки заявки,0
+field,"ekd.document.payment,lines_payment",0,Lines Payment,Строки платежа,0
+field,"ekd.document.payment,model",0,Model,Шаблон,0
+field,"ekd.document.payment,model_str",0,Model Name,Наименование шаблона,0
+field,"ekd.document.payment,name",0,Description,Описание,0
+field,"ekd.document.payment,note",0,Note document,Комментарий,0
+field,"ekd.document.payment,number_in",0,Number of incoming,Входящий,0
+field,"ekd.document.payment,number_our",0,Number Outgoing,Исходящий,0
+field,"ekd.document.payment,parent",0,Payment document,Платежный документ,0
+field,"ekd.document.payment,post_date",0,Date Post,Дата отработки,0
+field,"ekd.document.payment,rec_name",0,Name,Наименование,0
+field,"ekd.document.payment,state",0,State,Статус,0
+field,"ekd.document.payment,template",0,Document Name,Документ,0
+field,"ekd.document.payment,to_party",0,Beneficiary,,0
+field,"ekd.document.payment_term,active",0,Active,Действующий,0
+field,"ekd.document.payment_term,description",0,Description,Описание,0
+field,"ekd.document.payment_term,form_payment",0,Form of payment,Форма типа платежа,0
+field,"ekd.document.payment_term,kind_payment",0,Kind of payment,Тип срока платежа,0
+field,"ekd.document.payment_term,lines",0,Lines,Строки,0
+field,"ekd.document.payment_term,name",0,Payment Term,Срок платежа,0
+field,"ekd.document.payment_term,rec_name",0,Name,Наименование,0
+field,"ekd.document.payment_term.line,amount",0,Amount,Сумма,0
+field,"ekd.document.payment_term.line,currency",0,Currency,Валюта,0
+field,"ekd.document.payment_term.line,currency_digits",0,Currency Digits,цифры валюты,0
+field,"ekd.document.payment_term.line,days",0,Number of Days,Кол-во дней,0
+field,"ekd.document.payment_term.line,delay",0,Condition,Состояние,0
+field,"ekd.document.payment_term.line,payment",0,Payment Term,Срок платежа,0
+field,"ekd.document.payment_term.line,percentage",0,Percentage,Процент,0
+field,"ekd.document.payment_term.line,rec_name",0,Name,Наименование,0
+field,"ekd.document.payment_term.line,sequence",0,Sequence,Последовательность,0
+field,"ekd.document.payment_term.line,type",0,Type,Тип ставки,0
+field,"ekd.document.payment_term.line.delay,code",0,Code,Код,0
+field,"ekd.document.payment_term.line.delay,name",0,Name,Наименование,0
+field,"ekd.document.payment_term.line.delay,rec_name",0,Name,Наименование,0
+field,"ekd.document.payment_term.line.type,code",0,Code,Код,0
+field,"ekd.document.payment_term.line.type,name",0,Name,Наименование,0
+field,"ekd.document.payment_term.line.type,rec_name",0,Name,Наименование,0
+field,"ekd.document.template,active",0,Active,Действующий,0
+field,"ekd.document.template,code_call",0,Code Call,Код вызова,0
+field,"ekd.document.template,company",0,Company,Учет.орг.,0
+field,"ekd.document.template,date_end",0,Date end,Дата окончания,0
+field,"ekd.document.template,date_start",0,Date Start,Дата начала,0
+field,"ekd.document.template,document",0,Real Documents,Документ,0
+field,"ekd.document.template,model",0,Model,Шаблон,0
+field,"ekd.document.template,model_str",0,Model Name,Наименование шаблона,0
+field,"ekd.document.template,name",0,Name,Наименование,0
+field,"ekd.document.template,rec_name",0,Name,Наименование,0
+field,"ekd.document.template,report",0,Form for print,Форма для печати,0
+field,"ekd.document.template,sequence",0,Sequence,Последовательность,0
+field,"ekd.document.template,shortcut",0,ShortCut,Краткое нименование,0
+field,"ekd.document.template,sort",0,Sort,Сортировка,0
+field,"ekd.document.template,type_account",0,Type account,Тип учета,0
+field,"ekd.document.template,view_form",0,Form View,Форма для просмотра,0
+field,"ekd.document.wizard.payment.cash,amount_balance",0,Amount Balance,Остаток,0
+field,"ekd.document.wizard.payment.cash,amount_payment",0,Amount Payment,Сумма платежа,0
+field,"ekd.document.wizard.payment.cash,amount_received",0,Amount Received,Получено,0
+field,"ekd.document.wizard.payment.cash,amount_request",0,Amount Document,Сумма,0
+field,"ekd.document.wizard.payment.cash,application",0,Application,Приложения,0
+field,"ekd.document.wizard.payment.cash,cash_account",0,Cash Account,Кассовый счет,0
+field,"ekd.document.wizard.payment.cash,company",0,Company,Учет.орг.,0
+field,"ekd.document.wizard.payment.cash,date_account",0,Date Account,Учетная дата,0
+field,"ekd.document.wizard.payment.cash,date_document",0,Date Create,Дата создания,0
+field,"ekd.document.wizard.payment.cash,description",0,Notes,Комментарии,0
+field,"ekd.document.wizard.payment.cash,document_base_ref",0,Document Base,Документ основание,0
+field,"ekd.document.wizard.payment.cash,from_to_party",0,From or To Party,От кого или кому,0
+field,"ekd.document.wizard.payment.cash,lines",0,Lines Request,Строки заявки,0
+field,"ekd.document.wizard.payment.cash,number_in",0,Number of incoming,Входящий,0
+field,"ekd.document.wizard.payment.cash,number_our",0,Number Outgoing,Исходящий,0
+field,"ekd.document.wizard.payment.cash,template_cash",0,Document Name,Документ,0
+field,"ekd.document.wizard.payment.cash,type_transaction",0,Type Operation,Тип операции,0
+field,"ekd.document.wizard.payment.init,amount_payment",0,Amount Payment,Сумма платежа,0
+field,"ir.action,active",0,Active,Действующий,0
+field,"ir.action,groups",0,Groups,Группы,0
+field,"ir.action,keywords",0,Keywords,Ключевые слова,0
+field,"ir.action,name",0,Name,Наименование,0
+field,"ir.action,rec_name",0,Name,Наименование,0
+field,"ir.action,type",0,Type,Тип,0
+field,"ir.action,usage",0,Usage,Использования,0
+field,"ir.action-res.group,action_id",0,Action,Действие,0
+field,"ir.action-res.group,gid",0,Group,Группа,0
+field,"ir.action-res.group,rec_name",0,Name,Наименование,0
+field,"ir.action.act_window,act_window_views",0,Views,Виды,0
+field,"ir.action.act_window,action",0,Action,Действие,0
+field,"ir.action.act_window,auto_refresh",0,Auto-Refresh,Авто-Обновление,0
+field,"ir.action.act_window,context",0,Context Value, Контекст,0
+field,"ir.action.act_window,domain",0,Domain Value, Фильтр выборки,0
+field,"ir.action.act_window,limit",0,Limit,Лимит,0
+field,"ir.action.act_window,rec_name",0,Name,Наименование,0
+field,"ir.action.act_window,res_model",0,Model,Шаблон,0
+field,"ir.action.act_window,search_value",0,Search Criteria,Критерии поиска,0
+field,"ir.action.act_window,view_type",0,Type of view,Тип вида,0
+field,"ir.action.act_window,views",0,Views,Виды,0
+field,"ir.action.act_window,window_name",0,Window Name,Наименование окна,0
+field,"ir.action.act_window.view,act_window",0,Action,Действие,0
+field,"ir.action.act_window.view,rec_name",0,Name,Наименование,0
+field,"ir.action.act_window.view,sequence",0,Sequence,Последовательность,0
+field,"ir.action.act_window.view,view",0,View,Вид,0
+field,"ir.action.keyword,action",0,Action,Действие,0
+field,"ir.action.keyword,keyword",0,Keyword,Ключевое слово,0
+field,"ir.action.keyword,model",0,Model,Шаблон,0
+field,"ir.action.keyword,rec_name",0,Name,Наименование,0
+field,"ir.action.report,action",0,Action,Действие,0
+field,"ir.action.report,direct_print",0,Direct Print,Прямая печать,0
+field,"ir.action.report,email",0,Email,Эл.почта,0
+field,"ir.action.report,extension",0,Extension,Расширение,0
+field,"ir.action.report,model",0,Model,Шаблон,0
+field,"ir.action.report,module",0,Module,Модуль,0
+field,"ir.action.report,rec_name",0,Name,Наименование,0
+field,"ir.action.report,report",0,Path,Путь,0
+field,"ir.action.report,report_content",0,Content,Содержание,0
+field,"ir.action.report,report_content_data",0,Content,Содержание,0
+field,"ir.action.report,report_name",0,Internal Name,Внутреннее наименование,0
+field,"ir.action.report,style",0,Style,Стиль,0
+field,"ir.action.report,style_content",0,Style,Стиль,0
+field,"ir.action.url,action",0,Action,Действие,0
+field,"ir.action.url,rec_name",0,Name,Наименование,0
+field,"ir.action.url,url",0,Action Url,Действие URL,0
+field,"ir.action.wizard,action",0,Action,Действие,0
+field,"ir.action.wizard,email",0,Email,Эл.почта,0
+field,"ir.action.wizard,model",0,Model,Шаблон,0
+field,"ir.action.wizard,rec_name",0,Name,Наименование,0
+field,"ir.action.wizard,window",0,Window,Окно,0
+field,"ir.action.wizard,wiz_name",0,Wizard name,Наиманование мастера,0
+field,"ir.action.wizard_size,height",0,Height,Высота,0
+field,"ir.action.wizard_size,model",0,Model,Шаблон,0
+field,"ir.action.wizard_size,rec_name",0,Name,Наименование,0
+field,"ir.action.wizard_size,user",0,User,Пользователь,0
+field,"ir.action.wizard_size,width",0,Width,Ширина,0
+field,"ir.action.wizard_size,wizard",0,Wizard,Мастер,0
+field,"ir.attachment,collision",0,Collision,Коллизия,0
+field,"ir.attachment,datas",0,Datas,Данные,0
+field,"ir.attachment,datas_size",0,Datas size,Размер данных,0
+field,"ir.attachment,description",0,Description,Описание,0
+field,"ir.attachment,digest",0,Digest,Резюме,0
+field,"ir.attachment,link",0,Link,Ссылка,0
+field,"ir.attachment,name",0,Attachment Name,Имя вложения,0
+field,"ir.attachment,rec_name",0,Name,Наименование,0
+field,"ir.attachment,res_id",0,Resource ID,Ресурс ID,0
+field,"ir.attachment,res_model",0,Resource Model,Ресурс Шаблон,0
+field,"ir.cache,name",0,Name,Наименование,0
+field,"ir.cache,rec_name",0,Name,Наименование,0
+field,"ir.cache,timestamp",0,Timestamp,Время,0
+field,"ir.cron,active",0,Active,Действующий,0
+field,"ir.cron,args",0,Arguments,Аргументы,0
+field,"ir.cron,companies",0,Companies,Организация,0
+field,"ir.cron,doall",0,Repeat missed,Повторить пропущенные,0
+field,"ir.cron,function",0,Function,Функция,0
+field,"ir.cron,interval_number",0,Interval Number,Внутренний номер,0
+field,"ir.cron,interval_type",0,Interval Unit,Внутренния единица,0
+field,"ir.cron,model",0,Model,Шаблон,0
+field,"ir.cron,name",0,Name,Наименование,0
+field,"ir.cron,nextcall",0,Next call date,Дата следующего вызова,0
+field,"ir.cron,numbercall",0,Number of calls,Количество звонков,0
+field,"ir.cron,priority",0,Priority,Приоритет,0
+field,"ir.cron,rec_name",0,Name,Наименование,0
+field,"ir.cron,request_user",0,Request User,Запрос пользователя,0
+field,"ir.cron,running",0,Running,Выполняющиеся,0
+field,"ir.cron,user",0,Execution User,От имени пользователя,0
+field,"ir.cron-company.company,company",0,Company,Учет.орг.,0
+field,"ir.cron-company.company,cron",0,Cron,Планировщик,0
+field,"ir.cron-company.company,rec_name",0,Name,Наименование,0
+field,"ir.default,clause",0,Clause,Пункт,0
+field,"ir.default,field",0,Field,Поле,0
+field,"ir.default,model",0,Model,Шаблон,0
+field,"ir.default,rec_name",0,Name,Наименование,0
+field,"ir.default,user",0,User,Пользователь,0
+field,"ir.default,value",0,Value,Значение,0
+field,"ir.export,export_fields",0,Fields,Поля,0
+field,"ir.export,name",0,Name,Наименование,0
+field,"ir.export,rec_name",0,Name,Наименование,0
+field,"ir.export,resource",0,Resource,Ресурс,0
+field,"ir.export.line,export",0,Export,Экспорт,0
+field,"ir.export.line,name",0,Name,Наименование,0
+field,"ir.export.line,rec_name",0,Name,Наименование,0
+field,"ir.lang,active",0,Active,Действующий,0
+field,"ir.lang,code",0,Code,Код,0
+field,"ir.lang,date",0,Date,Дата,0
+field,"ir.lang,decimal_point",0,Decimal Separator,Десятичный разделитель,0
+field,"ir.lang,direction",0,Direction,Направление,0
+field,"ir.lang,grouping",0,Grouping,Группировка,0
+field,"ir.lang,name",0,Name,Наименование,0
+field,"ir.lang,rec_name",0,Name,Наименование,0
+field,"ir.lang,thousands_sep",0,Thousands Separator,Разделитель тысяч,0
+field,"ir.lang,translatable",0,Translatable,Переводимый,0
+field,"ir.model,fields",0,Fields,Поля,0
+field,"ir.model,info",0,Information,Информация,0
+field,"ir.model,model",0,Model Name,Наименование шаблона,0
+field,"ir.model,module",0,Module,Модуль,0
+field,"ir.model,name",0,Model Description,Описание шаблона,0
+field,"ir.model,rec_name",0,Name,Наименование,0
+field,"ir.model.access,description",0,Description,Описание,0
+field,"ir.model.access,group",0,Group,Группа,0
+field,"ir.model.access,model",0,Model,Шаблон,0
+field,"ir.model.access,perm_create",0,Create Access,Добавление,0
+field,"ir.model.access,perm_delete",0,Delete Access,Удаление,0
+field,"ir.model.access,perm_read",0,Read Access,Чтение,0
+field,"ir.model.access,perm_write",0,Write Access,Запись,0
+field,"ir.model.access,rec_name",0,Name,Наименование,0
+field,"ir.model.data,date_init",0,Init Date,Дата инициализации,0
+field,"ir.model.data,date_update",0,Update Date,Дата обновления,0
+field,"ir.model.data,db_id",0,Resource ID,Ресурс ID,0
+field,"ir.model.data,fs_id",0,Identifier on File System,Идентификатор в файловой системе,0
+field,"ir.model.data,inherit",0,Inherit,Наследование,0
+field,"ir.model.data,model",0,Model,Шаблон,0
+field,"ir.model.data,module",0,Module,Модуль,0
+field,"ir.model.data,rec_name",0,Name,Наименование,0
+field,"ir.model.data,values",0,Values,Значения,0
+field,"ir.model.field,field_description",0,Field Description,Описание поля,0
+field,"ir.model.field,groups",0,Groups,Группы,0
+field,"ir.model.field,help",0,Help,Помощь,0
+field,"ir.model.field,model",0,Model,Шаблон,0
+field,"ir.model.field,module",0,Module,Модуль,0
+field,"ir.model.field,name",0,Name,Наименование,0
+field,"ir.model.field,rec_name",0,Name,Наименование,0
+field,"ir.model.field,relation",0,Model Relation,Связь шаблона,0
+field,"ir.model.field,ttype",0,Field Type,Тип поля,0
+field,"ir.model.field-res.group,field_id",0,Model Field,Поле шаблона,0
+field,"ir.model.field-res.group,group_id",0,Group,Группа,0
+field,"ir.model.field-res.group,rec_name",0,Name,Наименование,0
+field,"ir.model.print_model_graph.init,level",0,Level,Уровень,0
+field,"ir.module.module,author",0,Author,Автор,0
+field,"ir.module.module,dependencies",0,Dependencies,Зависимые,0
+field,"ir.module.module,description",0,Description,Описание,0
+field,"ir.module.module,name",0,Name,Наименование,0
+field,"ir.module.module,rec_name",0,Name,Наименование,0
+field,"ir.module.module,shortdesc",0,Short description,Краткое описание,0
+field,"ir.module.module,state",0,State,Состояние,0
+field,"ir.module.module,version",0,Version,Версия,0
+field,"ir.module.module,website",0,Website,Сайт,0
+field,"ir.module.module.config_wizard.item,name",0,Name,Наименование,0
+field,"ir.module.module.config_wizard.item,rec_name",0,Name,Наименование,0
+field,"ir.module.module.config_wizard.item,sequence",0,Sequence,Последовательность,0
+field,"ir.module.module.config_wizard.item,state",0,State,Состояние,0
+field,"ir.module.module.dependency,module",0,Module,Модуль,0
+field,"ir.module.module.dependency,name",0,Name,Наименование,0
+field,"ir.module.module.dependency,rec_name",0,Name,Наименование,0
+field,"ir.module.module.dependency,state",0,State,Состояние,0
+field,"ir.module.module.install_upgrade.init,module_info",0,Modules to update,Модули для обновления,0
+field,"ir.property,company",0,Company,Учет.орг.,0
+field,"ir.property,field",0,Field,Поле,0
+field,"ir.property,name",0,Name,Наименование,0
+field,"ir.property,rec_name",0,Name,Наименование,0
+field,"ir.property,res",0,Resource,Ресурс,0
+field,"ir.property,value",0,Value,Значение,0
+field,"ir.rule,field",0,Field,Поле,0
+field,"ir.rule,operand",0,Operand,Операнд,0
+field,"ir.rule,operator",0,Operator,Оператор,0
+field,"ir.rule,rec_name",0,Name,Наименование,0
+field,"ir.rule,rule_group",0,Group,Группа,0
+field,"ir.rule.group,default_p",0,Default,По умолчанию,0
+field,"ir.rule.group,global_p",0,Global,Общий,0
+field,"ir.rule.group,groups",0,Groups,Группы,0
+field,"ir.rule.group,model",0,Model,Шаблон,0
+field,"ir.rule.group,name",0,Name,Наименование,0
+field,"ir.rule.group,perm_create",0,Create Access,Добавление,0
+field,"ir.rule.group,perm_delete",0,Delete Access,Удаление,0
+field,"ir.rule.group,perm_read",0,Read Access,Чтение,0
+field,"ir.rule.group,perm_write",0,Write Access,Запись,0
+field,"ir.rule.group,rec_name",0,Name,Наименование,0
+field,"ir.rule.group,rules",0,Tests,Тесты,0
+field,"ir.rule.group,users",0,Users,Пользователи,0
+field,"ir.rule.group-res.group,group_id",0,Group,Группа,0
+field,"ir.rule.group-res.group,rec_name",0,Name,Наименование,0
+field,"ir.rule.group-res.group,rule_group_id",0,Rule Group,Правило группы,0
+field,"ir.rule.group-res.user,rec_name",0,Name,Наименование,0
+field,"ir.rule.group-res.user,rule_group_id",0,Rule Group,Правило группы,0
+field,"ir.rule.group-res.user,user_id",0,User,Пользователь,0
+field,"ir.sequence,active",0,Active,Действующий,0
+field,"ir.sequence,code",0,Sequence Code,Тип последовательности,0
+field,"ir.sequence,company",0,Company,Учет.орг.,0
+field,"ir.sequence,name",0,Sequence Name,Наименование последовательности,0
+field,"ir.sequence,number_increment",0,Increment Number,Коэфициент увеличения,0
+field,"ir.sequence,number_next",0,Next Number,Следующий номер,0
+field,"ir.sequence,padding",0,Number padding,Кол-во дополнения,0
+field,"ir.sequence,prefix",0,Prefix,Префикс,0
+field,"ir.sequence,rec_name",0,Name,Наименование,0
+field,"ir.sequence,suffix",0,Suffix,Суффикс,0
+field,"ir.sequence.strict,active",0,Active,Действующий,0
+field,"ir.sequence.strict,code",0,Sequence Code,Тип последовательности,0
+field,"ir.sequence.strict,company",0,Company,Учет.орг.,0
+field,"ir.sequence.strict,name",0,Sequence Name,Наименование последовательности,0
+field,"ir.sequence.strict,number_increment",0,Increment Number,Коэфициент увеличения,0
+field,"ir.sequence.strict,number_next",0,Next Number,Следующий номер,0
+field,"ir.sequence.strict,padding",0,Number padding,Кол-во дополнения,0
+field,"ir.sequence.strict,prefix",0,Prefix,Префикс,0
+field,"ir.sequence.strict,rec_name",0,Name,Наименование,0
+field,"ir.sequence.strict,suffix",0,Suffix,Суффикс,0
+field,"ir.sequence.type,code",0,Sequence Code,Код последовательности,0
+field,"ir.sequence.type,name",0,Sequence Name,Наименование последовательности,0
+field,"ir.sequence.type,rec_name",0,Name,Наименование,0
+field,"ir.translation,fuzzy",0,Fuzzy,Нечеткие,0
+field,"ir.translation,lang",0,Language,Язык,0
+field,"ir.translation,model",0,Model,Шаблон,0
+field,"ir.translation,module",0,Module,Модуль,0
+field,"ir.translation,name",0,Field Name,Название поля,0
+field,"ir.translation,rec_name",0,Name,Наименование,0
+field,"ir.translation,res_id",0,Resource ID,Ресурс ID,0
+field,"ir.translation,src",0,Source,Исходный текст,0
+field,"ir.translation,type",0,Type,Тип,0
+field,"ir.translation,value",0,Translation Value,Значение перевода,0
+field,"ir.translation.export.init,lang",0,Language,Язык,0
+field,"ir.translation.export.init,module",0,Module,Модуль,0
+field,"ir.translation.export.start,file",0,File,Файл,0
+field,"ir.translation.update.init,lang",0,Language,Язык,0
+field,"ir.ui.menu,action",0,Action,Действие,0
+field,"ir.ui.menu,active",0,Active,Действующий,0
+field,"ir.ui.menu,childs",0,Children,Подчиненое,0
+field,"ir.ui.menu,complete_name",0,Complete Name,Полное название,0
+field,"ir.ui.menu,groups",0,Groups,Группы,0
+field,"ir.ui.menu,icon",0,Icon,Иконка,0
+field,"ir.ui.menu,name",0,Menu,Меню,0
+field,"ir.ui.menu,parent",0,Parent Menu,Основное меню,0
+field,"ir.ui.menu,rec_name",0,Name,Наименование,0
+field,"ir.ui.menu,sequence",0,Sequence,Последовательность,0
+field,"ir.ui.menu-res.group,gid",0,Group,Группа,0
+field,"ir.ui.menu-res.group,menu_id",0,Menu,Меню,0
+field,"ir.ui.menu-res.group,rec_name",0,Name,Наименование,0
+field,"ir.ui.view,arch",0,View Architecture,Архитектура вида,0
+field,"ir.ui.view,domain",0,Domain,Область,0
+field,"ir.ui.view,field_childs",0,Children Field,Подчиненое поле,0
+field,"ir.ui.view,inherit",0,Inherited View,Наследованный вид,0
+field,"ir.ui.view,model",0,Model,Шаблон,0
+field,"ir.ui.view,module",0,Module,Модуль,0
+field,"ir.ui.view,priority",0,Priority,Приоритет,0
+field,"ir.ui.view,rec_name",0,Name,Наименование,0
+field,"ir.ui.view,type",0,View Type,Тип вида,0
+field,"ir.ui.view_sc,name",0,Shortcut Name,Краткое наименование,0
+field,"ir.ui.view_sc,rec_name",0,Name,Наименование,0
+field,"ir.ui.view_sc,res_id",0,Resource Ref.,Ссылка на ресурс,0
+field,"ir.ui.view_sc,resource",0,Resource Name,Наименование ресурса,0
+field,"ir.ui.view_sc,sequence",0,Sequence,Последовательность,0
+field,"ir.ui.view_sc,user_id",0,User Ref.,Ссылка на пользователя,0
+field,"ir.ui.view_tree_width,field",0,Field,Поле,0
+field,"ir.ui.view_tree_width,model",0,Model,Шаблон,0
+field,"ir.ui.view_tree_width,rec_name",0,Name,Наименование,0
+field,"ir.ui.view_tree_width,user",0,User,Пользователь,0
+field,"ir.ui.view_tree_width,width",0,Width,Ширина,0
+field,"party.party,deleted",0,Deleted,Удалено,0
+field,"party.party,employee",0,Employee,Сотрудник,0
+field,"res.group,menu_access",0,Access Menu,Меню доступа,0
+field,"res.group,model_access",0,Access Model,Модель доступа,0
+field,"res.group,name",0,Name,Наименование,0
+field,"res.group,rec_name",0,Name,Наименование,0
+field,"res.group,rule_groups",0,Rules,Правила,0
+field,"res.group,users",0,Users,Пользователи,0
+field,"res.request,act_from",0,From,От,0
+field,"res.request,act_to",0,To,к,0
+field,"res.request,active",0,Active,Действующий,0
+field,"res.request,body",0,Body,Текст,0
+field,"res.request,date_sent",0,Date,Дата,0
+field,"res.request,history",0,History,История,0
+field,"res.request,name",0,Subject,Тема,0
+field,"res.request,number_references",0,Number of References,Количество ссылок,0
+field,"res.request,priority",0,Priority,Приоритет,0
+field,"res.request,rec_name",0,Name,Наименование,0
+field,"res.request,references",0,References,Ссылки,0
+field,"res.request,state",0,State,Состояние,0
+field,"res.request,trigger_date",0,Trigger Date,Дата триггера,0
+field,"res.request.history,act_from",0,From,От,0
+field,"res.request.history,act_to",0,To,к,0
+field,"res.request.history,body",0,Body,Текст,0
+field,"res.request.history,date_sent",0,Date sent,Дата запроса,0
+field,"res.request.history,name",0,Summary,Резюме,0
+field,"res.request.history,number_references",0,References,Ссылки,0
+field,"res.request.history,priority",0,Priority,Приоритет,0
+field,"res.request.history,rec_name",0,Name,Наименование,0
+field,"res.request.history,request",0,Request,Запрос,0
+field,"res.request.history,state",0,State,Состояние,0
+field,"res.request.history,subject",0,Subject,Тема,0
+field,"res.request.link,model",0,Model,Шаблон,0
+field,"res.request.link,name",0,Name,Наименование,0
+field,"res.request.link,priority",0,Priority,Приоритет,0
+field,"res.request.link,rec_name",0,Name,Наименование,0
+field,"res.request.reference,rec_name",0,Name,Наименование,0
+field,"res.request.reference,reference",0,Reference,Ссылка,0
+field,"res.request.reference,request",0,Request,Запрос,0
+field,"res.user,action",0,Home Action,Начальной действия,0
+field,"res.user,active",0,Active,Действующий,0
+field,"res.user,companies",0,Current Companies,Текущие организации,0
+field,"res.user,company",0,Current Company,Текущая организаций,0
+field,"res.user,connections",0,Connections,Соединения,0
+field,"res.user,current_date",0,Default current date,Текущий день,0
+field,"res.user,email",0,Email,Эл.почта,0
+field,"res.user,employee",0,Employee,Сотрудник,0
+field,"res.user,end_period",0,Default End Period,Окончание периода,0
+field,"res.user,groups",0,Groups,Группы,0
+field,"res.user,language",0,Language,Язык,0
+field,"res.user,language_direction",0,Language Direction,Направление языка,0
+field,"res.user,login",0,Login,Имя пользователя,0
+field,"res.user,main_company",0,Main Company,Основная организация,0
+field,"res.user,menu",0,Menu Action,Действия меню,0
+field,"res.user,name",0,Name,Наименование,0
+field,"res.user,password",0,Password,Пароль,0
+field,"res.user,rec_name",0,Name,Наименование,0
+field,"res.user,rule_groups",0,Rules,Правила,0
+field,"res.user,salt",0,Salt,Продвинутый,0
+field,"res.user,signature",0,Signature,Подпись,0
+field,"res.user,start_period",0,Default Start Period,Начала период,0
+field,"res.user,status_bar",0,Status Bar,Строка состояния,0
+field,"res.user,timezone",0,Timezone,Временная зона,0
+field,"res.user,warnings",0,Warnings,Внимание,0
+field,"res.user-res.group,gid",0,Group,Группа,0
+field,"res.user-res.group,rec_name",0,Name,Наименование,0
+field,"res.user-res.group,uid",0,User,Пользователь,0
+field,"res.user.warning,always",0,Always,Всегда,0
+field,"res.user.warning,name",0,Name,Наименование,0
+field,"res.user.warning,rec_name",0,Name,Наименование,0
+field,"res.user.warning,user",0,User,Пользователь,0
+field,"webdav.collection,childs",0,Children,Подчиненый,0
+field,"webdav.collection,domain",0,Domain,Область,0
+field,"webdav.collection,model",0,Model,Шаблон,0
+field,"webdav.collection,name",0,Name,Наименование,0
+field,"webdav.collection,parent",0,Parent,Основной,0
+field,"webdav.collection,rec_name",0,Name,Наименование,0
+field,"workflow,activities",0,Activities,Активность,0
+field,"workflow,model",0,Resource Model,Ресурс Шаблон,0
+field,"workflow,name",0,Name,Наименование,0
+field,"workflow,on_create",0,On Create,Создать,0
+field,"workflow,rec_name",0,Name,Наименование,0
+field,"workflow.activity,action",0,Action,Действие,0
+field,"workflow.activity,flow_start",0,Flow Start,Запустить поток ,0
+field,"workflow.activity,flow_stop",0,Flow Stop,Остановить поток,0
+field,"workflow.activity,in_transitions",0,Incoming transitions,Входящая операция,0
+field,"workflow.activity,join_mode",0,Join Mode,Режим объединения,0
+field,"workflow.activity,kind",0,Kind,Вид,0
+field,"workflow.activity,name",0,Name,Наименование,0
+field,"workflow.activity,out_transitions",0,Outgoing transitions,Исходящая операция,0
+field,"workflow.activity,rec_name",0,Name,Наименование,0
+field,"workflow.activity,signal_send",0,Signal (subflow.*),Сигнал (подпроцесс.*),0
+field,"workflow.activity,split_mode",0,Split Mode,Режим деления,0
+field,"workflow.activity,subflow",0,Subflow,Подпоток,0
+field,"workflow.activity,workflow",0,Workflow,Ход работ (WorkFlow),0
+field,"workflow.instance,overflows",0,Overflow,Переполнение,0
+field,"workflow.instance,rec_name",0,Name,Наименование,0
+field,"workflow.instance,res_id",0,Resource ID,Ресурс ID,0
+field,"workflow.instance,res_type",0,Resource Model,Ресурс Шаблон,0
+field,"workflow.instance,state",0,State,Состояние,0
+field,"workflow.instance,uid",0,User ID,Пользователь ID,0
+field,"workflow.instance,workflow",0,Workflow,Ход работ (WorkFlow),0
+field,"workflow.instance,workitems",0,Workitems,Рабочий пункт,0
+field,"workflow.transition,act_from",0,Source Activity,Источник действия,0
+field,"workflow.transition,act_to",0,Destination Activity,Получатель действия,0
+field,"workflow.transition,condition",0,Condition,Состояние,0
+field,"workflow.transition,group",0,Group Required,Требуется группа,0
+field,"workflow.transition,rec_name",0,Name,Наименование,0
+field,"workflow.transition,signal",0,Signal (button Name),сигнал (Наименование кнопки),0
+field,"workflow.transition,trigger_expr_id",0,Trigger Expr ID,ИД триггера прерывания,0
+field,"workflow.transition,trigger_model",0,Trigger Type,Тип триггера,0
+field,"workflow.transition-workflow.instance,inst_id",0,Instance,Экземпляр,0
+field,"workflow.transition-workflow.instance,rec_name",0,Name,Наименование,0
+field,"workflow.transition-workflow.instance,trans_id",0,Transition,Переход,0
+field,"workflow.trigger,instance",0,Destination Instance,Экземпляр получатель,0
+field,"workflow.trigger,model",0,Model,Шаблон,0
+field,"workflow.trigger,rec_name",0,Name,Наименование,0
+field,"workflow.trigger,res_id",0,Resource ID,Ресурс ID,0
+field,"workflow.trigger,workitem",0,Workitem,Пункт процесса,0
+field,"workflow.workitem,activity",0,Activity,Деятельность,0
+field,"workflow.workitem,instance",0,Instance,Экземпляр,0
+field,"workflow.workitem,rec_name",0,Name,Наименование,0
+field,"workflow.workitem,state",0,State,Состояние,0
+field,"workflow.workitem,subflow",0,Subflow,Подпоток,0
+help,"ekd.document,template",0,Template documents,Шаблон документов,0
+help,"ekd.document.bank.statement,template_bank",0,Template documents,Шаблон документов,0
+help,"ekd.document.head.advancecash,template_advance",0,Template documents,Шаблон документов,0
+help,"ekd.document.head.bank,content",0,Назначение платежа,,0
+help,"ekd.document.head.bank,kbk_indicator",0,"КБК — код классификации доходов бюджетов Российской Федерации
+ из 20 цифр Заполняется только для бюджетных платежей",,0
+help,"ekd.document.head.bank,kind_payment_tax",0,"Тип платежа — двухбуквенный показатель типа платежа в""                u"" соответствии с таблицей ниже. Существует взаимосвязь между типом платежа и КБК.
+НС-Уплата налога или сбора
+ПЛ-Уплата платежа
+ГП-Уплата пошлины
+ВЗ-Уплата взноса
+АВ-Уплата аванса или предоплата
+ПЕ-Уплата пени
+ПЦ-Уплата процентов
+СА-Налоговые санкции, установленные Налоговым кодексом РФ
+АШ-Административные штрафы
+ИШ-Иные штрафы, установленные законодательными или иными нормативными актами",,0
+help,"ekd.document.head.bank,number_doc_base_tax",0,"Номер документа-основания и его дата — номер и дата документа, на основании которого производится уплата налога (сбора). Эти два поля зависят от значения полей «статус плательщика» и «основание платежа».",,0
+help,"ekd.document.head.bank,okato_indicator",0,ОКАТО,,0
+help,"ekd.document.head.bank,payment_details_tax",0,"Основание платежа — код из двух букв, отражающий основание платежа в соответствии с таблицей
+ТП-Платежи текущего года без нарушения сроков
+ЗД-Добровольное погашение задолженности по истекшим налоговым периодам без требования от налогового органа
+БФ-Текущие платежи физических лиц — клиентов банка со своего банковского счета
+ТР-Погашение задолженности по требованию налогового органа
+РС-Погашение рассроченной задолженности
+ОТ-Погашение отсроченной задолженности
+РТ-Погашение реструктурируемой задолженности
+ВУ-Погашение отсроченной задолженности в связи с введением внешнего управления
+ПР-Погашение задолженности, приостановленной ко взысканию
+АП-Погашение задолженности по акту проверки
+АР-Погашение задолженности по исполнительному документу",,0
+help,"ekd.document.head.bank,pole_code",0,Код,,0
+help,"ekd.document.head.bank,pole_detail",0,Назначение платежа,,0
+help,"ekd.document.head.bank,pole_maturity",0,Срок платежа,,0
+help,"ekd.document.head.bank,pole_order",0,"Очер.плат.—очередность платежа от 1 до 6.
+1-По исполнительным документам: возмещение вреда жизни и здоровью, алименты
+2-По исполнительным документам: оплата труда, выплата выходного пособия, выплата авторского вознаграждения
+3-Оплата труда, отчисления в Пенсионный фонд, Фонд социального страхования, фонды обязательного медицинского страхования
+4-Платежи в бюджет и внебюджетные фонды (кроме перечисленных в очередности 3)
+5-Другие платежи по исполнительным документам, не попадающие под очередность 1 и 2
+6-Другие платежи в порядке календарной очередности",,0
+help,"ekd.document.head.bank,pole_reserve",0,Резевное поле,,0
+help,"ekd.document.head.bank,pole_type",0,Вид оплаты,,0
+help,"ekd.document.head.bank,status_payer_tax",0,"01-Плательщик налогов (сборов) — юридическое лицо
+02-Налоговый агент
+03-Сборщик налогов и сборов
+04-Налоговый орган
+05-Территориальные органы Федеральной службы судебных приставов
+06-Участник внешнеэкономической деятельности
+07-Таможенный орган
+08-Плательщик иных платежей в бюджетную систему, кроме платежей, управляемых налоговыми органами
+09-Плательщик налогов (сборов) — индивидуальный предприниматель
+10-Плательщик налогов (сборов) — частный нотариус
+11-Плательщик налогов (сборов) — адвокат, учредивший адвокатский кабинет
+12-Плательщик налогов (сборов) — глава крестьянского (фермерского) хозяйства
+13-Плательщик налогов (сборов) — иное физическое лицо — владелец счета
+14-Плательщик страховых взносов, производящий выплаты физическим лицам
+15-Кредитные организации, оформляющие расчетные документы на перечисление налогов, сборов и иных платежей в бюджет, уплачиваемых физическими лицами без открытия банковского счета",,0
+help,"ekd.document.head.bank,tax_period",0,"Налоговый период — показатель налогового периода для периодического платежа
+ или определенная дата Указывается в формате «XX.NN.YYYY». Все возможные значения
+элементов показателя налогового периода приведены в таблице ниже
+(коды декадных платежей исключены с 2005 года).
+                           XX	NN	                YYYY
+Месячный платеж	        МС	месяц (01–12)	        год (4 цифры)
+Квартальный платеж	        КВ	номер квартала (01–04)	год (4 цифры)
+Полугодовой платеж	        ПЛ	номер полугодия (01–02)	год (4 цифры)
+Годовой платеж	        ГД	00 (два ноля)	        год (4 цифры)
+Платеж по определ. дате  число (01–31)	месяц (01–12)	год (4 цифры)",,0
+help,"ekd.document.head.bank,template_bank",0,Template documents,Шаблон документов,0
+help,"ekd.document.head.cash,template_cash",0,Template documents,Документ,0
+help,"ekd.document.head.request,template_request",0,Template document,Документ,0
+help,"ekd.document.payment,template",0,Template documents,Шаблон документов,0
+help,"ekd.document.payment_term.line,percentage",0,In %,,0
+help,"ekd.document.payment_term.line,sequence",0,Use to order lines in ascending order,,0
+help,"ekd.document.template,code_call",0,"income, expense, ...",,0
+help,"ir.action.act_window,auto_refresh",0,Add an auto-refresh on the view,Добавить авто-обновление в просмотр,0
+help,"ir.action.act_window,limit",0,Default limit for the list view,По умолчанию кол-во записей в списке,0
+help,"ir.action.act_window,search_value",0,Default search criteria for the list view,По умолчанию критерии поиска в списке,0
+help,"ir.action.act_window,window_name",0,Use the action name as window name,"Используйте имя действия, как название окна",0
+help,"ir.action.report,style",0,Define the style to apply on the report.,Определить стиль для применения по этому отчету.,0
+help,"ir.action.wizard,window",0,Run wizard in a new window,Запустить мастера в новом окне,0
+help,"ir.cron,companies",0,Companies registered for this cron,,0
+help,"ir.cron,numbercall",0,"Number of times the function is called,
+a negative number indicates that the function will always be called","Количество раз, когда вызывается функция,
+отрицательное значение означает, что функции будут востребованы",0
+help,"ir.cron,priority",0,"0=Very Urgent
+10=Not urgent","0=Очень срочно
+10=Не актуален",0
+help,"ir.cron,request_user",0,The user who will receive requests in case of failure,"Пользователь, который будет получать запросы в случае неудачи",0
+help,"ir.cron,user",0,The user used to execute this action,"Пользователь, используемый для выполнения этого действия",0
+help,"ir.lang,code",0,RFC 4646 tag: http://tools.ietf.org/html/rfc4646,,0
+help,"ir.model,module",0,Module in which this model is defined,"Модуль, в котором эти модели определяется",0
+help,"ir.model.data,db_id",0,The id of the record in the database.,Идентификатор записи в базе данных.,0
+help,"ir.model.data,fs_id",0,The id of the record as known on the file system.,"Идентификатор записи как известно, в файловой системе.",0
+help,"ir.model.field,module",0,Module in which this field is defined,"Модуль, в котором это поле определяется",0
+help,"ir.rule.group,default_p",0,Add this rule to all users by default,Добавить это правило для всех пользователей по умолчанию,0
+help,"ir.rule.group,global_p",0,"Make the rule global 
+so every users must follow this rule",Сделать правило общим,0
+help,"ir.rule.group,rules",0,The rule is satisfied if at least one test is True,"Это правило выполняется, если по крайней мере одна проверка ернет истину",0
+help,"party.party,employee",0,Check this box if the party is a Employee.,Отметьте если контрагент является сотрудником,0
+model,"company.company,name",0,Company,Учет.орг.,0
+model,"company.company.config.init,name",0,Company Config Init,Конфигурация модуля предприятия,0
+model,"company.employee,name",0,Employee,Сотрудник,0
+model,"company.employee.children,name",0,Children of Employees,Дети сотрдников,0
+model,"company.employee.education,name",0,Education,Образование,0
+model,"company.employee.experience,name",0,Work Experience,Опыт работы (Стаж),0
+model,"company.employee.properties,name",0,Properties,Свойства,0
+model,"company.job_function,name",0,Company Job Function,Должность в компании,0
+model,"ekd.company.department,name",0,Department,Отдел и Структура Компании,0
+model,"ekd.company.department.stock,name",0,Department,Отдел и Структура Компании,0
+model,"ekd.company.employee.account,name",0,Personal account,Лицевой счет,0
+model,"ekd.company.employee.category,name",0,Category,Категории,0
+model,"ekd.company.job_function,name",0,Company Job Function,Должность в компании,0
+model,"ekd.company.staff,name",0,Staff,Штат,0
+model,"ekd.company.staff_list,name",0,Staff list,Штатное расписание,0
+model,"ekd.company.staff_list.payroll,name",0,Staff list Payroll,,0
+model,"ekd.document,name",0,Documents,Документы,0
+model,"ekd.document.bank.statement,name",0,Bank Statement,,0
+model,"ekd.document.head.advancecash,name",0,Documents of advance for money,,0
+model,"ekd.document.head.bank,name",0,Documents of bank,Банковские документы,0
+model,"ekd.document.head.cash,name",0,Documents of cash,Кассовые документы,0
+model,"ekd.document.head.invoice,name",0,Documents (Invoice) ,Счета,0
+model,"ekd.document.head.invoice_goods,name",0,Documents (Invoice) ,Счета,0
+model,"ekd.document.head.invoice_tax,name",0,Documents (Invoice Tax) ,Счета-фатуры,0
+model,"ekd.document.head.letter,name",0,Documents of letter,Письма,0
+model,"ekd.document.head.order,name",0,Documents of order,Приказы,0
+model,"ekd.document.head.request,name",0,Documents of request,Заявки,0
+model,"ekd.document.line.advancecash,name",0,Specification of advance report,,0
+model,"ekd.document.line.advancecash.amounts,name",0,Advance report (amount),,0
+model,"ekd.document.line.payment,name",0,Documents Payment Line,Строка платежа,0
+model,"ekd.document.line.product,name",0,Document specifications of product,,0
+model,"ekd.document.line.product.tax,name",0,Document specifications of product,,0
+model,"ekd.document.line.request,name",0,Document specifications of Request for money ,,0
+model,"ekd.document.payment,name",0,Documents Payment,,0
+model,"ekd.document.payment_term,name",0,Payment Term,Срок платежа,0
+model,"ekd.document.payment_term.line,name",0,Payment Term Line,Строка срока платежа ,0
+model,"ekd.document.payment_term.line.delay,name",0,Payment Term Line Delay,,0
+model,"ekd.document.payment_term.line.delay,name",payment_term_line_delay_end_month,End Month,Конец месяца,0
+model,"ekd.document.payment_term.line.delay,name",payment_term_line_delay_net_days,Net Days,Чистые дни,0
+model,"ekd.document.payment_term.line.type,name",0,Payment Term Line Type,,0
+model,"ekd.document.payment_term.line.type,name",payment_term_line_type_fixed,Fixed,Фиксированная,0
+model,"ekd.document.payment_term.line.type,name",payment_term_line_type_percent,Percentage,Процент,0
+model,"ekd.document.payment_term.line.type,name",payment_term_line_type_remainder,Remainder,,0
+model,"ekd.document.template,name",0,Document Template,Шаблоны документов,0
+model,"ekd.document.wizard.payment.cash,name",0,Document Cash Init,,0
+model,"ekd.document.wizard.payment.init,name",0,Document Cash Init,,0
+model,"ir.action,name",0,Action,Действие,0
+model,"ir.action,name",act_documents_advance_form,Document advance of cash,,0
+model,"ir.action,name",act_documents_advance_form_my,My of advance report,Мои авансовые отчеты,0
+model,"ir.action,name",act_documents_advance_new,New advance report,Новый авансовый отчет,0
+model,"ir.action,name",act_documents_bank_form,Document bank,Банковские документы,0
+model,"ir.action,name",act_documents_cash_date_form,Document Cash (Current date),,0
+model,"ir.action,name",act_documents_cash_expense_form,Document Cash (expense),Кассовый документ (Расход),0
+model,"ir.action,name",act_documents_cash_expense_new,New Expense Cash,Приходный кассовый ордер,0
+model,"ir.action,name",act_documents_cash_expense_period_form,Document Cash (expense),Кассовый документ (Расход),0
+model,"ir.action,name",act_documents_cash_form,Document Cash,Документ (Касса),0
+model,"ir.action,name",act_documents_cash_income_form,Document Cash (Income),Кассовый документ (Приход),0
+model,"ir.action,name",act_documents_cash_income_new,New Income Cash,Расходный кассовый ордер,0
+model,"ir.action,name",act_documents_cash_income_period_form,Document Cash (Income),Кассовый документ (Приход),0
+model,"ir.action,name",act_documents_cash_period_form,Document Cash (Current period),Кассовый документ (Текущий период),0
+model,"ir.action,name",act_documents_for_pay_form,All for payment,,0
+model,"ir.action,name",act_documents_form,Document,Документ,0
+model,"ir.action,name",act_documents_invoice_customer_form,Document of invoice (For Customer),Счет (Для Заказчика),0
+model,"ir.action,name",act_documents_invoice_form,Document of invoice,Счет,0
+model,"ir.action,name",act_documents_invoice_goods_customer_form,Document of invoice goods (For Customer),Для Заказчиков,0
+model,"ir.action,name",act_documents_invoice_goods_form,Document of invoice goods,Товарные документы,0
+model,"ir.action,name",act_documents_invoice_goods_input_new,New Invoice Goods from Supplier,Товарный документ от Поставщика,0
+model,"ir.action,name",act_documents_invoice_goods_internal_form,Document of invoice goods (Internal Move),Внутреннее перемещение,0
+model,"ir.action,name",act_documents_invoice_goods_output_new,New Invoice Goods for Customer,Товарный документ для Заказчика,0
+model,"ir.action,name",act_documents_invoice_goods_supplier_form,Document of invoice goods (From Supplier),От Поставщиков,0
+model,"ir.action,name",act_documents_invoice_input_new,New Invoice from Supplier,Счет от Поставщика,0
+model,"ir.action,name",act_documents_invoice_output_new,New Invoice for Customer,Счет для Заказчика,0
+model,"ir.action,name",act_documents_invoice_supplier_form,Document of invoice (From Supplier),Счет (От Поставщика),0
+model,"ir.action,name",act_documents_invoice_tax_customer_form,Document of invoice_tax (For Customer),Для Заказчика,0
+model,"ir.action,name",act_documents_invoice_tax_form,Document of invoice_tax,Счет-фактура,0
+model,"ir.action,name",act_documents_invoice_tax_input_new,New invoice_tax from Supplier,Счет-фактура от Поставщика,0
+model,"ir.action,name",act_documents_invoice_tax_output_new,New invoice_tax for Customer,Счет-фактура для Заказчика,0
+model,"ir.action,name",act_documents_invoice_tax_supplier_form,Document of invoice_tax (From Supplier),,0
+model,"ir.action,name",act_documents_letter_form,Document letter,,0
+model,"ir.action,name",act_documents_order_form,Document order,Приказы,0
+model,"ir.action,name",act_documents_request_confirm_form,Request on money for payment,,0
+model,"ir.action,name",act_documents_request_form,Document request of cash,Заявка,0
+model,"ir.action,name",act_documents_request_issued_form,Request for at issued,Заявки на выдачу,0
+model,"ir.action,name",act_documents_request_request_form,Request for confirm,Заявки на Подтверждение,0
+model,"ir.action,name",act_documents_template_form,Document Template,Шаблоны,0
+model,"ir.action,name",act_my_documents_request_form,My request,Мои Заявки,0
+model,"ir.action,name",act_payment_term_form,Payment Terms,Сроки платежей,0
+model,"ir.action,name",act_payment_term_form2,Payment Terms,Сроки платежей,0
+model,"ir.action,name",report_document_cash_expense,Document expense of Cash,,0
+model,"ir.action,name",report_document_cash_income,Document Income of Cash ,,0
+model,"ir.action,name",report_document_invoice00_01,Document Invoice (Main Form),,0
+model,"ir.action,name",report_document_invoice00_02,Document Invoice (Other Form),,0
+model,"ir.action,name",report_document_invoice_goods_01,Document Invoice Goods (Main Form),,0
+model,"ir.action,name",report_document_invoice_tax_01,Document Invoice Tax (Main Form),,0
+model,"ir.action,name",report_request_cash,Request of Cash,Заявка,0
+model,"ir.action,name",wizard_document_open,Open Document,Открыть документ,0
+model,"ir.action,name",wizard_document_payment,Payment of document 1,,0
+model,"ir.action,name",wizard_document_payment2,Payment of document 2,,0
+model,"ir.action,name",wizard_document_payment3,Payment of document 3,,0
+model,"ir.action,name",wizard_document_payment4,Payment of document 4,,0
+model,"ir.action,name",wizard_document_tree_open,Document Open (Tree Open),Открыть документ,0
+model,"ir.action-res.group,name",0,Action - Group,Действие - Группы,0
+model,"ir.action.act_window,name",0,Action act window,Действие окна,0
+model,"ir.action.act_window.view,name",0,Action act window view,Действие окна вида,0
+model,"ir.action.keyword,name",0,Action keyword,Действие ключевых слов,0
+model,"ir.action.report,name",0,Action report,Действие отчета,0
+model,"ir.action.url,name",0,Action URL,Действие URL,0
+model,"ir.action.wizard,name",0,Action wizard,Действие мастера,0
+model,"ir.action.wizard_size,name",0,Action Wizard Size,Действие мастера размера,0
+model,"ir.attachment,name",0,Attachment,Вложение,0
+model,"ir.cache,name",0,Cache,Кэш,0
+model,"ir.cron,name",0,Cron,Планировщик,0
+model,"ir.cron-company.company,name",0,ir.cron-company.company,Планировщик,0
+model,"ir.date,name",0,Date,Дата,0
+model,"ir.default,name",0,Default,По умолчанию,0
+model,"ir.dictions,value",cash_ref_invoice,Invoice,Счет,0
+model,"ir.dictions,value",cash_ref_letter,Letter,Письмо,0
+model,"ir.dictions,value",cash_ref_order,Order,Приказ,0
+model,"ir.dictions,value",cash_ref_request,Request on Money,Заявка на деньги,0
+model,"ir.dictions,value",document_template_010,Contract with suppliers,Договора с поставщиками,0
+model,"ir.dictions,value",document_template_020,Contract with customers,Договора с заказчиками,0
+model,"ir.dictions,value",document_template_030,Contract with other organizations,Договора с прочими организациями,0
+model,"ir.dictions,value",document_template_040,Contract with employees,Договора с сотрудниками,0
+model,"ir.dictions,value",document_template_050,Documents of Fixed assets,Основные средства,0
+model,"ir.dictions,value",document_template_060,Cash documents,Кассовые документы,0
+model,"ir.dictions,value",document_template_070,Banking documents,,0
+model,"ir.dictions,value",document_template_080,Request on Monies,,0
+model,"ir.dictions,value",document_template_082,Request on Product,,0
+model,"ir.dictions,value",document_template_084,Request on Service,,0
+model,"ir.dictions,value",document_template_090,Advance Report,Авансовые отчеты,0
+model,"ir.dictions,value",document_template_100,Power of attorney,Доверенность,0
+model,"ir.dictions,value",document_template_110,Invoice from suppliers,Счет от Поставщика,0
+model,"ir.dictions,value",document_template_120,Invoice to customers,Счет для Заказчика,0
+model,"ir.dictions,value",document_template_140,Tax Invoice Input,Счет-фактура (От Поставщиков),0
+model,"ir.dictions,value",document_template_150,Tax Invoice Output,Счет-фактура (Для Заказчиков),0
+model,"ir.dictions,value",document_template_160,Input Goods,Приход товара,0
+model,"ir.dictions,value",document_template_170,Move Goods,Перемещение товара,0
+model,"ir.dictions,value",document_template_180,Output Goods,Расход товара,0
+model,"ir.dictions,value",document_template_190,Orders,Приказы,0
+model,"ir.dictions,value",document_template_200,Letters,Письма,0
+model,"ir.dictions,value",documents_stock_line_product_ref_product,Product,ТМЦ,0
+model,"ir.dictions,value",ekd_document_head_invoice_goods_ref_inovice,Invoice,Счет,0
+model,"ir.dictions,value",ekd_document_head_invoice_goods_ref_inovice_goods,Invoice Goods,Товарный документ,0
+model,"ir.dictions,value",ekd_document_head_invoice_goods_ref_inovice_tax,Invoice Tax,Счет-фактура,0
+model,"ir.dictions,value",ekd_document_head_invoice_ref_inovice,Invoice,Счет,0
+model,"ir.dictions,value",ekd_document_head_invoice_ref_inovice_goods,Invoice Goods,Товарный документ,0
+model,"ir.dictions,value",ekd_document_head_invoice_ref_inovice_tax,Invoice Tax,Счет-фактура,0
+model,"ir.dictions,value",ekd_document_head_invoice_ref_request,Request,Сообщение,0
+model,"ir.dictions,value",ekd_document_head_invoice_tax_ref_inovice,Invoice,Счет,0
+model,"ir.dictions,value",ekd_document_head_invoice_tax_ref_inovice_goods,Invoice Goods,Товарный документ,0
+model,"ir.dictions,value",ekd_document_head_invoice_tax_ref_inovice_tax,Invoice Tax,Счет-фактура,0
+model,"ir.dictions,value",request_invoice_ref_invoice,Invoice,Счет,0
+model,"ir.dictions,value",request_invoice_ref_invoice_other,Invoice (Other),Счета (Прочие),0
+model,"ir.dictions,value",request_invoice_ref_invoice_tax,Invoice Tax,Счет-фактура,0
+model,"ir.dictions,value",request_ref_invoice,Invoice,Счет,0
+model,"ir.dictions,value",request_ref_letter,Letter,Письмо,0
+model,"ir.dictions,value",request_ref_order,Order,Приказ,0
+model,"ir.export,name",0,Export,Экспорт,0
+model,"ir.export.line,name",0,Export line,Экспорт строки,0
+model,"ir.lang,name",0,Language,Язык,0
+model,"ir.model,name",0,Model,Шаблон,0
+model,"ir.model.access,name",0,Model access,Шаблон доступа,0
+model,"ir.model.data,name",0,Model data,Данные шаблона,0
+model,"ir.model.field,name",0,Model field,Шаблон поля,0
+model,"ir.model.field-res.group,name",0,Model Field Group Rel,Связь Поля и Группы,0
+model,"ir.model.print_model_graph.init,name",0,Print Model Graph Init,Печать шаблона графика Init,0
+model,"ir.module.module,name",0,Module,Модуль,0
+model,"ir.module.module.config_wizard.first,name",0,Module Config Wizard First,Мастер конфигурации модуля,0
+model,"ir.module.module.config_wizard.item,name",0,Config wizard to run after installing module,Запустить мастер конфигурации после установки модуля,0
+model,"ir.module.module.dependency,name",0,Module dependency,Зависимости,0
+model,"ir.module.module.install_upgrade.init,name",0,Module Install Upgrade Init,Модуль установить (обновить) инициализация,0
+model,"ir.module.module.install_upgrade.start,name",0,Module Install Upgrade Start,Начать установку (обновление) модуля,0
+model,"ir.property,name",0,Property,Свойства,0
+model,"ir.rule,name",0,Rule,Правило,0
+model,"ir.rule.group,name",0,Rule group,Правило группы,0
+model,"ir.rule.group-res.group,name",0,Rule Group - Group,Правило группы - Группа,0
+model,"ir.rule.group-res.user,name",0,Rule Group - User,Правило группы - Пользователь,0
+model,"ir.sequence,name",0,Sequence,Последовательность,0
+model,"ir.sequence.strict,name",0,Sequence Strict,Строгая последовательность,0
+model,"ir.sequence.type,name",0,Sequence type,Тип последовательности,0
+model,"ir.sequence.type,name",sequence_type_doc_advance,Document of advance,Авансовые Отчеты,0
+model,"ir.sequence.type,name",sequence_type_doc_bank_order,Document of Payment Order,,0
+model,"ir.sequence.type,name",sequence_type_doc_cash_expense,Document of cash expense,Кассовые документы (Расход),0
+model,"ir.sequence.type,name",sequence_type_doc_cash_income,Document of cash income,Документ (Приходный кассовый ордер),0
+model,"ir.sequence.type,name",sequence_type_doc_invoice,Document of Invoice,Документы (Счета),0
+model,"ir.sequence.type,name",sequence_type_doc_invoice_tax,Document of Invoice Tax,Счет-фактура,0
+model,"ir.sequence.type,name",sequence_type_doc_letter_input,Document of Letter input,Письма (Входящие),0
+model,"ir.sequence.type,name",sequence_type_doc_letter_output,Document of Letter output,Письма (Исходящие),0
+model,"ir.sequence.type,name",sequence_type_doc_request_monies,Document of request on money,,0
+model,"ir.sequence.type,name",sequence_type_doc_request_product,Document of request on product,Заявка (ТМЦ),0
+model,"ir.sequence.type,name",sequence_type_doc_request_service,Document of request on service,,0
+model,"ir.sequence.type,name",sequence_type_invoice_goods,Document of Invoice Goods,,0
+model,"ir.sequence.type,name",sequence_type_invoice_internal,Document of Invoice Internal move,,0
+model,"ir.translation,name",0,Translation,Перевод,0
+model,"ir.translation.clean.init,name",0,Clean translation init,Очистить перевод,0
+model,"ir.translation.clean.start,name",0,Clean translation start,Очистить перевод,0
+model,"ir.translation.export.init,name",0,Export translation - language and module,Экспорт перевода - язык и модуль,0
+model,"ir.translation.export.start,name",0,Export translation - file,Экспорт перевода - файл,0
+model,"ir.translation.set_report.init,name",0,Update Report Translation,Обновить переводы отчетов,0
+model,"ir.translation.set_report.start,name",0,Update Report Translation,Обновить переводы отчетов,0
+model,"ir.translation.update.init,name",0,Update translation - language,Обновление перевода - язык,0
+model,"ir.ui.menu,name",0,UI menu,Пользовательское меню,0
+model,"ir.ui.menu,name",menu_all_documents,List of documents,Список Документов,0
+model,"ir.ui.menu,name",menu_conf_documents,Configuration,Конфигурация,0
+model,"ir.ui.menu,name",menu_document_for_pay,All Documents for payment,Все документы на оплату,0
+model,"ir.ui.menu,name",menu_document_pay,Documents for payment,Документы на оплату,0
+model,"ir.ui.menu,name",menu_documents,Document Management,Документы,0
+model,"ir.ui.menu,name",menu_documents_advance,Documents (Advance report),Авансовые отчеты,0
+model,"ir.ui.menu,name",menu_documents_advance_form_all,All Documents of advance report,Все,0
+model,"ir.ui.menu,name",menu_documents_advance_form_my,My of advance report,Авансовые отчеты,0
+model,"ir.ui.menu,name",menu_documents_advance_new,New advance report,Авансовый отчет,0
+model,"ir.ui.menu,name",menu_documents_all,All Documents,Документы,0
+model,"ir.ui.menu,name",menu_documents_bank,Documents of bank,Банковские документы,0
+model,"ir.ui.menu,name",menu_documents_bank_all,All Documents of bank,Все,0
+model,"ir.ui.menu,name",menu_documents_bank_all_expense,All Documents of bank (expense),Все (Расход),0
+model,"ir.ui.menu,name",menu_documents_bank_all_income,All Documents of bank (income),Все (Приход),0
+model,"ir.ui.menu,name",menu_documents_bank_current,Documents of bank (Current period),Текущий период,0
+model,"ir.ui.menu,name",menu_documents_bank_current_expense,Documents of bank (Current period expense),Текущий период (Расход),0
+model,"ir.ui.menu,name",menu_documents_bank_current_income,Documents of bank (Current period income),Текущий период (Приход),0
+model,"ir.ui.menu,name",menu_documents_cash,Documents of Cash,Кассовые документы,0
+model,"ir.ui.menu,name",menu_documents_cash_all,All Documents (Cash),Кассовый документы,0
+model,"ir.ui.menu,name",menu_documents_cash_all_expense,All Documents (Expense),,0
+model,"ir.ui.menu,name",menu_documents_cash_all_income,All Documents (Income),Приход в кассу,0
+model,"ir.ui.menu,name",menu_documents_cash_current,Documents of Cash (Current Period),,0
+model,"ir.ui.menu,name",menu_documents_cash_current_expense,Documents of Cash (Expense),,0
+model,"ir.ui.menu,name",menu_documents_cash_current_income,Documents of Cash (Income),,0
+model,"ir.ui.menu,name",menu_documents_cash_date,Documents of Cash (Current Date),Текущий период,0
+model,"ir.ui.menu,name",menu_documents_cash_expense_new,New Expense Cash,Приходный кассовый ордер,0
+model,"ir.ui.menu,name",menu_documents_cash_income_new,New Income Cash,Расходный кассовый ордер,0
+model,"ir.ui.menu,name",menu_documents_invoice,Documents of invoice,Счета,0
+model,"ir.ui.menu,name",menu_documents_invoice_all,All Documents of invoice,Счета,0
+model,"ir.ui.menu,name",menu_documents_invoice_current,All Documents of invoice (Current Period),,0
+model,"ir.ui.menu,name",menu_documents_invoice_customer,Documents of invoice Payable,,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods,Documents of invoice goods,Товарные документы,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_all,All Documents of invoice goods,Все,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_current,All Documents of invoice goods (Current Period),Текущий период,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_customer,Documents of invoice goods,Для Заказчика,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_income,Documents of invoice goods (from supplier),От Поставщика,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_input_new,New Invoice Goods from Supplier,Товарный документ от Поставщика,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_internal,Documents of invoice goods (Internal Move),Внутреннее перемещение,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_output_new,New Invoice Goods for Customer,Товарный документ для Заказчика,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_received,Documents of invoice goods (for customer),Для Заказчика,0
+model,"ir.ui.menu,name",menu_documents_invoice_goods_supplier,Documents of invoice goods (from supplier),От Поставщика,0
+model,"ir.ui.menu,name",menu_documents_invoice_income,Documents of invoice payable,,0
+model,"ir.ui.menu,name",menu_documents_invoice_input_new,New Invoice from Supplier,Счет от Поставщика,0
+model,"ir.ui.menu,name",menu_documents_invoice_output_new,New Invoice for Customer,Счет для Заказчика,0
+model,"ir.ui.menu,name",menu_documents_invoice_received,Documents of invoice received,,0
+model,"ir.ui.menu,name",menu_documents_invoice_supplier,Documents of invoice Received,,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax,Documents of invoice_tax,Счета - фактуры,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_all,All Documents of invoice_tax,,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_current,All Documents of invoice_tax (Current Period),,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_customer,Documents of invoice_tax Payable,,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_income,Documents of invoice_tax payable,,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_input_new,New invoice_tax from Supplier,Счет-фактура от Поставщика,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_output_new,New invoice_tax for Customer,Счет-фактура для Заказчика,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_received,Documents of invoice_tax received,,0
+model,"ir.ui.menu,name",menu_documents_invoice_tax_supplier,Documents of invoice_tax Received,,0
+model,"ir.ui.menu,name",menu_documents_letter,Letters,Письма,0
+model,"ir.ui.menu,name",menu_documents_letter_all,All Letter,Все Письма,0
+model,"ir.ui.menu,name",menu_documents_letter_all_input,All Input Letter,Все Входящие Письма,0
+model,"ir.ui.menu,name",menu_documents_letter_all_output,All Output Letter,Все Исходящие Письма,0
+model,"ir.ui.menu,name",menu_documents_order,Orders,Приказы,0
+model,"ir.ui.menu,name",menu_documents_order_form,All orders,Все Приказы,0
+model,"ir.ui.menu,name",menu_documents_request,Documents of request,Заявки,0
+model,"ir.ui.menu,name",menu_documents_request_confirm,Request on money for payment,,0
+model,"ir.ui.menu,name",menu_documents_request_form,All request,Все заявки,0
+model,"ir.ui.menu,name",menu_documents_request_issued,Request on money for issued,,0
+model,"ir.ui.menu,name",menu_documents_request_my,My request on money,Заявки,0
+model,"ir.ui.menu,name",menu_documents_request_request,Request on money for confirm,Заявки для подтверждения,0
+model,"ir.ui.menu,name",menu_documents_template_form,Document Template,Шаблоны документов,0
+model,"ir.ui.menu,name",menu_my_documents,My Documents,Мои документы,0
+model,"ir.ui.menu,name",menu_new_documents,New Documents,Новый документ,0
+model,"ir.ui.menu,name",menu_payment_term_form,Payment Terms,Сроки платежей,0
+model,"ir.ui.menu,name",menu_payment_term_form_new,New Payment Term,Новый срок платежа,0
+model,"ir.ui.menu,name",menu_payment_terms_configuration,Payment Terms,Сроки платежей,0
+model,"ir.ui.menu-res.group,name",0,UI Menu - Group,Пользоватльское Меню - Группа,0
+model,"ir.ui.view,name",0,View,Вид,0
+model,"ir.ui.view_sc,name",0,View shortcut,Краткое наименование просмотра,0
+model,"ir.ui.view_tree_width,name",0,View Tree Width,Ширина просмотра списка,0
+model,"res.group,name",0,Group,Группа,0
+model,"res.group,name",group_advance,Documents of advance ,Авансовые отчеты,0
+model,"res.group,name",group_advance_admin,Documents of advance report Administration,,0
+model,"res.group,name",group_bank,Documents of Bank,Банковские документы,0
+model,"res.group,name",group_bank_admin,Documents of Bank Administration,Упарвление (Банковские документы),0
+model,"res.group,name",group_bank_payment,Documents of Bank (Payment),Платежи (Банк),0
+model,"res.group,name",group_cash,Documents of Cash,Кассовые документы,0
+model,"res.group,name",group_cash_admin,Documents of Cash Administration,Управление (Кассовые документы),0
+model,"res.group,name",group_cash_payment,Documents of Cash (Payment),Платежи (Касса),0
+model,"res.group,name",group_document,Documents (all),Документы (Все),0
+model,"res.group,name",group_document_admin,Administration (Documents) ,Управление (Документы),0
+model,"res.group,name",group_document_letter,Documents of letter,Письма,0
+model,"res.group,name",group_document_letter_admin,Administration (Letter) ,Управление (Письма),0
+model,"res.group,name",group_document_order,Documents of order ,Приказы,0
+model,"res.group,name",group_document_order_admin,Administration (Order) ,Упраление (Приказы),0
+model,"res.group,name",group_document_payment,Documents ( Invoice for payment ),,0
+model,"res.group,name",group_document_template_admin,Administration (Documents Template),Управление (Шаблогами документов),0
+model,"res.group,name",group_invoice,Documents of Invoice,Счета,0
+model,"res.group,name",group_invoice_admin,Documents of Invoice Administration,Управление (Счета),0
+model,"res.group,name",group_invoice_goods,Documents of Invoice Goods,Документы (Товарные документы),0
+model,"res.group,name",group_invoice_goods_admin,Documents of Invoice Goods Administration,Управление (Товарные документы),0
+model,"res.group,name",group_invoice_goods_input,Documents of Invoice Goods (Input),Товарные документы (Входящие),0
+model,"res.group,name",group_invoice_goods_output,Documents of Invoice Goods (Output),Товарные документы (Исходящие),0
+model,"res.group,name",group_invoice_input,Documents of Invoice (Input),Счет (Входящие),0
+model,"res.group,name",group_invoice_output,Documents of Invoice (Output),Счета (Исходящие),0
+model,"res.group,name",group_invoice_tax,Documents of Invoice Tax,Счета фактуры,0
+model,"res.group,name",group_invoice_tax_admin,Documents of Invoice Tax Administration,Управление (Счета фактуры),0
+model,"res.group,name",group_invoice_tax_input,Documents of Invoice Tax (Input),,0
+model,"res.group,name",group_invoice_tax_output,Documents of Invoice Tax (Output),,0
+model,"res.group,name",group_my_advance,Create of advance report ,Создать Авансовый отчет,0
+model,"res.group,name",group_my_request,Create of Request,Создать заявку,0
+model,"res.group,name",group_request,Documents of Request,Документы (Заявки),0
+model,"res.group,name",group_request_admin,Documents of request Administration,,0
+model,"res.group,name",group_request_money,Documents of Request on money,Заявки на деньги,0
+model,"res.group,name",group_request_product,Documents of Request on product,Заявки на ТМЦ (товара),0
+model,"res.group,name",group_request_service,Documents of Request on service,Заявки на услуги,0
+model,"res.request,name",0,Request,Запрос,0
+model,"res.request.history,name",0,Request history,История запроса,0
+model,"res.request.link,name",0,Request link,Ссылка запроса,0
+model,"res.request.reference,name",0,Request Reference,Настройка запроса,0
+model,"res.user,name",0,User,Пользователь,0
+model,"res.user-res.group,name",0,User - Group,Пользователь - Группа,0
+model,"res.user.config.init,name",0,User Config Init,Пользователь,0
+model,"res.user.warning,name",0,User Warning,Предупреждение пользователя,0
+model,"webdav.collection,name",0,Collection,Каталог,0
+model,"workflow,name",0,Workflow,Ход работ (WorkFlow),0
+model,"workflow.activity,name",0,Workflow activity,Активный процесс,0
+model,"workflow.instance,name",0,Workflow instance,Экземпляр процесса ,0
+model,"workflow.transition,name",0,Workflow transition,Переход процесса,0
+model,"workflow.transition-workflow.instance,name",0,Workflow Transition - Instance,Процесс переход - экземпляр,0
+model,"workflow.trigger,name",0,Workflow trigger,Триггер процесса,0
+model,"workflow.workitem,name",0,Workflow workitem,Пункт процесс,0
+selection,"company.employee,education",0,1,,0
+selection,"company.employee,education",0,2,,0
+selection,"company.employee,education",0,3,,0
+selection,"company.employee,education",0,4,,0
+selection,"company.employee,education",0,Higher Edu,Высшее,0
+selection,"company.employee,education",0,Primary Edu,Начальное,0
+selection,"company.employee,education",0,Secondary Edu,Среднее,0
+selection,"company.employee,education",0,Special Edu,Среднее-специальное,0
+selection,"company.employee,gender",0,Female,Женщина,0
+selection,"company.employee,gender",0,Male,Мужчина,0
+selection,"company.employee,marital",0,Civil Marriage,Гражданский брак,0
+selection,"company.employee,marital",0,Divorced,В разводе,0
+selection,"company.employee,marital",0,Maried,Женат (Замужем),0
+selection,"company.employee,marital",0,Other,Прочий,0
+selection,"company.employee,marital",0,Unmaried,Не женат (Не замужем),0
+selection,"company.employee,state",0,At project,на проекте,0
+selection,"company.employee,state",0,At work,Работает,0
+selection,"company.employee,state",0,Dismissed,Уволен,0
+selection,"company.employee,state",0,In trip,В командировке,0
+selection,"company.employee,state",0,On leave,В отпуске,0
+selection,"company.employee,state",0,On parental leave,В отпуске по уходу,0
+selection,"company.employee,state",0,Pending,Ожидающий решения,0
+selection,"company.employee,state",0,Reserve,Резерв,0
+selection,"company.employee,state",0,Sick,Болеет,0
+selection,"company.employee.children,gender",0,Female,Женщина,0
+selection,"company.employee.children,gender",0,Male,Мужчина,0
+selection,"company.job_function,pay_period",0,Daily,Ежедневный,0
+selection,"company.job_function,pay_period",0,Monthly,Ежемесячно,0
+selection,"company.job_function,pay_period",0,Other,Прочий,0
+selection,"company.job_function,pay_period",0,Weekly,Еженедельно,0
+selection,"company.job_function,type_timesheet",0,Daily,Ежедневный,0
+selection,"company.job_function,type_timesheet",0,Hourly,Ежечасный,0
+selection,"company.job_function,type_timesheet",0,Other,Прочий,0
+selection,"company.job_function,type_timesheet",0,Piece-rate,Сдельная расценка,0
+selection,"ekd.company.department,state",0,Active,Действующий,0
+selection,"ekd.company.department,state",0,Closed,Закрыто,0
+selection,"ekd.company.department,state",0,Planned,Планируемый,0
+selection,"ekd.company.department,type_department",0,Account,Финансовый,0
+selection,"ekd.company.department,type_department",0,Administrative Division,Административный,0
+selection,"ekd.company.department,type_department",0,Delivery,Доставка,0
+selection,"ekd.company.department,type_department",0,Other,Прочий,0
+selection,"ekd.company.department,type_department",0,Purchase,Закупка,0
+selection,"ekd.company.department,type_department",0,Sales,Продажи,0
+selection,"ekd.company.department,type_department",0,Shop,Магазин,0
+selection,"ekd.company.department,type_department",0,Warehouse,Склад,0
+selection,"ekd.company.department,type_department",0,Workshop,Производственный цех,0
+selection,"ekd.company.employee.account,state",0,Active,Действующий,0
+selection,"ekd.company.employee.account,state",0,Archive,Архив,0
+selection,"ekd.company.employee.account,state",0,Draft,Черновик,0
+selection,"ekd.company.job_function,pay_period",0,Daily,Дневной тариф,0
+selection,"ekd.company.job_function,pay_period",0,Monthly,Месячный оклад,0
+selection,"ekd.company.job_function,pay_period",0,Other,Прочий,0
+selection,"ekd.company.job_function,pay_period",0,Weekly,Недельный тариф,0
+selection,"ekd.company.job_function,type_timesheet",0,Daily,Дневной тариф,0
+selection,"ekd.company.job_function,type_timesheet",0,Hourly,Ежечасный,0
+selection,"ekd.company.job_function,type_timesheet",0,Other,Прочий,0
+selection,"ekd.company.job_function,type_timesheet",0,Piece-rate,Сдельная расценка,0
+selection,"ekd.company.staff,state",0,Active,Действующий,0
+selection,"ekd.company.staff,state",0,Archive,Архив,0
+selection,"ekd.company.staff,state",0,Draft,Черновик,0
+selection,"ekd.company.staff_list,state",0,Active,Действующий,0
+selection,"ekd.company.staff_list,state",0,Archive,Архив,0
+selection,"ekd.company.staff_list,state",0,Draft,Черновик,0
+selection,"ekd.company.staff_list,time_management",0,In Day,В днях,0
+selection,"ekd.company.staff_list,time_management",0,In Hour,В часах,0
+selection,"ekd.company.staff_list.payroll,type_coefficient",0,Percect,,0
+selection,"ekd.company.staff_list.payroll,type_coefficient",0,Rate,Ставка,0
+selection,"ekd.document,direction",0,Input,Входящий,0
+selection,"ekd.document,direction",0,Move,Перемещение,0
+selection,"ekd.document,direction",0,Output,Исходящий,0
+selection,"ekd.document,state",0,Canceled,Отменено,0
+selection,"ekd.document,state",0,Deleted,Удалено,0
+selection,"ekd.document,state",0,Delivered,Доставлено,0
+selection,"ekd.document,state",0,Draft,Черновик,0
+selection,"ekd.document,state",0,Error,Ошибка,0
+selection,"ekd.document,state",0,Import,Импорт,0
+selection,"ekd.document,state",0,In bank,В банке,0
+selection,"ekd.document,state",0,Obtained,Получены,0
+selection,"ekd.document,state",0,Paid,Оплаченный,0
+selection,"ekd.document,state",0,Partial payment,Частично оплачен,0
+selection,"ekd.document,state",0,Payment,Платеж,0
+selection,"ekd.document,state",0,Posted,В учете,0
+selection,"ekd.document,state",0,Printed,Напечатано,0
+selection,"ekd.document,state",0,Sended,Отправлен,0
+selection,"ekd.document,state",0,To pay,На оплату,0
+selection,"ekd.document.bank.statement,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.bank.statement,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.bank.statement,state_doc",0,Error,Ошибка,0
+selection,"ekd.document.bank.statement,state_doc",0,Import,Импорт,0
+selection,"ekd.document.bank.statement,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.advancecash,state_doc",0,Canceled,Отменено,0
+selection,"ekd.document.head.advancecash,state_doc",0,Confirmed,Подтвержденно,0
+selection,"ekd.document.head.advancecash,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.head.advancecash,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.advancecash,state_doc",0,Empty,Пустой,0
+selection,"ekd.document.head.advancecash,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.advancecash,state_doc",0,Request,Сообщение,0
+selection,"ekd.document.head.bank,percent_vat",0,0%,,0
+selection,"ekd.document.head.bank,percent_vat",0,10%,,0
+selection,"ekd.document.head.bank,percent_vat",0,18%,,0
+selection,"ekd.document.head.bank,percent_vat",0,Not included,,0
+selection,"ekd.document.head.bank,state_doc",0,Canceled,Отменено,0
+selection,"ekd.document.head.bank,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.head.bank,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.bank,state_doc",0,Error,Ошибка,0
+selection,"ekd.document.head.bank,state_doc",0,In bank,В банке,0
+selection,"ekd.document.head.bank,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.bank,type_reference",0,CW,,0
+selection,"ekd.document.head.bank,type_reference",0,Electron,Электронно,0
+selection,"ekd.document.head.bank,type_reference",0,Mail,Почтой,0
+selection,"ekd.document.head.bank,type_reference",0,Urgently,,0
+selection,"ekd.document.head.bank,type_transaction",0,Expense,Расходный,0
+selection,"ekd.document.head.bank,type_transaction",0,Expense_tax,Расход (Налоги),0
+selection,"ekd.document.head.bank,type_transaction",0,Income,Приход,0
+selection,"ekd.document.head.bank,type_transaction",0,Income_tax,,0
+selection,"ekd.document.head.cash,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.head.cash,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.cash,state_doc",0,Error,Ошибка,0
+selection,"ekd.document.head.cash,state_doc",0,Payment,Платеж,0
+selection,"ekd.document.head.cash,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.cash,type_transaction",0,Expense,Расходный,0
+selection,"ekd.document.head.cash,type_transaction",0,Income,Приход,0
+selection,"ekd.document.head.invoice,direct_document",0,For Customer,Для Заказчика,0
+selection,"ekd.document.head.invoice,direct_document",0,From Supplier,От Поставщика,0
+selection,"ekd.document.head.invoice,form_payment",0,Bank payment,Безналичные,0
+selection,"ekd.document.head.invoice,form_payment",0,Cash payment,Наличные,0
+selection,"ekd.document.head.invoice,form_payment",0,Internet payment,Интернет платеж,0
+selection,"ekd.document.head.invoice,form_payment",0,Post payment,Денежный Перевод,0
+selection,"ekd.document.head.invoice,kind_payment",0,Down payment,Авансовый платеж,0
+selection,"ekd.document.head.invoice,kind_payment",0,Postpay,Постоплата,0
+selection,"ekd.document.head.invoice,kind_payment",0,Prepayment,Предоплата,0
+selection,"ekd.document.head.invoice,state_doc",0,Canceled,Отменено,0
+selection,"ekd.document.head.invoice,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.head.invoice,state_doc",0,Delivered,Доставлено,0
+selection,"ekd.document.head.invoice,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.invoice,state_doc",0,Obtained,Получены,0
+selection,"ekd.document.head.invoice,state_doc",0,Paid,Оплаченный,0
+selection,"ekd.document.head.invoice,state_doc",0,Partial payment,Частично оплачен,0
+selection,"ekd.document.head.invoice,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.invoice,state_doc",0,Printed,Напечатано,0
+selection,"ekd.document.head.invoice,state_doc",0,Sended,Отправлен,0
+selection,"ekd.document.head.invoice,state_doc",0,To pay,На оплату,0
+selection,"ekd.document.head.invoice,type_product",0,Fixed Assets,Основные средства,0
+selection,"ekd.document.head.invoice,type_product",0,Goods,Товары,0
+selection,"ekd.document.head.invoice,type_product",0,Intangible assets,Нематериальные активы,0
+selection,"ekd.document.head.invoice,type_product",0,Material,Материалы,0
+selection,"ekd.document.head.invoice,type_tax",0,Including,в т.ч.,0
+selection,"ekd.document.head.invoice,type_tax",0,Not VAT,Без НДС,0
+selection,"ekd.document.head.invoice,type_tax",0,Over Amount,Отдельно,0
+selection,"ekd.document.head.invoice_goods,direct_document",0,For Customer,Для Заказчика,0
+selection,"ekd.document.head.invoice_goods,direct_document",0,From Supplier,От Поставщика,0
+selection,"ekd.document.head.invoice_goods,direct_document",0,Internal Move,Перемещение,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Canceled,Отменено,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Delivered,Доставлено,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Obtained,Получено,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Paid,Оплаченный,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Partial payment,Частично оплачен,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Printed,Напечатано,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,Sended,Отправлен,0
+selection,"ekd.document.head.invoice_goods,state_doc",0,To pay,На оплату,0
+selection,"ekd.document.head.invoice_goods,type_product",0,Fixed Assets,Основные средства,0
+selection,"ekd.document.head.invoice_goods,type_product",0,Goods,Товары,0
+selection,"ekd.document.head.invoice_goods,type_product",0,Intangible assets,Нематериальные активы,0
+selection,"ekd.document.head.invoice_goods,type_product",0,Material,Материалы,0
+selection,"ekd.document.head.invoice_goods,type_tax",0,Including,в т.ч.,0
+selection,"ekd.document.head.invoice_goods,type_tax",0,Not VAT,Без НДС,0
+selection,"ekd.document.head.invoice_goods,type_tax",0,Over Amount,Отдельно,0
+selection,"ekd.document.head.invoice_tax,direct_document",0,For Customer,Для Заказчика,0
+selection,"ekd.document.head.invoice_tax,direct_document",0,From Supplier,От Поставщика,0
+selection,"ekd.document.head.invoice_tax,state_doc",0,Canceled,Отменено,0
+selection,"ekd.document.head.invoice_tax,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.invoice_tax,state_doc",0,Posted,В учете,0
+selection,"ekd.document.head.invoice_tax,type_tax",0,Including,в т.ч.,0
+selection,"ekd.document.head.invoice_tax,type_tax",0,Not VAT,Без НДС,0
+selection,"ekd.document.head.invoice_tax,type_tax",0,Over Amount,Отдельно,0
+selection,"ekd.document.head.request,state_doc",0,Confirmed,Подтвержденно,0
+selection,"ekd.document.head.request,state_doc",0,Deleted,Удалено,0
+selection,"ekd.document.head.request,state_doc",0,Done,Выполнено,0
+selection,"ekd.document.head.request,state_doc",0,Draft,Черновик,0
+selection,"ekd.document.head.request,state_doc",0,Empty,Пустой,0
+selection,"ekd.document.head.request,state_doc",0,Paid,Оплаченный,0
+selection,"ekd.document.head.request,state_doc",0,Partially,Частично,0
+selection,"ekd.document.head.request,state_doc",0,Payment,Платеж,0
+selection,"ekd.document.head.request,state_doc",0,Request,Сообщение,0
+selection,"ekd.document.head.request,type_request",0,Money,Денежный,0
+selection,"ekd.document.head.request,type_request",0,Product,ТМЦ,0
+selection,"ekd.document.head.request,type_request",0,Service,Услуги,0
+selection,"ekd.document.line.advancecash,state",0,Confirmed,Подтвержденно,0
+selection,"ekd.document.line.advancecash,state",0,Deleted,Удалено,0
+selection,"ekd.document.line.advancecash,state",0,Done,Выполнено,0
+selection,"ekd.document.line.advancecash,state",0,Draft,Черновик,0
+selection,"ekd.document.line.advancecash,state",0,Fully,Оплачен,0
+selection,"ekd.document.line.advancecash,state",0,Partially,Частично,0
+selection,"ekd.document.line.advancecash,state",0,Payment,Платеж,0
+selection,"ekd.document.line.advancecash,state",0,Request,Сообщение,0
+selection,"ekd.document.line.advancecash,state_advance",0,Confirmed,Подтвержденно,0
+selection,"ekd.document.line.advancecash,state_advance",0,Deleted,Удалено,0
+selection,"ekd.document.line.advancecash,state_advance",0,Draft,Черновик,0
+selection,"ekd.document.line.advancecash,state_advance",0,Posted,В учете,0
+selection,"ekd.document.line.advancecash,state_advance",0,Request,Сообщение,0
+selection,"ekd.document.line.payment,state",0,Deleted,Удалено,0
+selection,"ekd.document.line.payment,state",0,Done,Выполнено,0
+selection,"ekd.document.line.payment,state",0,Payment,Платеж,0
+selection,"ekd.document.line.payment,state",0,Waiting Confirm Bank,Ожидание подтверждения банка,0
+selection,"ekd.document.line.payment,type_transaction",0,Income,Приход,0
+selection,"ekd.document.line.payment,type_transaction",0,Return,Возврат,0
+selection,"ekd.document.line.payment,type_transaction",0,expense,Расход,0
+selection,"ekd.document.line.product,state",0,Canceled,Отменено,0
+selection,"ekd.document.line.product,state",0,Deleted,Удалено,0
+selection,"ekd.document.line.product,state",0,Draft,Черновик,0
+selection,"ekd.document.line.product,state",0,Opened,Открытый,0
+selection,"ekd.document.line.product,state",0,Paid,Оплаченный,0
+selection,"ekd.document.line.product,state",0,Partial payment,Частичная оплата,0
+selection,"ekd.document.line.product,state",0,To pay,На оплату,0
+selection,"ekd.document.line.product,type",0,Comment,Комментарии,0
+selection,"ekd.document.line.product,type",0,Line,Строка,0
+selection,"ekd.document.line.product,type",0,Subtotal,Подитог,0
+selection,"ekd.document.line.product,type",0,Title,,0
+selection,"ekd.document.line.product,type_product",0,Fixed Assets,Основные средства,0
+selection,"ekd.document.line.product,type_product",0,Goods,Товары,0
+selection,"ekd.document.line.product,type_product",0,Intangible assets,Нематериальные активы,0
+selection,"ekd.document.line.product,type_product",0,Material,Материалы,0
+selection,"ekd.document.line.product,type_product",0,Service,Услуги,0
+selection,"ekd.document.line.product,type_tax",0,Including,в т.ч.,0
+selection,"ekd.document.line.product,type_tax",0,Over Amount,Отдельно,0
+selection,"ekd.document.line.product.tax,type_compute",0,Including,в т.ч.,0
+selection,"ekd.document.line.product.tax,type_compute",0,Over Amount,Отдельно,0
+selection,"ekd.document.line.request,state",0,Confirmed,Подтвержденно,0
+selection,"ekd.document.line.request,state",0,Deleted,Удалено,0
+selection,"ekd.document.line.request,state",0,Done,Выполнено,0
+selection,"ekd.document.line.request,state",0,Draft,Черновик,0
+selection,"ekd.document.line.request,state",0,Fully,Оплачен,0
+selection,"ekd.document.line.request,state",0,Partially,Частично,0
+selection,"ekd.document.line.request,state",0,Payment,Платеж,0
+selection,"ekd.document.line.request,state",0,Request,Сообщение,0
+selection,"ekd.document.line.request,type",0,Line,Строка,0
+selection,"ekd.document.line.request,type",0,Subtotal,Подитог,0
+selection,"ekd.document.payment,direction",0,Input,Входящий,0
+selection,"ekd.document.payment,direction",0,Output,Исходящий,0
+selection,"ekd.document.payment_term,form_payment",0,Bank payment,Безналичные,0
+selection,"ekd.document.payment_term,form_payment",0,Cash payment,Наличные,0
+selection,"ekd.document.payment_term,form_payment",0,Internet payment,Интернет платеж,0
+selection,"ekd.document.payment_term,form_payment",0,Post payment,Денежный Перевод,0
+selection,"ekd.document.payment_term,kind_payment",0,Down payment,Авансовый платеж,0
+selection,"ekd.document.payment_term,kind_payment",0,Postpay,Постоплата,0
+selection,"ekd.document.payment_term,kind_payment",0,Prepayment,Предоплата,0
+selection,"ir.action.act_window,view_type",0,Board,Доска,0
+selection,"ir.action.act_window,view_type",0,Form,Форма,0
+selection,"ir.action.act_window,view_type",0,Tree,Вид,0
+selection,"ir.action.keyword,keyword",0,Action form,Действие формы,0
+selection,"ir.action.keyword,keyword",0,Action tree,Действие списка,0
+selection,"ir.action.keyword,keyword",0,Form relate,Форма связана,0
+selection,"ir.action.keyword,keyword",0,Open Graph,Открыть график,0
+selection,"ir.action.keyword,keyword",0,Open tree,Открыть список,0
+selection,"ir.action.keyword,keyword",0,Print form,печать формы,0
+selection,"ir.action.report,extension",0,ODT Document,ODT Документ,0
+selection,"ir.action.report,extension",0,PDF Document,PDF Документ,0
+selection,"ir.cron,interval_type",0,Days,Дни:,0
+selection,"ir.cron,interval_type",0,Hours,Часы,0
+selection,"ir.cron,interval_type",0,Minutes,Минуты,0
+selection,"ir.cron,interval_type",0,Months,Месяцы:,0
+selection,"ir.cron,interval_type",0,Weeks,Недели,0
+selection,"ir.cron,interval_type",0,Work Days,Рабочие дни,0
+selection,"ir.lang,direction",0,Left-to-right,Слева на право,0
+selection,"ir.lang,direction",0,Right-to-left,Справа на лево,0
+selection,"ir.module.module,state",0,Installed,Установлен,0
+selection,"ir.module.module,state",0,Not Installed,Не установлен,0
+selection,"ir.module.module,state",0,To be installed,Для установки,0
+selection,"ir.module.module,state",0,To be removed,Для удаления,0
+selection,"ir.module.module,state",0,To be upgraded,Для обновления,0
+selection,"ir.module.module.config_wizard.item,state",0,Done,Выполнено,0
+selection,"ir.module.module.config_wizard.item,state",0,Open,Открыть,0
+selection,"ir.module.module.dependency,state",0,Installed,Установлен,0
+selection,"ir.module.module.dependency,state",0,Not Installed,Не установлен,0
+selection,"ir.module.module.dependency,state",0,To be installed,Для установки,0
+selection,"ir.module.module.dependency,state",0,To be removed,Для удаления,0
+selection,"ir.module.module.dependency,state",0,To be upgraded,Для обновления,0
+selection,"ir.module.module.dependency,state",0,Unknown,Неизвестно,0
+selection,"ir.translation,type",0,Error,Ошибка,0
+selection,"ir.translation,type",0,Field,Поле,0
+selection,"ir.translation,type",0,Help,Помощь,0
+selection,"ir.translation,type",0,Model,Шаблон,0
+selection,"ir.translation,type",0,ODT,,0
+selection,"ir.translation,type",0,Selection,Выбор,0
+selection,"ir.translation,type",0,View,Вид,0
+selection,"ir.translation,type",0,Wizard Button,Кнопка мастера,0
+selection,"ir.ui.menu,action",0,ir.action.act_window,Действия окна,0
+selection,"ir.ui.menu,action",0,ir.action.report,Действия отчетов,0
+selection,"ir.ui.menu,action",0,ir.action.url,Действия ссылки,0
+selection,"ir.ui.menu,action",0,ir.action.wizard,Действия мастера,0
+selection,"ir.ui.view,type",0,Board,Доска,0
+selection,"ir.ui.view,type",0,Form,Форма,0
+selection,"ir.ui.view,type",0,Graph,Графика,0
+selection,"ir.ui.view,type",0,Tree,Вид,0
+selection,"res.request,priority",0,High,Высокий,0
+selection,"res.request,priority",0,Low,Низкий,0
+selection,"res.request,priority",0,Normal,Нормальный,0
+selection,"res.request,state",0,Chatting,Переписка,0
+selection,"res.request,state",0,Closed,Закрыто,0
+selection,"res.request,state",0,Draft,Черновик,0
+selection,"res.request,state",0,Waiting,Ожидание,0
+selection,"res.request.history,priority",0,High,Высокий,0
+selection,"res.request.history,priority",0,Low,Низкий,0
+selection,"res.request.history,priority",0,Normal,Нормальный,0
+selection,"res.request.history,state",0,Chatting,Переписка,0
+selection,"res.request.history,state",0,Closed,Закрыто,0
+selection,"res.request.history,state",0,Draft,Черновик,0
+selection,"res.request.history,state",0,Waiting,Ожидание,0
+selection,"workflow.activity,join_mode",0,And,и,0
+selection,"workflow.activity,join_mode",0,Xor,исключающее ИЛИ,0
+selection,"workflow.activity,kind",0,Dummy,Временный,0
+selection,"workflow.activity,kind",0,Function,Функция,0
+selection,"workflow.activity,kind",0,Stop All,Остановить все,0
+selection,"workflow.activity,kind",0,Subflow,Подпоток,0
+selection,"workflow.activity,split_mode",0,And,и,0
+selection,"workflow.activity,split_mode",0,Or,или,0
+selection,"workflow.activity,split_mode",0,Xor,исключающее ИЛИ,0
+view,company.company,0,Accounting,Финансовые данные,0
+view,company.company,0,Calendary and Date Payes,Календари и дата платежей,0
+view,company.company,0,Chiefs,Управляющие,0
+view,company.company,0,Companies,Организация,0
+view,company.company,0,Company,Учет.орг.,0
+view,company.company,0,Date Payes,Платежные дни,0
+view,company.company,0,Employees,Сотрудники,0
+view,company.company,0,Preferences,Настройка,0
+view,company.company,0,Reports,Отчеты,0
+view,company.company.config.init,0,Create Company,Создать организацию,0
+view,company.company.config.init,0,You can now add your company into the system.,Теперь вы можете добавить организацию в систему,0
+view,company.employee,0,Account in Bank,Счет в банке,0
+view,company.employee,0,Accounting,Финансовые настройки,0
+view,company.employee,0,Accounts in Banks,Счета в Банках,0
+view,company.employee,0,Address and Contact,Адрес и Способы контакта,0
+view,company.employee,0,Addresses,Адреса,0
+view,company.employee,0,Adopted,Принято,0
+view,company.employee,0,Advanced Properties,Дополнительные свойства,0
+view,company.employee,0,Categories,Категория,0
+view,company.employee,0,Children of Emplyee,Дети сотрудника,0
+view,company.employee,0,Contact Mechanisms,Контактный способы,0
+view,company.employee,0,Dismissal,Уволен,0
+view,company.employee,0,Document,Документ,0
+view,company.employee,0,Education,Образование,0
+view,company.employee,0,Education and Work Experience,Образование и Стаж (Опыт) работы,0
+view,company.employee,0,Employee,Сотрудник,0
+view,company.employee,0,Employess,Сотрудники,0
+view,company.employee,0,Full Name Employee,Фамилия Имя Отчество,0
+view,company.employee,0,General,Основной,0
+view,company.employee,0,Legal Document,Регистрационный документ,0
+view,company.employee,0,Notes,Комментарии,0
+view,company.employee,0,On vacation,В отпуске,0
+view,company.employee,0,Other Properteis,Дополнительные свойства,0
+view,company.employee,0,Restore,Восстановить,0
+view,company.employee,0,State,Статус,0
+view,company.employee,0,VAT,ИНН,0
+view,company.employee,0,Work Experience,Опыт работы (Стаж),0
+view,company.job_function,0,Job Function,Должность,0
+view,company.job_function,0,Notes,Комментарии,0
+view,ekd.company.department,0,Chields,Подчиненые,0
+view,ekd.company.department,0,Employees,Сотрудники,0
+view,ekd.company.department,0,Notes,Комментарии,0
+view,ekd.company.department,0,department,Отдел,0
+view,ekd.company.department.stock,0,Chields,Подчиненые,0
+view,ekd.company.department.stock,0,Employees,Сотрудники,0
+view,ekd.company.department.stock,0,Notes,Комментарии,0
+view,ekd.company.department.stock,0,department.stock,Склад,0
+view,ekd.company.staff_list,0,General,Основной,0
+view,ekd.company.staff_list,0,Notes,Комментарии,0
+view,ekd.company.staff_list,0,Payroll,,0
+view,ekd.company.staff_list,0,Personal,,0
+view,ekd.company.staff_list,0,Staff List,Штатное расписание,0
+view,ekd.document,0,Documents,Документы,0
+view,ekd.document,0,Draft,Черновик,0
+view,ekd.document,0,List of documents,Список Документов,0
+view,ekd.document,0,Post,В учет,0
+view,ekd.document,0,Restore,Восстановить,0
+view,ekd.document.head.advancecash,0,Advance reports,Авансовые Отчеты,0
+view,ekd.document.head.advancecash,0,Cancel,Отменить,0
+view,ekd.document.head.advancecash,0,Confirm,Подтверждать,0
+view,ekd.document.head.advancecash,0,Description,Описание,0
+view,ekd.document.head.advancecash,0,Draft,Черновик,0
+view,ekd.document.head.advancecash,0,Finance Information,Финансовая информация,0
+view,ekd.document.head.advancecash,0,Information,Информация,0
+view,ekd.document.head.advancecash,0,Lines advance,Строки Отчета,0
+view,ekd.document.head.advancecash,0,List of documents,Список Документов,0
+view,ekd.document.head.advancecash,0,Post,В учет,0
+view,ekd.document.head.advancecash,0,Post for Confirm,Послать на подтверждение,0
+view,ekd.document.head.advancecash,0,Product Information,Информация по ТМЦ,0
+view,ekd.document.head.advancecash,0,Request Information,Информация по Заявке,0
+view,ekd.document.head.advancecash,0,Restore,Восстановить,0
+view,ekd.document.head.bank,0,Account move,Операционный журнал,0
+view,ekd.document.head.bank,0,Accounting,Финансовый учет,0
+view,ekd.document.head.bank,0,Bank Payer:,,0
+view,ekd.document.head.bank,0,Bank Recipient:,,0
+view,ekd.document.head.bank,0,Canceling,Отменить,0
+view,ekd.document.head.bank,0,Content payment,,0
+view,ekd.document.head.bank,0,Documents of Bank,Банковские документы,0
+view,ekd.document.head.bank,0,Draft,Черновик,0
+view,ekd.document.head.bank,0,General,Основной,0
+view,ekd.document.head.bank,0,List of documents bank,,0
+view,ekd.document.head.bank,0,Page Book,Страница книги,0
+view,ekd.document.head.bank,0,Payer:,Плательщик,0
+view,ekd.document.head.bank,0,Post,В учет,0
+view,ekd.document.head.bank,0,Post in bank,Послать в банк,0
+view,ekd.document.head.bank,0,Recipient:,Получатель,0
+view,ekd.document.head.bank,0,Restore,Восстановить,0
+view,ekd.document.head.bank,0,Tax data,,0
+view,ekd.document.head.cash,0,Add Number,Присвоить Номер,0
+view,ekd.document.head.cash,0,Application,Приложения,0
+view,ekd.document.head.cash,0,Document Base and Application,Основание и приложения,0
+view,ekd.document.head.cash,0,Document Cash Order,,0
+view,ekd.document.head.cash,0,Documents of Cash,Кассовые документы,0
+view,ekd.document.head.cash,0,Draft,Черновик,0
+view,ekd.document.head.cash,0,Entry,Проводка,0
+view,ekd.document.head.cash,0,General,Основной,0
+view,ekd.document.head.cash,0,Genetal,,0
+view,ekd.document.head.cash,0,Line Analityc Payment,,0
+view,ekd.document.head.cash,0,Notes,Комментарии,0
+view,ekd.document.head.cash,0,Post,В учет,0
+view,ekd.document.head.cash,0,Restore,Восстановить,0
+view,ekd.document.head.cash,0,Total Expense,Всего расход,0
+view,ekd.document.head.cash,0,Total Income,Всего приход,0
+view,ekd.document.head.invoice,0,Add Number,Присвоить Номер,0
+view,ekd.document.head.invoice,0,Cancel,Отменить,0
+view,ekd.document.head.invoice,0,Delivered,Доставлено,0
+view,ekd.document.head.invoice,0,Delivery,Доставка,0
+view,ekd.document.head.invoice,0,Description,Описание,0
+view,ekd.document.head.invoice,0,Finance Information,Финансовая информация,0
+view,ekd.document.head.invoice,0,Information of Product or Documents,Информация о ТМЦ или Документах,0
+view,ekd.document.head.invoice,0,Invoice,Счет,0
+view,ekd.document.head.invoice,0,Invoice Lines,Строки счета,0
+view,ekd.document.head.invoice,0,Invoices,Счета,0
+view,ekd.document.head.invoice,0,Lines Invoice,Строки счета,0
+view,ekd.document.head.invoice,0,Note,Комментарий,0
+view,ekd.document.head.invoice,0,Notes,Комментарии,0
+view,ekd.document.head.invoice,0,Obtained,Получено,0
+view,ekd.document.head.invoice,0,Paid,Оплаченный,0
+view,ekd.document.head.invoice,0,Partial payment,Частичная оплата,0
+view,ekd.document.head.invoice,0,Payments,Платежи,0
+view,ekd.document.head.invoice,0,Posted,В учете,0
+view,ekd.document.head.invoice,0,Print,Печать,0
+view,ekd.document.head.invoice,0,Restore,Восстановить,0
+view,ekd.document.head.invoice,0,Send,Послать,0
+view,ekd.document.head.invoice,0,Tax,Налог,0
+view,ekd.document.head.invoice,0,To Pay,На оплату,0
+view,ekd.document.head.invoice_goods,0,Add Number,Присвоить Номер,0
+view,ekd.document.head.invoice_goods,0,Cancel,Отменить,0
+view,ekd.document.head.invoice_goods,0,Delivered,Доставлено,0
+view,ekd.document.head.invoice_goods,0,Delivery,Доставка,0
+view,ekd.document.head.invoice_goods,0,Description,Описание,0
+view,ekd.document.head.invoice_goods,0,Finance Information,Финансовая информация,0
+view,ekd.document.head.invoice_goods,0,Information of Product or Documents,Информация о ТМЦ или Документах,0
+view,ekd.document.head.invoice_goods,0,Invoice Goods,Товарный документ,0
+view,ekd.document.head.invoice_goods,0,Invoice Lines,Строки товарного документа,0
+view,ekd.document.head.invoice_goods,0,Lines Invoice Goods,,0
+view,ekd.document.head.invoice_goods,0,Note,Комментарий,0
+view,ekd.document.head.invoice_goods,0,Notes,Комментарии,0
+view,ekd.document.head.invoice_goods,0,Obtained,Получены,0
+view,ekd.document.head.invoice_goods,0,Paid,Оплаченный,0
+view,ekd.document.head.invoice_goods,0,Partial payment,Частично оплачен,0
+view,ekd.document.head.invoice_goods,0,Party,Контрагенты,0
+view,ekd.document.head.invoice_goods,0,Payments,Платежи,0
+view,ekd.document.head.invoice_goods,0,Posted,В учете,0
+view,ekd.document.head.invoice_goods,0,Print,Печать,0
+view,ekd.document.head.invoice_goods,0,Restore,Восстановить,0
+view,ekd.document.head.invoice_goods,0,Send,Послать,0
+view,ekd.document.head.invoice_goods,0,Tax,Налог,0
+view,ekd.document.head.invoice_goods,0,To Pay,На оплату,0
+view,ekd.document.head.invoice_tax,0,Add Number,Присвоить Номер,0
+view,ekd.document.head.invoice_tax,0,Cancel,Отменить,0
+view,ekd.document.head.invoice_tax,0,Delivery,Доставка,0
+view,ekd.document.head.invoice_tax,0,Description,Описание,0
+view,ekd.document.head.invoice_tax,0,Finance Information,Финансовая информация,0
+view,ekd.document.head.invoice_tax,0,Information of Product or Documents,Информация о ТМЦ или Документах,0
+view,ekd.document.head.invoice_tax,0,Invoice Tax,Счет-фактура,0
+view,ekd.document.head.invoice_tax,0,Invoice Tax Lines,,0
+view,ekd.document.head.invoice_tax,0,Lines Invoice Tax,Строки Счет-фактуры,0
+view,ekd.document.head.invoice_tax,0,Note,Комментарий,0
+view,ekd.document.head.invoice_tax,0,Notes,Комментарии,0
+view,ekd.document.head.invoice_tax,0,Party,Контрагенты,0
+view,ekd.document.head.invoice_tax,0,Payments,Платежи,0
+view,ekd.document.head.invoice_tax,0,Posted,В учете,0
+view,ekd.document.head.invoice_tax,0,Restore,Восстановить,0
+view,ekd.document.head.invoice_tax,0,Tax,Налог,0
+view,ekd.document.head.letter,0,List of documents,Список Документов,0
+view,ekd.document.head.letter,0,Partner,Контрагенты,0
+view,ekd.document.head.order,0,List of documents,Список Документов,0
+view,ekd.document.head.order,0,Partner,Контрагенты,0
+view,ekd.document.head.request,0,Add Number,Присвоить номер,0
+view,ekd.document.head.request,0,Cancel,Отменить,0
+view,ekd.document.head.request,0,Confirm,Подтверждать,0
+view,ekd.document.head.request,0,Draft,Черновик,0
+view,ekd.document.head.request,0,Finance Information,Финансовая информация,0
+view,ekd.document.head.request,0,General,Основной,0
+view,ekd.document.head.request,0,Information,Информация,0
+view,ekd.document.head.request,0,Lines Request,Строки заявки,0
+view,ekd.document.head.request,0,List of documents,Список Документов,0
+view,ekd.document.head.request,0,Note,Комментарий,0
+view,ekd.document.head.request,0,Notes,Комментарии,0
+view,ekd.document.head.request,0,On payment,На оплату,0
+view,ekd.document.head.request,0,Post for Confirm,Послать на Подтверждение,0
+view,ekd.document.head.request,0,Product Information,Информация по ТМЦ,0
+view,ekd.document.head.request,0,Request of money,Заявка на деньги,0
+view,ekd.document.head.request,0,Total received,Всего получено,0
+view,ekd.document.head.request,0,Total request,Всего по Заявке,0
+view,ekd.document.line.request,0,Finance Information,Финансовая информация,0
+view,ekd.document.line.request,0,Lines Request,Строки заявки,0
+view,ekd.document.line.request,0,Note,Комментарий,0
+view,ekd.document.line.request,0,Product Information,Информация по ТМЦ,0
+view,ekd.document.payment,0,Documents,Документы,0
+view,ekd.document.payment,0,Lines Request,Строки заявки,0
+view,ekd.document.payment,0,List of documents,Список Документов,0
+view,ekd.document.payment,0,Note,Комментарий,0
+view,ekd.document.payment,0,Payment transactions,,0
+view,ekd.document.payment.wizard.cash,0,Create payment of document,Создать платеж по документу,0
+view,ekd.document.payment.wizard.cash,0,Finance Information,Финансовая информация,0
+view,ekd.document.payment.wizard.cash,0,Lines Request,Строки заявки,0
+view,ekd.document.payment.wizard.cash,0,Note,Комментарий,0
+view,ekd.document.payment.wizard.cash,0,Product Information,Информация по ТМЦ,0
+view,ekd.document.payment.wizard.init,0,Create Document Cash,Создать кассовый документ,0
+view,ekd.document.payment.wizard.init,0,Please enter the amount of payment or return and choose a form of payment.,,0
+view,ekd.document.payment_term,0,Payment Term,Срок платежа,0
+view,ekd.document.payment_term,0,Payment Term Line,Строка срока платежа ,0
+view,ekd.document.payment_term,0,Payment Term Lines,Строки срока платежа,0
+view,ekd.document.payment_term,0,Payment Terms,Сроки платежей,0
+view,ekd.document.template,0,Document Template,Шаблоны документов,0
+view,ekd.document.template,0,General,Основной,0
+view,ekd.document.template,0,System setup,Настройка шаблона,0
+view,ekd.document.wizard.payment.cash,0,Create payment of document,Создать платеж по документу,0
+view,ekd.document.wizard.payment.cash,0,Finance Information,Финансовая информация,0
+view,ekd.document.wizard.payment.cash,0,Lines Request,Строки заявки,0
+view,ekd.document.wizard.payment.cash,0,Note,Комментарий,0
+view,ekd.document.wizard.payment.cash,0,Product Information,Информация по ТМЦ,0
+view,ekd.document.wizard.payment.init,0,Create Document Cash,Создать кассовый документ,0
+view,ekd.document.wizard.payment.init,0,Please enter the amount of payment or return and choose a form of payment.,,0
+view,ir.action,0,Action,Действие,0
+view,ir.action,0,General,Основной,0
+view,ir.action,0,Keyword,Ключевое слово,0
+view,ir.action,0,Keywords,Ключевые слова,0
+view,ir.action.act_window,0,General,Основной,0
+view,ir.action.act_window,0,Keyword,Ключевое слово,0
+view,ir.action.act_window,0,Keywords,Ключевые слова,0
+view,ir.action.act_window,0,Open Window,Открыть окно,0
+view,ir.action.act_window,0,Open a Window,Открыть окно,0
+view,ir.action.act_window,0,Views,Виды,0
+view,ir.action.report,0,General,Основной,0
+view,ir.action.report,0,Keyword,Ключевое слово,0
+view,ir.action.report,0,Keywords,Ключевые слова,0
+view,ir.action.report,0,Report,Отчет,0
+view,ir.action.report,0,Report xml,Отчет xml,0
+view,ir.action.url,0,General,Основной,0
+view,ir.action.url,0,Keyword,Ключевое слово,0
+view,ir.action.url,0,Keywords,Ключевые слова,0
+view,ir.action.url,0,URL,Ссылка,0
+view,ir.action.wizard,0,General,Основной,0
+view,ir.action.wizard,0,Keyword,Ключевое слово,0
+view,ir.action.wizard,0,Keywords,Ключевые слова,0
+view,ir.action.wizard,0,Wizard,Мастер,0
+view,ir.action.wizard_size,0,Wizard Size,Мастер размера,0
+view,ir.action.wizard_size,0,Wizard Sizes,Мастер размеров,0
+view,ir.attachment,0,Attachments,Вложения,0
+view,ir.cron,0,Action to trigger,Действие триггера,0
+view,ir.cron,0,Scheduled Action,Запланированное действие,0
+view,ir.cron,0,Scheduled Actions,Запланированные действия,0
+view,ir.default,0,Default,По умолчанию,0
+view,ir.default,0,Defaults,По умолчанию,0
+view,ir.export,0,Exports,Экспортировать,0
+view,ir.lang,0,Date Formatting,Формат даты,0
+view,ir.lang,0,Language,Язык,0
+view,ir.lang,0,Languages,Языки,0
+view,ir.lang,0,Numbers Formatting,Формат числа,0
+view,ir.model,0,Fields Description,Описание полей,0
+view,ir.model,0,Model Description,Описание шаблона,0
+view,ir.model.access,0,Access controls,Контроль доступа,0
+view,ir.model.field,0,Fields,Поля,0
+view,ir.model.print_model_graph.init,0,Print Model Graph,Печать шаблона графика,0
+view,ir.module.module,0,Cancel Installation,Отмена установки,0
+view,ir.module.module,0,Cancel Uninstallation,Отмена удаления,0
+view,ir.module.module,0,Cancel Upgrade,Отмена обновления,0
+view,ir.module.module,0,Dependencies,Зависимые,0
+view,ir.module.module,0,Mark for Installation,Установить,0
+view,ir.module.module,0,Mark for Uninstallation (beta),Удалить (бета),0
+view,ir.module.module,0,Mark for Upgrade,Обновить,0
+view,ir.module.module,0,Module,Модуль,0
+view,ir.module.module,0,Modules,Модули,0
+view,ir.module.module.config_wizard.first,0,Welcome to the module configuration wizard!,Добро пожаловать в мастер конфигурации модуля!,0
+view,ir.module.module.config_wizard.first,0,You will be able to configure your installation,Вы сможете настроить установки,0
+view,ir.module.module.config_wizard.first,0,depending on the modules you have installed.,"в зависимости от модулей, которые вы установили.",0
+view,ir.module.module.config_wizard.item,0,Config Wizard Items,Мастер конфигурации,0
+view,ir.module.module.install_upgrade.init,0,Note that this operation my take a few minutes.,"Обратите внимание, что эта операция может занять несколько минут.",0
+view,ir.module.module.install_upgrade.init,0,System Upgrade,Обновление системы,0
+view,ir.module.module.install_upgrade.init,0,Your system will be upgraded.,Ваша система обновлена,0
+view,ir.module.module.install_upgrade.start,0,System upgrade done,Обновление системы выполнено,0
+view,ir.module.module.install_upgrade.start,0,The modules have been upgraded / installed !,Модули были обновлены / установлен!,0
+view,ir.property,0,Properties,Свойства,0
+view,ir.property,0,Property,Свойства,0
+view,ir.rule,0,Test,Тест,0
+view,ir.rule.group,0,"If there is no test defined, the rule is always satisfied if not global","Если ни одна проверка не определена, правило выполняется всегда, если не глобальная",0
+view,ir.rule.group,0,Record rules,Правила записи,0
+view,ir.rule.group,0,The rule is satisfied if at least one test is True,"Это правило выполняется, если по крайней мере одна проверка ернет истину",0
+view,ir.sequence,0,${day},${day} - День,0
+view,ir.sequence,0,${month},${month} - Месяц,0
+view,ir.sequence,0,${year},${year} - Год,0
+view,ir.sequence,0,Day:,День:,0
+view,ir.sequence,0,"Legend (Placeholders for prefix, suffix)","Легенда (заполнители для префиксов, суффиксов)",0
+view,ir.sequence,0,Month:,Месяц:,0
+view,ir.sequence,0,Sequences,Последовательности,0
+view,ir.sequence,0,Year:,Год:,0
+view,ir.sequence.type,0,Sequence Type,Тип последовательности,0
+view,ir.translation,0,Translations,Переводы,0
+view,ir.translation.clean.init,0,Clean Translations,Очистить переводы,0
+view,ir.translation.clean.init,0,Clean Translations?,Очистить переводы?,0
+view,ir.translation.clean.start,0,Clean Translations,Очистить переводы,0
+view,ir.translation.clean.start,0,Clean Translations Succeed!,Переводы очищены успешно!,0
+view,ir.translation.export.init,0,Export Translation,Экспорт перевода,0
+view,ir.translation.export.start,0,Export Translation,Экспорт перевода,0
+view,ir.translation.set_report.init,0,Set Report Translations,Установить переводы для отчетов,0
+view,ir.translation.set_report.init,0,Synchronize Report Translations?,Синхронизация переводов для отчетов?,0
+view,ir.translation.set_report.start,0,Set Report Translations,Установить переводы для отчетов,0
+view,ir.translation.set_report.start,0,Set Translations Succeed!,Переводы установлены успешно!,0
+view,ir.translation.update.init,0,Synchronize Translations,Синхронизация переводов,0
+view,ir.ui.menu,0,Menu,Меню,0
+view,ir.ui.view,0,View,Вид,0
+view,ir.ui.view_sc,0,Shortcut,Краткое наименование,0
+view,ir.ui.view_tree_width,0,View Tree Width,Ширина просмотра списка,0
+view,ir.ui.view_tree_width,0,Views Tree Width,Ширина вида список,0
+view,party.address,0,Job Function,Должность,0
+view,party.address,0,Notes,Комментарии,0
+view,res.group,0,Group,Группа,0
+view,res.group,0,Groups,Группы,0
+view,res.group,0,Security,Доступ,0
+view,res.request,0,Close,Закрыть,0
+view,res.request,0,References,Ссылки,0
+view,res.request,0,Reply,Ответить,0
+view,res.request,0,Request,Запрос,0
+view,res.request,0,Requests,Запросы,0
+view,res.request,0,Send,Отправить,0
+view,res.request.history,0,Request History,История запросов,0
+view,res.request.link,0,Request Link,Ссылка запроса,0
+view,res.request.reference,0,Request Reference,Настройка запроса,0
+view,res.request.reference,0,Request References,Настройки запроса,0
+view,res.user,0,Companies and Other,Организации и прочее,0
+view,res.user,0,Default Value Period and Current Date,Период и Текущая дата,0
+view,res.user,0,Language and TimeZone,Язык и Временная зона,0
+view,res.user,0,Preferences,Настройка,0
+view,res.user,0,Security,Доступ,0
+view,res.user,0,User,Пользователь,0
+view,res.user,0,Users,Пользователи,0
+view,res.user.config.init,0,Add Users,Добавить пользователей,0
+view,res.user.config.init,0,Be careful that the login must be unique!,Имя пользователя должно быть уникальным!,0
+view,res.user.config.init,0,You can now add some users into the system.,Теперь вы можете добавить пользователей в систему,0
+view,res.user.warning,0,Warning,Внимание,0
+view,res.user.warning,0,Warnings,Внимание,0
+view,webdav.collection,0,Collection,Каталог,0
+view,webdav.collection,0,Collections,Каталоги,0
+view,workflow,0,Workflow,Ход работ (WorkFlow),0
+view,workflow.activity,0,Activity,Деятельность,0
+view,workflow.activity,0,Transition,Переход,0
+view,workflow.activity,0,Transitions,Переходы,0
+view,workflow.instance,0,Instance,Экземпляр,0
+view,workflow.instance,0,Instances,Экземпляры,0
+view,workflow.transition,0,Transition,Переход,0
+view,workflow.transition,0,Transitions,Переходы,0
+view,workflow.workitem,0,Workitem,Пункт процесса,0
+view,workflow.workitem,0,Workitems,Рабочий пункт,0
+wizard_button,"company.company.config,company,add",0,Add,Добавить,0
+wizard_button,"company.company.config,company,end",0,Cancel,Отменить,0
+wizard_button,"company.company.config,init,company",0,Ok,Да,0
+wizard_button,"company.company.config,init,end",0,Cancel,Отменить,0
+wizard_button,"ekd.document.wizard.payment,bank,commit_bank",0,Payment,Платеж,0
+wizard_button,"ekd.document.wizard.payment,bank,end",0,Cancel,Отменить,0
+wizard_button,"ekd.document.wizard.payment,cash,commit_cash",0,Payment,Платеж,0
+wizard_button,"ekd.document.wizard.payment,cash,end",0,Cancel,Отменить,0
+wizard_button,"ekd.document.wizard.payment,init,bank",0,Payment via bank,Платеж через Банк,0
+wizard_button,"ekd.document.wizard.payment,init,cash",0,Payment via cash,Платеж через Кассу,0
+wizard_button,"ekd.document.wizard.payment,init,end",0,Cancel,Отменить,0
+wizard_button,"ir.model.print_model_graph,init,end",0,Cancel,Отмена,0
+wizard_button,"ir.model.print_model_graph,init,print",0,Print,Печать,0
+wizard_button,"ir.module.module.config_wizard,first,end",0,Cancel,Отмена,0
+wizard_button,"ir.module.module.config_wizard,first,wizard",0,Ok,Да,0
+wizard_button,"ir.module.module.install_upgrade,init,end",0,Cancel,Отмена,0
+wizard_button,"ir.module.module.install_upgrade,init,start",0,Start Upgrade,Начать обновление,0
+wizard_button,"ir.module.module.install_upgrade,start,menu",0,Ok,Да,0
+wizard_button,"ir.translation.clean,init,end",0,Cancel,Отмена,0
+wizard_button,"ir.translation.clean,init,start",0,Start,Начать,0
+wizard_button,"ir.translation.clean,start,end",0,Ok,Да,0
+wizard_button,"ir.translation.export,init,end",0,Cancel,Отмена,0
+wizard_button,"ir.translation.export,init,start",0,Start Export,Начать экспорт,0
+wizard_button,"ir.translation.export,start,end",0,Close,Закрыть,0
+wizard_button,"ir.translation.set_report,init,end",0,Cancel,Отмена,0
+wizard_button,"ir.translation.set_report,init,start",0,Start Update,Начать обновление,0
+wizard_button,"ir.translation.set_report,start,end",0,Ok,Да,0
+wizard_button,"ir.translation.update,init,end",0,Cancel,Отмена,0
+wizard_button,"ir.translation.update,init,start",0,Start Update,Начать обновление,0
+wizard_button,"res.user.config,init,end",0,Cancel,Отменить,0
+wizard_button,"res.user.config,init,user",0,Ok,Да,0
+wizard_button,"res.user.config,user,add",0,Add,Добавить,0
+wizard_button,"res.user.config,user,end",0,End,Конец,0

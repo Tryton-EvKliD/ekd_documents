@@ -1,1 +1,209 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_product_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_account_stock_admin">
+                    <field name="name">Documents of Stock Administration</field>
+        </record>
+
+        <record model="res.group" id="group_account_stock">
+                    <field name="name">Documents of Stock</field>
+        </record>
+
+        <record model="res.group" id="group_account_stock_bill">
+                    <field name="name">Documents of Stock Bill</field>
+        </record>
+
+        <record model="res.group" id="group_account_stock_invoice">
+                    <field name="name">Documents of Stock Invoice</field>
+        </record>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_stock_form" model="ir.ui.view">
+            <field name="model">ekd.document.stock</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="List of documents" >
+                        <label name="company" />
+                        <field name="company" select="1"/>
+                        <label name="template" />
+                        <field name="template" widget="selection" select="1"/>
+                        <label name="number_our"/>
+                        <field name="number_our" select="1"/>
+                        <label name="number_in"/>
+                        <field name="number_in" select="1"/>
+                        <label name="date_document"/>
+                        <field name="date_document" select="1"/>
+                        <label name="currency"/>
+                        <field name="currency"/>
+                        <label name="from_party"/>
+                        <field name="from_party" select="1"/>
+                        <label name="to_party"/>
+                        <field name="to_party" select="1"/>
+                        <label name="amount"/>
+                        <field name="amount"/>
+                        <label name="note"/>
+                        <field name="note" spell="Eval('company_lang')"/>
+                        <label name="date_account" />
+                        <field name="date_account" select="1"/>
+                        <label name="state"/>
+                        <field name="state" select="1"/>
+                        <field name="currency_digits" invisible="1" />
+                        <field name="line" colspan="8" >
+                            <form string="Account Entry Lines">
+                                <group col="2" colspan="2" id="product">
+                                    <separator colspan="2" string="Product Information" id="sep_product"/>
+                                    <label name="product"/>
+                                    <field name="product"/>
+                                    <label name="unit"/>
+                                    <field name="unit"/>
+                                    <label name="quantity"/>
+                                    <field name="quantity"/>
+                                    <label name="unit_price"/>
+                                    <field name="unit_price"/>
+                                </group>
+                                <group col="2" colspan="2" id="description">
+                                    <separator colspan="2" string="Description" id="sep_descr"/>
+                                    <field name="description"/>
+                                    <field name="note"/>
+                                </group>
+                                <group col="2" colspan="2" id="amount">
+                                    <separator colspan="2" string="Finance Information" id="sep_amount"/>
+                                    <label name="amount"/>
+                                    <field name="amount"/>
+                                    <label name="currency"/>
+                                    <field name="currency"/>
+                                    <label name="state" />
+                                    <field name="state" />
+                                    <group col="2" colspan="2" id="button">
+                                        <button name="button_posted" states="{'invisible': Not(Equal(Eval('state'), 'draft'))}" string="Posted" type="object"/>
+                                        <button name="button_cancel" states="{'invisible': Not(Equal(Eval('state'), 'posted'))}" string="Cancel" type="object"/>
+                                        <button name="button_deleted" states="{'invisible': Not(Equal(Eval('state'), 'deleted'))}" string="Restore" type="object"/>
+                                    </group>
+                               </group>
+                               <field name="unit_digits" invisible="1" colspan="4"/>
+                               <field name="currency_digits" invisible="1" colspan="4"/>
+                           </form>
+                           <tree>
+                                <field name="product"/>
+                                <field name="description"/>
+                                <field name="quantity"/>
+                                <field name="unit"/>
+                                <field name="unit_price"/>
+                                <field name="amount"/>
+                                <field name="currency"/>
+                                <field name="state" />
+                                <field name="currency_digits" tree_invisible="1" />
+                                <field name="unit_digits" tree_invisible="1" />
+                           </tree>
+                        </field>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_stock_tree" model="ir.ui.view">
+            <field name="model">ekd.document.stock</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Party">
+                    <field name="template" select="1"/>
+                    <field name="number_our" select="1"/>
+                    <field name="number_in" select="1"/>
+                    <field name="date_document" select="1"/>
+                    <field name="date_account" select="1"/>
+                    <field name="line" select="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_stock_form">
+            <field name="name">Document of stock</field>
+            <field name="res_model">ekd.document.stock</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_stock_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_stock_tree"/>
+            <field name="act_window" ref="act_documents_stock_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_stock_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_stock_form"/>
+            <field name="act_window" ref="act_documents_stock_form"/>
+        </record>
+
+        <menuitem name="Documents of stock"  sequence="28" groups="group_account_stock,group_account_stock_admin"
+            id="menu_documents_stock" parent="menu_documents"/>
+
+        <menuitem
+            name="All Documents of stock" groups="group_account_stock,group_account_stock_admin"
+            action="act_documents_stock_form" id="menu_documents_stock_all" parent="menu_documents_stock"/>
+
+        <menuitem
+            name="Documents of stock Income" groups="group_account_stock,group_account_stock_admin"
+            action="act_documents_stock_form" id="menu_documents_stock_all_income" parent="menu_documents_stock_all"/>
+
+        <menuitem
+            name="Documents of stock Expense" groups="group_account_stock,group_account_stock_admin"
+            action="act_documents_stock_form" id="menu_documents_stock_all_expense" parent="menu_documents_stock_all"/>
+
+        <menuitem
+            name="All Documents of stock (Current Period)" groups="group_account_stock,group_account_stock_admin"
+            action="act_documents_stock_form" id="menu_documents_stock_current" parent="menu_documents_stock"/>
+
+        <menuitem
+            name="Documents of stock Income" groups="group_account_stock,group_account_stock_admin"
+            action="act_documents_stock_form" id="menu_documents_stock_income" parent="menu_documents_stock_current"/>
+
+        <menuitem
+            name="Documents of stock expense" groups="group_account_stock,group_account_stock_admin"
+            action="act_documents_stock_form" id="menu_documents_stock_expense" parent="menu_documents_stock_current"/>
+
+        <record model="ir.model.access" id="access_account_stock">
+            <field name="model" search="[('model', '=', 'ekd.document.stock')]"/>
+            <field name="group" ref="group_account_stock"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_account_stock_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.head.stock')]"/>
+            <field name="group" ref="group_account_stock_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_invoice">
+            <field name="name">Document of Invoice</field>
+            <field name="code">ekd.document.sequence.invoice</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_account_ru_admin'))]"/>
+        </record>
+        <record model="ir.sequence.type" id="sequence_type_doc_invoice_tax">
+            <field name="name">Document of Invoice Tax</field>
+            <field name="code">ekd.document.sequence.invoice_tax</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_account_ru_admin'))]"/>
+        </record>
+        <record model="ir.sequence.type" id="sequence_type_doc_invoice_goods">
+            <field name="name">Document of Invoice Goods</field>
+            <field name="code">ekd.document.sequence.invoice_goods</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_account_ru_admin'))]"/>
+        </record>
+
+    </data>
+</tryton>

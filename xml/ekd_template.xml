@@ -1,1 +1,172 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_template.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data noupdate="0">
+            <record id="documents_cash_income_0100" model="ekd.document.template">
+                    <field name="type_account">cash_documents</field>
+                    <field name="name">Приходный кассовый ордер</field>
+                    <field name="code_call">income_cash</field>
+                    <field name="shortcut">ПКО</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="documents_cash_expense_0100" model="ekd.document.template">
+                    <field name="type_account">cash_documents</field>
+                    <field name="name">Расходный кассовый ордер</field>
+                    <field name="code_call">expense_cash</field>
+                    <field name="shortcut">РКО</field>
+                    <field name="sort">020</field>
+            </record>
+            <record id="documents_bank_010_0100" model="ekd.document.template">
+                    <field name="type_account">bank_documents</field>
+                    <field name="name">Платежное поручение (от заказчиков)</field>
+                    <field name="code_call">income_bank</field>
+                    <field name="shortcut">П/П(приход)</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="documents_bank_020_0100" model="ekd.document.template">
+                    <field name="type_account">bank_documents</field>
+                    <field name="name">Платежное поручение (оплата поставщикам)</field>
+                    <field name="code_call">expense_bank</field>
+                    <field name="shortcut">П/П(расход)</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="documents_invoice0_010_0100" model="ekd.document.template">
+                    <field name="type_account">invoice_expense</field>
+                    <field name="name">Счет от поставщика</field>
+                    <field name="code_call">invoice_expense</field>
+                    <field name="shortcut">Счет(поставщик)</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="documents_invoice0_020_0100" model="ekd.document.template">
+                    <field name="type_account">invoice_revenue</field>
+                    <field name="name">Счет для заказчика</field>
+                    <field name="code_call">invoice_revenue</field>
+                    <field name="shortcut">Счет(заказчик)</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="documents_invoice0_030_0100" model="ekd.document.template">
+                    <field name="type_account">invoice_expense</field>
+                    <field name="name">Счет прочие</field>
+                    <field name="code_call">invoice_expense</field>
+                    <field name="shortcut">Счет(прочие)</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="documents_invoice1_010_0100" model="ekd.document.template">
+                    <field name="type_account">input_goods</field>
+                    <field name="name">Накладная на товар (входящая)</field>
+                    <field name="shortcut">Накладная (от поставщика)</field>
+                    <field name="code_call">invoice_goods_input</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="documents_invoice1_010_0200" model="ekd.document.template">
+                    <field name="type_account">input_goods</field>
+                    <field name="name">Акт выполненых работ (от поставщика)</field>
+                    <field name="shortcut">Акт выпол. работ</field>
+                    <field name="code_call">invoice_goods_input</field>
+                    <field name="sort">020</field>
+            </record>
+
+            <record id="documents_invoice1_020_0100" model="ekd.document.template">
+                    <field name="type_account">move_goods</field>
+                    <field name="name">Накладная на перемещение товара</field>
+                    <field name="shortcut">Накладная на перемещение товара</field>
+                    <field name="code_call">invoice_goods_move</field>
+                    <field name="sort">020</field>
+            </record>
+
+            <record id="documents_invoice1_030_0100" model="ekd.document.template">
+                    <field name="type_account">output_goods</field>
+                    <field name="name">Накладная на товар (исходящая)</field>
+                    <field name="shortcut">Накладная (исход.)</field>
+                    <field name="code_call">invoice_goods_output</field>
+                    <field name="sort">030</field>
+            </record>
+
+            <record id="documents_invoice1_030_0200" model="ekd.document.template">
+                    <field name="type_account">output_goods</field>
+                    <field name="name">Акт выполненых работ (для заказчика)</field>
+                    <field name="shortcut">Акт выпол. работ</field>
+                    <field name="code_call">invoice_goods_input</field>
+                    <field name="sort">020</field>
+            </record>
+
+            <record id="documents_invoice2_010_0100" model="ekd.document.template">
+                    <field name="type_account">invoice_tax_input</field>
+                    <field name="name">Счет-фактура (от поставщиков)</field>
+                    <field name="shortcut">Счет-факт.(постав.)</field>
+                    <field name="code_call">invoice_tax_input</field>
+                    <field name="sort">010</field>
+            </record>
+            <record id="documents_invoice2_020_0100" model="ekd.document.template">
+                    <field name="type_account">invoice_tax_output</field>
+                    <field name="name">Счет-фактура (заказчикам)</field>
+                    <field name="shortcut">Счет-факт.(заказ.)</field>
+                    <field name="code_call">invoice_tax_output</field>
+                    <field name="sort">020</field>
+            </record>
+
+            <record id="documents_advance_010_0100" model="ekd.document.template">
+                    <field name="type_account">advance_report</field>
+                    <field name="name">Авансовый отчет</field>
+                    <field name="code_call">advance_report</field>
+                    <field name="shortcut">Аванс.отчет</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="documents_power_of_attorney_010_0100" model="ekd.document.template">
+                    <field name="type_account">power_of_attorney</field>
+                    <field name="name">Доверенность</field>
+                    <field name="code_call">power_of_attorney</field>
+                    <field name="shortcut">Доверен.</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_orders_010" model="ekd.document.template">
+                    <field name="type_account">orders</field>
+                    <field name="name">Приказ</field>
+                    <field name="shortcut">Приказ</field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_letters_010" model="ekd.document.template">
+                    <field name="type_account">letters</field>
+                    <field name="name">Письма исходящее</field>
+                    <field name="shortcut">Письмо исходящее</field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">070</field>
+            </record>
+            <record id="doc_letters_020" model="ekd.document.template">
+                    <field name="type_account">letters</field>
+                    <field name="name">Письмо входящее</field>
+                    <field name="shortcut">Письмо входящее</field>
+                    <field name="active" eval="True"/>
+                    <field name="sort">080</field>
+            </record>
+
+            <record id="doc_request_money_010" model="ekd.document.template">
+                    <field name="type_account">request_monies</field>
+                    <field name="name">Заявка на деньги</field>
+                    <field name="code_call">request_monies</field>
+                    <field name="shortcut">Заявка (деньги)</field>
+                    <field name="sort">010</field>
+            </record>
+
+            <record id="doc_request_service_010" model="ekd.document.template">
+                    <field name="type_account">request_service</field>
+                    <field name="name">Заявка на услуги</field>
+                    <field name="code_call">request_service</field>
+                    <field name="shortcut">Заявка (услуги)</field>
+                    <field name="sort">020</field>
+            </record>
+            <record id="doc_request_product_010" model="ekd.document.template">
+                    <field name="type_account">request_product</field>
+                    <field name="name">Заявка на ТМЦ</field>
+                    <field name="code_call">request_product</field>
+                    <field name="shortcut">Заявка (ТМЦ)</field>
+                    <field name="sort">030</field>
+            </record>
+
+    </data>
+</tryton>

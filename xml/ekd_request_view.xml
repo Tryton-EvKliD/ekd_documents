@@ -1,1 +1,337 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_request_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+        <!-- Группа управление заявками -->
+        <record model="res.group" id="group_request_admin">
+                    <field name="name">Request Administration</field>
+        </record>
+        <!-- Группа доступа к заявкам только чтение -->
+        <record model="res.group" id="group_request">
+                    <field name="name">Request</field>
+        </record>
+        <!-- Группа создания своих заявок -->
+        <record model="res.group" id="group_my_request">
+                    <field name="name">Create of Request</field>
+        </record>
+
+        <!-- Группа заявки на деньги (запись исправление)-->
+        <record model="res.group" id="group_request_money">
+                    <field name="name">Request on money</field>
+        </record>
+
+        <!-- Группа заявки на ТМЦ -->
+        <record model="res.group" id="group_request_product">
+                    <field name="name">Documents of Request on product</field>
+        </record>
+
+        <!-- Группа заявки на услуги -->
+        <record model="res.group" id="group_request_service">
+                    <field name="name">Documents of Request on service</field>
+        </record>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+        <record id="view_documents_request_line_form" model="ir.ui.view">
+            <field name="model">ekd.document.line.request</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="Lines Request">
+                        <field name="currency_digits" invisible="1" colspan="4"/>
+                        <group col="6" colspan="4" id="product">
+                            <separator colspan="6" string="Product Information" id="sep_product"/>
+                            <label name="product"/>
+                            <field colspan="5" name="product"/>
+                            <label name="uom"/>
+                            <field name="uom"/>
+                            <label name="quantity"/>
+                            <field name="quantity"/>
+                            <label name="unit_price"/>
+                            <field name="unit_price"/>
+                            <label name="name"/>
+                            <field colspan="5" name="name"/>
+                        </group>
+                        <group col="2" colspan="2" id="gr_amount">
+                            <separator colspan="2" string="Finance Information" id="sep_amount"/>
+                            <label name="amount_request"/>
+                            <field name="amount_request"/>
+                            <label name="amount_received"/>
+                            <field name="amount_received"/>
+                            <label name="state" />
+                            <field name="state" />
+                       </group>
+                        <group colspan="4" id="note">
+                            <separator colspan="4" string="Note" id="sep_note"/>
+                            <field name="note"/>
+                        </group>
+                   </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_request_line_tree" model="ir.ui.view">
+            <field name="model">ekd.document.line.request</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                   <tree>
+                        <field name="name"/>
+                        <field name="amount_request"/>
+                        <field name="amount_received"/>
+                        <field name="state" />
+                        <field name="currency_digits" tree_invisible="1"/>
+                   </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_request_form" model="ir.ui.view">
+            <field name="model">ekd.document.head.request</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="List of documents" >
+                    <group col="10" id="head">
+                        <group col="8" colspan="8" id="doc_head">
+                            <group col="6" colspan="8" id="company">
+                                <label name="company" />
+                                <field name="company" select="1"/>
+                                <label name="type_request" />
+                                <field name="type_request" />
+                            </group>
+                            <group col="8" colspan="8" id="doc_head">
+                                <label name="template_request" />
+                                <field name="template_request"/>
+                                <group colspan="2" col="2" id="gr_number">
+                                    <label name="number_our"/>
+                                    <field name="number_our" />
+                                    <button name="button_add_number" colspan="2"
+                                        states="{'invisible': Bool(Eval('number_our'))}" 
+                                        string="Add Number" type="object"
+                                        />
+                                </group>
+                                <label name="date_document" />
+                                <field name="date_document" select="1"/>
+                            </group>
+                        </group>
+                        <group col="2" colspan="2" id="head">
+                                <label name="date_issued" />
+                                <field name="date_issued" />
+                                <label name="state_doc"/>
+                                <field name="state_doc"/>
+                                <group col="1" colspan="2" id="head">
+                                    <button colspan="2" name="button_draft" states="{'invisible': Not(Equal(Eval('state_doc'), 'empty'))}"
+                                            string="Draft" type="object"/>
+                                    <button colspan="2" name="button_request" states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}"
+                                            string="Post for Confirm" type="object"/>
+                                    <button colspan="2" name="button_confirmed" states="{'invisible': Not(Equal(Eval('state_doc'), 'request'))}"
+                                            string="Confirm" type="object"/>
+                                    <button colspan="2" name="button_payment" states="{'invisible': Not(Equal(Eval('state_doc'), 'confirmed'))}"
+                                            string="On payment" type="object"/>
+                                    <button colspan="2" name="button_cancel" states="{'invisible': Not(In(Eval('state_doc'), ['confirmed', 'request', 'payment']))}" 
+                                            string="Cancel" type="object"/>
+                                </group>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="General" id="general">
+                            <group col="8" colspan="8" id="footer">
+                                <group col="2" colspan="4" id="spec">
+                                    <separator colspan="2" string="Information" id="sep_inform"/>
+                                    <label name="document_ref"/>
+                                    <field name="document_ref" />
+                                    <label name="invoice_ref"/>
+                                    <field name="invoice_ref" />
+                                    <label name="manager" />
+                                    <field name="manager" />
+                                    <label name="employee" />
+                                    <field name="employee" />
+                                    <label name="recipient" />
+                                    <field name="recipient" />
+                                </group>
+                                <group col="2" colspan="2" id="amount">
+                                    <separator colspan="2" string="Finance Information" id="sep_amount"/>
+                                    <label name="amount_request"/>
+                                    <field name="amount_request"/>
+                                    <label name="amount_received"/>
+                                    <field name="amount_received"/>
+                                </group>
+                                <group col="2" colspan="2" id="invisible">
+                                    <field name="currency" invisible="1"/>
+                                    <field name="currency_digits" invisible="1"/>
+                                </group>
+                            </group>
+                            <group col="2" colspan="8" id="note">
+                                <separator colspan="2" string="Notes" id="sep_function"/>
+                                <field colspan="2" name="note"/>
+                            </group>
+                        </page>
+                        <page string="Lines Request"  id="lines">
+                            <field name="lines" mode="tree,form" colspan="8" >
+<!-->
+                                <form string="Lines Request">
+                                    <field name="currency_digits" invisible="1"/>
+                                    <group col="6" colspan="2" id="product">
+                                        <separator colspan="4" string="Product Information" id="sep_product"/>
+                                        <label name="analytic"/>
+                                        <field colspan="5" name="analytic"/>
+                                        <label name="product"/>
+                                        <field colspan="5" name="product"/>
+                                        <label name="uom"/>
+                                        <field name="uom"/>
+                                        <label name="quantity"/>
+                                        <field name="quantity"/>
+                                        <label name="unit_price"/>
+                                        <field name="unit_price"/>
+                                        <label name="name"/>
+                                        <field colspan="5" name="name"/>
+                                    </group>
+                                    <group col="2" colspan="2" id="gr_amount">
+                                        <separator colspan="2" string="Finance Information" id="sep_amount"/>
+                                        <label name="amount_request"/>
+                                        <field name="amount_request"/>
+                                        <label name="amount_received"/>
+                                        <field name="amount_received"/>
+                                        <label name="state" />
+                                        <field name="state" />
+                                   </group>
+                                    <group colspan="4" id="note">
+                                        <separator colspan="4" string="Note" id="sep_note"/>
+                                        <field name="note"/>
+                                    </group>
+                               </form>
+                               <tree>
+                                    <field name="name"/>
+                                    <field name="amount_request"/>
+                                    <field name="amount_received"/>
+                                    <field name="state" />
+                                    <field name="currency_digits" tree_invisible="1"/>
+                               </tree>
+<-->
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_request_tree" model="ir.ui.view">
+            <field name="model">ekd.document.head.request</field>
+            <field name="type">tree</field>
+            <field name="domain">[('state', '=', Get(Eval('context', {}), 'state_doc', 'payment'))]</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Request of money">
+                    <field name="template" select="1"/>
+                    <field name="number_our" select="1"/>
+                    <field name="date_document" select="1"/>
+                    <field name="date_account" select="1"/>
+                    <field name="lines" select="1"/>
+                    <field name="manager"/>
+                    <field name="employee"/>
+                    <field name="amount_request" sum="Total request"/>
+                    <field name="amount_received" sum="Total received"/>
+                    <field name="state" select="1"/>
+                    <field name="currency" tree_invisible="1"/>
+                    <field name="currency_digits" tree_invisible="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_request_form">
+            <field name="name">Document request of cash</field>
+            <field name="res_model">ekd.document.head.request</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('state', '!=', Get(Eval('context', {}), 'state_doc', 'payment'))]</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_request_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_request_tree"/>
+            <field name="act_window" ref="act_documents_request_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_request_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_request_form"/>
+            <field name="act_window" ref="act_documents_request_form"/>
+        </record>
+
+        <menuitem name="Documents of request"  sequence="25" 
+            groups="group_request,group_request_admin"
+            id="menu_documents_request" parent="menu_documents"/>
+
+        <menuitem name="All request" groups="group_request_admin"
+            action="act_documents_request_form" 
+            id="menu_documents_request_form" parent="menu_documents_request"/>
+
+        <record model="ir.action.act_window" id="act_my_documents_request_form">
+            <field name="name">My request</field>
+            <field name="res_model">ekd.document.head.request</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('employee','=', Get(Eval('context', {}), 'employee', False))]</field>
+        </record>
+        <menuitem name="My request on money" sequence="10" 
+            groups="group_my_request"
+            action="act_my_documents_request_form" 
+            id="menu_documents_request_my" parent="menu_my_documents"/>
+
+        <record model="ir.model.access" id="access_my_request">
+            <field name="model" search="[('model', '=', 'ekd.document.head.request')]"/>
+            <field name="group" ref="group_my_request"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.model.access" id="access_documents_my_request">
+            <field name="model" search="[('model', '=', 'ekd.document')]"/>
+            <field name="group" ref="group_my_request"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_group_request">
+            <field name="model" search="[('model', '=', 'ekd.document.head.request')]"/>
+            <field name="group" ref="group_request"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+        <record model="ir.model.access" id="access_request_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.head.request')]"/>
+            <field name="group" ref="group_request_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+        <record model="ir.sequence.type" id="sequence_type_doc_request_monies">
+            <field name="name">Document of request on money</field>
+            <field name="code">ekd.document.sequence.request.monies</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_request_admin'))]"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_request_product">
+            <field name="name">Document of request on product</field>
+            <field name="code">ekd.document.sequence.request.product</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_request_admin'))]"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_request_service">
+            <field name="name">Document of request on service</field>
+            <field name="code">ekd.document.sequence.request.service</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_request_admin'))]"/>
+        </record>
+
+    </data>
+</tryton>

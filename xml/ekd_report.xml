@@ -1,1 +1,74 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_report.xml
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+
+        <record model="ir.action.report" id="report_request_cash">
+            <field name="name">Request of Cash</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="report_name">ekd.documents.request.print</field>
+            <field name="report">ekd_documents/odt/request.odt</field>
+        </record>
+        <record model="ir.action.keyword" id="keyword_request_cash">
+            <field name="keyword">form_print</field>
+            <field name="model">ekd.document.head.request,0</field>
+            <field name="action" ref="report_request_cash"/>
+        </record>
+
+        <record model="ir.action.report" id="report_document_cash_income">
+            <field name="name">Document Income of Cash </field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="report_name">ekd.document.print.cash.income</field>
+            <field name="report">ekd_documents/odt/cash_income.odt</field>
+        </record>
+
+        <record model="ir.action.report" id="report_document_cash_expense">
+            <field name="name">Document expense of Cash</field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="report_name">ekd.document.print.cash.expense</field>
+            <field name="report">ekd_documents/odt/cash_expense.odt</field>
+        </record>
+
+        <record model="ir.action.report" id="report_document_invoice00_01">
+            <field name="name">Document Invoice (Main Form)</field>
+            <field name="model">ekd.document.invoice</field>
+            <field name="report_name">ekd.document.print.invoice.output</field>
+            <field name="report">ekd_documents/odt/invoice00_01.odt</field>
+        </record>
+
+        <record model="ir.action.report" id="report_document_invoice00_02">
+            <field name="name">Document Invoice (Other Form)</field>
+            <field name="model">ekd.document.invoice</field>
+            <field name="report_name">ekd.document.print.invoice.output02</field>
+            <field name="report">ekd_documents/odt/invoice00_02.odt</field>
+        </record>
+
+        <record model="ir.action.keyword" id="keyword_document_invoice">
+            <field name="keyword">form_print</field>
+            <field name="model">ekd.document.head.invoice,0</field>
+            <field name="action" ref="report_document_invoice00_01"/>
+        </record>
+
+        <record model="ir.action.report" id="report_document_invoice_tax_01">
+            <field name="name">Document Invoice Tax (Main Form)</field>
+            <field name="model">ekd.document.invoice_tax</field>
+            <field name="report_name">ekd.document.print.invoice_tax.output</field>
+            <field name="report">ekd_documents/odt/invoice_tax00_01.odt</field>
+        </record>
+
+        <record model="ir.action.keyword" id="keyword_document_invoice_tax">
+            <field name="keyword">form_print</field>
+            <field name="model">ekd.document.head.invoice_tax,0</field>
+            <field name="action" ref="report_document_invoice_tax_01"/>
+        </record>
+
+<!-->
+        <record model="ir.action.keyword" id="keyword_document_cash">
+            <field name="keyword">form_print</field>
+            <field name="model">ekd.document.head.cash,0</field>
+            <field name="action" ref="report_request_cash"/>
+        </record>
+<-->
+    </data>
+</tryton>

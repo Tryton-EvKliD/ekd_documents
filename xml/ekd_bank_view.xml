@@ -1,1 +1,246 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_bank_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_bank_admin">
+                    <field name="name">Documents of Bank Administration</field>
+        </record>
+        <record model="res.group" id="group_bank">
+                    <field name="name">Documents of Bank</field>
+        </record>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_bank_form" model="ir.ui.view">
+            <field name="model">ekd.document.head.bank</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                    <form string="List of documents bank">
+                        <group col="10" colspan="10" id="head">
+                            <group col="10" colspan="7" id="doc_head">
+                                <label name="company"/>
+                                <field name="company"/>
+                                <label name="type_transaction"/>
+                                <field name="type_transaction"/>
+                                <newline/>
+                                <label name="template_bank"/>
+                                <field name="template_bank"/>
+                                <group colspan="2" col="2" id="gr_number">
+                                    <label name="number_doc"/>
+                                    <field name="number_doc"/>
+                                    <label name="number_our"/>
+                                    <field name="number_our" />
+                                    <button name="button_add_number" colspan="2"
+                                        states="{'invisible': Bool(Eval('number_our'))}" 
+                                        string="Add Number" type="object"
+                                        />
+                                </group>
+                                <label name="date_document"/>
+                                <field name="date_document"/>
+                                <label align="0.0" name="type_reference" />
+                                <field name="type_reference" />
+                                <label align="0.0" name="status_payer_tax" />
+                                <field name="status_payer_tax" />
+                                <newline/>
+                                <field name="parent" invisible="1"/>
+                                <label align="0.0" name="document_base_ref"/>
+                                <field colspan="6" name="document_base_ref" select="1"/>
+                                <label name="amount"/>
+                                <field name="amount"/>
+                            </group>
+                            <group col="3" colspan="3" id="doc_head">
+                                <label name="date_account"/>
+                                <field colspan="2" name="date_account"/>
+                                <label name="state_doc"/>
+                                <field colspan="2" name="state_doc" />
+                                <group col="1" colspan="3" id="buttons">
+                                    <button string="Canceling" name="button_cancel" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'in_bank'))}"/>
+                                    <button string="Post in bank" name="button_bank" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}"/>
+                                    <button string="Post" name="button_post" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'in_bank'))}"/>
+                                    <button string="Draft" name="button_draft" type="object"
+                                        states="{'invisible': Not(In(Eval('state_doc'), ['posted', 'canceled']))}"/>
+                                    <button string="Restore" name="button_restore" type="object"
+                                        states="{'invisible': Not(Equal(Eval('state_doc'), 'deleted'))}"/>
+                                </group>
+                            </group>
+                        </group>
+                       <notebook>
+                           <page string="General" id="general">
+                                <group col="12" id="spec">
+                                    <group col="5" colspan="10" id="spec">
+                                        <label name="from_party" string="Payer:"/>
+                                        <field colspan="1" name="from_party"/>
+                                        <label name="from_bank" string="Bank Payer:"/>
+                                        <field colspan="2" name="from_bank" />
+                                        <newline/>
+                                        <label name="to_party" string="Recipient:" />
+                                        <field colspan="1" name="to_party"/>
+                                        <label name="to_bank" string="Bank Recipient:" />
+                                        <field colspan="2" name="to_bank" />
+                                    </group>
+                                    <group col="2" colspan="2" id="tax">
+                                        <field name="pole_type"/>
+                                        <field name="pole_maturity"/>
+                                        <field name="pole_detail"/>
+                                        <field name="pole_order"/>
+                                        <field name="pole_code"/>
+                                        <field name="pole_reserve"/>
+                                    </group>
+                                </group>
+                                <newline/>
+                                <group col="10" id="tax">
+                                    <separator colspan="10" string="Tax data" id="doc_base"/>
+                                    <field colspan="3" name="kbk_indicator" />
+                                    <field colspan="2" name="okato_indicator" />
+                                    <field colspan="1" name="payment_details_tax" />
+                                    <field colspan="1" name="number_doc_base_tax" />
+                                    <field colspan="1" name="tax_period" />
+                                    <field colspan="1" name="kind_payment_tax" />
+<!-->
+                                    <label align="0.0" name="kbk_indicator" />
+                                    <label align="0.0" name="okato_indicator" />
+                                    <label align="0.0" name="payment_details_tax" />
+                                    <label align="0.0" name="number_doc_base_tax" />
+                                    <label align="0.0" name="tax_period" />
+                                    <label align="0.0" name="kind_payment_tax" />
+<-->
+                                </group>
+                                <newline/>
+                                <group col="2" id="tax">
+                                    <separator colspan="2" string="Content payment" id="notes"/>
+                                    <label name="percent_vat" />
+                                    <field name="percent_vat" />
+                                    <field colspan="2" name="content" />
+                                </group>
+                            </page>
+                            <page string="Accounting" id="accounting">
+                                <field name="lines_payment" mode="tree">
+                                    <tree>
+                                        <field name="line_request"/>
+                                        <field name="amount_payment"/>
+                                    </tree>
+                                </field>
+                                <group col="2" colspan="2" id="move">
+                                    <label name="bank_account"/>
+                                    <field name="bank_account" />
+                                    <label name="corr_account"/>
+                                    <field name="corr_account"/>
+                                    <separator colspan="2" string="Account move" id="id_entry"/>
+                                    <field colspan="2" name="move"/>
+                                    <separator  colspan="2" string="Page Book" id="id_balance"/>
+                                    <field colspan="2" name="balance"/>
+<!-->
+                                    <group col="2" id="spec">
+                                        <separator colspan="2" string="Notes" id="notes"/>
+                                        <field name="note" spell="Eval('company_lang')"/>
+                                    </group>
+<!-->
+                                </group>
+                            </page>
+                        </notebook>
+                        <field name="currency_digits" invisible="1"/>
+                        <field name="child" invisible="1"/>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_bank_tree" model="ir.ui.view">
+            <field name="model">ekd.document.head.bank</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Documents of Bank">
+                    <field name="template" select="2"/>
+                    <field name="number_our" select="2"/>
+                    <field name="number_in" select="2"/>
+                    <field name="date_document" select="2"/>
+                    <field name="date_account" select="1"/>
+                    <field name="from_party" select="1"/>
+                    <field name="to_party" select="1"/>
+                    <field name="amount"  select="1"/>
+                    <field name="state" select="1"/>
+                    <field name="currency_digits" tree_invisible="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_bank_form">
+            <field name="name">Document bank</field>
+            <field name="res_model">ekd.document.head.bank</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_bank_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_bank_tree"/>
+            <field name="act_window" ref="act_documents_bank_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_bank_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_bank_form"/>
+            <field name="act_window" ref="act_documents_bank_form"/>
+        </record>
+
+        <menuitem name="Documents of bank"  sequence="40" groups="group_bank,group_bank_admin"
+            id="menu_documents_bank" parent="menu_documents"/>
+
+        <menuitem
+            name="All Documents of bank" groups="group_bank,group_bank_admin"
+            action="act_documents_bank_form" id="menu_documents_bank_all" parent="menu_documents_bank"/>
+
+        <menuitem
+            name="All Documents of bank (income)" groups="group_bank,group_bank_admin"
+            action="act_documents_bank_form" id="menu_documents_bank_all_income" parent="menu_documents_bank_all"/>
+
+        <menuitem
+            name="All Documents of bank (expense)" groups="group_bank,group_bank_admin"
+            action="act_documents_bank_form" id="menu_documents_bank_all_expense" parent="menu_documents_bank_all"/>
+
+        <menuitem
+            name="Documents of bank (Current period)" groups="group_bank,group_bank_admin"
+            action="act_documents_bank_form" id="menu_documents_bank_current" parent="menu_documents_bank"/>
+
+        <menuitem
+            name="Documents of bank (Current period income)" groups="group_bank,group_bank_admin"
+            action="act_documents_bank_form" id="menu_documents_bank_current_income" parent="menu_documents_bank_current"/>
+
+        <menuitem
+            name="Documents of bank (Current period expense)" groups="group_bank,group_bank_admin"
+            action="act_documents_bank_form" id="menu_documents_bank_current_expense" parent="menu_documents_bank_current"/>
+
+        <record model="ir.model.access" id="access_account_bank">
+            <field name="model" search="[('model', '=', 'ekd.document.head.bank')]"/>
+            <field name="group" ref="group_bank"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_account_bank_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.head.bank')]"/>
+            <field name="group" ref="group_bank_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_bank_order">
+            <field name="name">Document of Payment Order</field>
+            <field name="code">ekd.document.sequence.bank.output</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_bank_admin'))]"/>
+        </record>
+
+    </data>
+</tryton>

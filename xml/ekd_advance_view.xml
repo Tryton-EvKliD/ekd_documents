@@ -1,1 +1,253 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_advance_view.xml
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="res.group" id="group_advance_admin">
+                    <field name="name">Documents of advance report Administration</field>
+        </record>
+        <record model="res.group" id="group_advance">
+                    <field name="name">Documents of advance </field>
+        </record>
+        <record model="res.group" id="group_my_advance">
+                    <field name="name">Create of advance report </field>
+        </record>
+
+    <!--
+    =======================
+    Tree and  Form  for The Documents
+    =======================
+    -->
+
+        <record id="view_documents_advance_form" model="ir.ui.view">
+            <field name="model">ekd.document.head.advancecash</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="List of documents" >
+                    <group col="10" id="head">
+                        <group col="8" colspan="8" id="doc_head">
+                            <label name="company" />
+                            <field name="company" />
+                            <newline/>
+                            <label name="template_advance" />
+                            <field name="template_advance" widget="selection"/>
+                            <group colspan="2" col="2" id="gr_number">
+                                <label name="number_our"/>
+                                <field name="number_our" />
+                                <button name="button_add_number" colspan="2"
+                                    states="{'invisible': Bool(Eval('number_our'))}" 
+                                    string="Add Number" type="object"
+                                    />
+                            </group>
+                            <label name="date_document" />
+                            <field name="date_document" />
+                            <newline/>
+                            <label name="employee" />
+                            <field name="employee" />
+                            <label name="amount_advance"/>
+                            <field name="amount_advance"/>
+                            <newline/>
+                            <label name="document_ref"/>
+                            <field name="document_ref" />
+                        </group>
+                        <group col="2" colspan="2" id="state">
+                            <label name="date_report" />
+                            <field name="date_report" />
+                            <label name="state_doc" />
+                            <field name="state_doc" />
+                            <group col="1" colspan="2" id="button">
+                                <button name="button_draft" states="{'invisible': Not(In(Eval('state_doc'), ['empty', 'canceled']))}"
+                                            string="Draft" type="object"/>
+                                <button name="button_request" states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}"
+                                            string="Post for Confirm" type="object"/>
+                                <button name="button_confirm" states="{'invisible': Not(Equal(Eval('state_doc'), 'request'))}"
+                                            string="Confirm" type="object"/>
+                                <button name="button_post" states="{'invisible': Not(Equal(Eval('state_doc'), 'draft'))}"
+                                            string="Post" type="object"/>
+                                <button name="button_cancel" states="{'invisible': Not(Equal(Eval('state_doc'), 'confirmed'))}"
+                                            string="Cancel" type="object"/>
+                                <button name="button_restore" states="{'invisible': Not(Equal(Eval('state_doc'), 'deleted'))}"
+                                            string="Restore" type="object"/>
+                            </group>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Lines" id="lines">
+                        <field name="advance_lines" colspan="8" >
+                            <form string="Lines advance">
+                                <group col="2" colspan="2" id="description">
+                                    <separator colspan="2" string="Description" id="sep_descr"/>
+                                    <field name="name_advance"/>
+                                </group>
+<!-->
+                                <group col="2" colspan="2" id="product">
+                                    <separator colspan="2" string="Product Information" id="sep_product"/>
+                                    <label name="product"/>
+                                    <field name="product"/>
+                                    <label name="product_uom"/>
+                                    <field name="product_uom"/>
+                                    <label name="quantity"/>
+                                    <field name="quantity"/>
+                                    <label name="unit_price"/>
+                                    <field name="unit_price"/>
+                                    <field name="unit_digits" invisible="1"/>
+                                </group>
+<-->
+                                <group col="2" colspan="2" id="request_ref">
+                                    <separator colspan="2" string="Request Information" id="sep_request"/>
+                                    <label name="name"/>
+                                    <field name="name"/>
+                                    <label name="analytic"/>
+                                    <field name="analytic"/>
+                                </group>
+                                <group col="2" colspan="2" id="amount">
+                                    <separator colspan="2" string="Finance Information" id="sep_amount"/>
+<!-->
+                                    <label name="amount"/>
+                                    <field name="amount"/>
+<-->
+                                    <label name="amount_received"/>
+                                    <field name="amount_received"/>
+                                    <label name="amount_advance_total"/>
+                                    <field name="amount_advance_total"/>
+                                    <label name="amount_advance"/>
+                                    <field name="amount_advance"/>
+                                    <label name="state" />
+                                    <field name="state" />
+                               </group>
+                                <group col="2" colspan="2" id="product">
+                                    <separator colspan="2" string="Product Information" id="sep_product"/>
+                                    <field name="advance_amount"/>
+                               </group>
+                           </form>
+                           <tree editable="bottom">
+                                <field name="name"/>
+                                <field name="name_advance"/>
+                                <field name="analytic"/>
+                                <field name="amount_received"/>
+                                <field name="amount_advance_total"/>
+                                <field name="amount_advance"/>
+                                <field name="state" />
+<!-->
+                                <field name="amount"/>
+                                <field name="product"/>
+                                <field name="product_uom"/>
+                                <field name="quantity"/>
+                                <field name="unit_price"/>
+                                <field name="unit_digits" tree_invisible="1"/>
+<-->
+                           </tree>
+                        </field>
+                        </page>
+                        <page string="Note" id="notes">
+                            <field name="note" spell="Eval('company_lang')"/>
+                        </page>
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record id="view_documents_advance_tree" model="ir.ui.view">
+            <field name="model">ekd.document.head.advancecash</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="Advance reports">
+                    <field name="template" select="1"/>
+                    <field name="number_our" select="1"/>
+                    <field name="date_document" select="1"/>
+                    <field name="date_report" select="1"/>
+                    <field name="advance_lines"/>
+                    <field name="employee"/>
+                    <field name="amount_advance"/>
+                    <field name="state_doc" select="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_advance_form">
+            <field name="name">Document advance of cash</field>
+            <field name="res_model">ekd.document.head.advancecash</field>
+            <field name="view_type">form</field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_advance_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_advance_tree"/>
+            <field name="act_window" ref="act_documents_advance_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_documents_advance_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="view_documents_advance_form"/>
+            <field name="act_window" ref="act_documents_advance_form"/>
+        </record>
+
+        <record model="ir.action.act_window" id="act_documents_advance_form_my">
+            <field name="name">My of advance report</field>
+            <field name="res_model">ekd.document.head.advancecash</field>
+            <field name="domain">[('from_party', '=', Get(Eval('context', {}), 'employee'))]</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <menuitem name="Documents (Advance report)"  sequence="26" groups="group_advance_admin"
+            id="menu_documents_advance" parent="menu_documents"/>
+
+        <menuitem name="All Documents of advance report" groups="group_advance_admin"
+            action="act_documents_advance_form" id="menu_documents_advance_form_all" parent="menu_documents_advance"/>
+
+        <menuitem name="My of advance report" groups="group_my_advance"
+            action="act_documents_advance_form_my" id="menu_documents_advance_form_my" parent="menu_my_documents"/>
+
+        <record id="act_documents_advance_new" model="ir.action.act_window">
+            <field name="name">New advance report</field>
+            <field name="res_model">ekd.document.head.advancecash</field>
+            <field name="view_type">form</field>
+        </record>
+
+        <record model="ir.action.act_window.view"
+                id="view_act_documents_advance_new">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="view_documents_advance_form"/>
+            <field name="act_window" ref="act_documents_advance_new"/>
+        </record>
+
+        <menuitem action="act_documents_advance_new" id="menu_documents_advance_new" 
+            parent="menu_new_documents" groups="group_advance" sequence="50"/>
+
+        <record model="ir.model.access" id="access_advance_admin">
+            <field name="model" search="[('model', '=', 'ekd.document.head.advancecash')]"/>
+            <field name="group" ref="group_advance_admin"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.model.access" id="access_advance">
+            <field name="model" search="[('model', '=', 'ekd.document.head.advancecash')]"/>
+            <field name="group" ref="group_advance"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_delete" eval="False"/>
+        </record>
+
+        <record model="ir.model.access" id="access_my_advance">
+            <field name="model" search="[('model', '=', 'ekd.document.head.advancecash')]"/>
+            <field name="group" ref="group_my_advance"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_delete" eval="True"/>
+        </record>
+
+        <record model="ir.sequence.type" id="sequence_type_doc_advance">
+            <field name="name">Document of advance</field>
+            <field name="code">ekd.document.sequence.advance</field>
+            <field name="groups"
+                eval="[('add', ref('res.group_admin')), ('add', ref('group_advance_admin'))]"/>
+        </record>
+
+    </data>
+</tryton>

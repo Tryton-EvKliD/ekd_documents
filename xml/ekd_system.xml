@@ -1,1 +1,381 @@
-/home/trytond-1.8.2/trytond/modules/ekd_documents/xml/ekd_system.xml
+<?xml version="1.0"?>
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data noupdate="0">
+<!-->
+        <record model="ir.dictions"
+            id="000">
+            <field name="key"></field>
+            <field name="value"></field>
+            <field name="model"></field>
+            <field name="pole"></field>
+            <field name="sequence"></field>
+        </record>
+
+<-->
+<!-- Diction For Document Template -->
+
+        <record model="ir.dictions"
+            id="document_template_010">
+            <field name="key">contracts_supp</field>
+            <field name="value">Contract with suppliers</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">010</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="document_template_020">
+            <field name="key">contracts_cust</field>
+            <field name="value">Contract with customers</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">020</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_030">
+            <field name="key">contracts_othe</field>
+            <field name="value">Contract with other organizations</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">030</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_040">
+            <field name="key">contracts_empl</field>
+            <field name="value">Contract with employees</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">040</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="document_template_050">
+            <field name="key">fixed_assets</field>
+            <field name="value">Documents of Fixed assets</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">050</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_060">
+            <field name="key">cash_documents</field>
+            <field name="value">Cash documents</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">060</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_070">
+            <field name="key">bank_documents</field>
+            <field name="value">Banking documents</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">070</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_080">
+            <field name="key">request_monies</field>
+            <field name="value">Request on Monies</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">080</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_082">
+            <field name="key">request_product</field>
+            <field name="value">Request on Product</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">082</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_084">
+            <field name="key">request_service</field>
+            <field name="value">Request on Service</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">084</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="document_template_090">
+            <field name="key">advance_report</field>
+            <field name="value">Advance Report</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">090</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_100">
+            <field name="key">power_of_attorney</field>
+            <field name="value">Power of attorney</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">100</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_110">
+            <field name="key">invoice_expense</field>
+            <field name="value">Invoice from suppliers</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">110</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_120">
+            <field name="key">invoice_revenue</field>
+            <field name="value">Invoice to customers</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">120</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_140">
+            <field name="key">invoice_tax_input</field>
+            <field name="value">Tax Invoice Input</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">140</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_150">
+            <field name="key">invoice_tax_output</field>
+            <field name="value">Tax Invoice Output</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">150</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_160">
+            <field name="key">input_goods</field>
+            <field name="value">Input Goods</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">160</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_170">
+            <field name="key">move_goods</field>
+            <field name="value">Move Goods</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">170</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_180">
+            <field name="key">output_goods</field>
+            <field name="value">Output Goods</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">180</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_190">
+            <field name="key">orders</field>
+            <field name="value">Orders</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">190</field>
+        </record>
+        <record model="ir.dictions"
+            id="document_template_200">
+            <field name="key">letters</field>
+            <field name="value">Letters</field>
+            <field name="model">ekd.document.template</field>
+            <field name="pole">type_account</field>
+            <field name="sequence">200</field>
+        </record>
+
+<!-- Diction For Document Request -->
+
+        <record model="ir.dictions"
+            id="request_ref_invoice">
+            <field name="key">ekd.document.head.invoice</field>
+            <field name="value">Invoice</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">document_ref</field>
+            <field name="sequence">050</field>
+        </record>
+        <record model="ir.dictions"
+            id="request_ref_order">
+            <field name="key">ekd.document.head.order</field>
+            <field name="value">Order</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">document_ref</field>
+            <field name="sequence">100</field>
+        </record>
+        <record model="ir.dictions"
+            id="request_ref_letter">
+            <field name="key">ekd.document.head.letter</field>
+            <field name="value">Letter</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">document_ref</field>
+            <field name="sequence">200</field>
+        </record>
+
+<!-- Diction For Document Cash -->
+        <record model="ir.dictions"
+            id="cash_ref_invoice">
+            <field name="key">ekd.document.head.invoice</field>
+            <field name="value">Invoice</field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="pole">document_base_ref</field>
+            <field name="sequence">010</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="cash_ref_request">
+            <field name="key">ekd.document.head.request</field>
+            <field name="value">Request on Money</field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="pole">document_base_ref</field>
+            <field name="sequence">010</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="cash_ref_letter">
+            <field name="key">ekd.document.head.letter</field>
+            <field name="value">Letter</field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="pole">document_base_ref</field>
+            <field name="sequence">040</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="cash_ref_order">
+            <field name="key">ekd.document.head.order</field>
+            <field name="value">Order</field>
+            <field name="model">ekd.document.head.cash</field>
+            <field name="pole">document_base_ref</field>
+            <field name="sequence">050</field>
+        </record>
+
+<!-- Diction For Request of money field=invoice_ref -->
+
+        <record model="ir.dictions"
+            id="request_invoice_ref_invoice">
+            <field name="key">ekd.document.head.invoice</field>
+            <field name="value">Invoice</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">invoice_ref</field>
+            <field name="sequence">020</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="request_invoice_ref_invoice_tax">
+            <field name="key">ekd.document.head.invoice_tax</field>
+            <field name="value">Invoice Tax</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">invoice_ref</field>
+            <field name="sequence">030</field>
+        </record>
+
+        <record model="ir.dictions"
+            id="request_invoice_ref_invoice_other">
+            <field name="key">ekd.document.head.invoice_goods</field>
+            <field name="value">Invoice (Other)</field>
+            <field name="model">ekd.document.head.request</field>
+            <field name="pole">invoice_ref</field>
+            <field name="sequence">040</field>
+        </record>
+
+<!-- Diction For Line Product -->
+        <record model="ir.dictions"
+            id="documents_stock_line_product_ref_product">
+            <field name="key">product.product</field>
+            <field name="value">Product</field>
+            <field name="model">ekd.document.line.product</field>
+            <field name="pole">product_ref</field>
+            <field name="sequence">010</field>
+        </record>
+
+<!-- Diction For Invoice field - document_base -->
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_ref_request">
+            <field name="key">ekd.document.head.request</field>
+            <field name="value">Request</field>
+            <field name="model">ekd.document.head.invoice</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">005</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_ref_inovice">
+            <field name="key">ekd.document.head.invoice</field>
+            <field name="value">Invoice</field>
+            <field name="model">ekd.document.head.invoice</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">010</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_ref_inovice_tax">
+            <field name="key">ekd.document.head.invoice_tax</field>
+            <field name="value">Invoice Tax</field>
+            <field name="model">ekd.document.head.invoice</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">020</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_ref_inovice_goods">
+            <field name="key">ekd.document.head.invoice_goods</field>
+            <field name="value">Invoice Goods</field>
+            <field name="model">ekd.document.head.invoice</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">030</field>
+        </record>
+
+<!-- Diction For Invoice Tax field - document_base -->
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_tax_ref_inovice">
+            <field name="key">ekd.document.head.invoice</field>
+            <field name="value">Invoice</field>
+            <field name="model">ekd.document.head.invoice_tax</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">010</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_tax_ref_inovice_tax">
+            <field name="key">ekd.document.head.invoice_tax</field>
+            <field name="value">Invoice Tax</field>
+            <field name="model">ekd.document.head.invoice_tax</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">020</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_tax_ref_inovice_goods">
+            <field name="key">ekd.document.head.invoice_goods</field>
+            <field name="value">Invoice Goods</field>
+            <field name="model">ekd.document.head.invoice_tax</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">030</field>
+        </record>
+
+<!-- Diction For Invoice Goods field - document_base -->
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_goods_ref_inovice">
+            <field name="key">ekd.document.head.invoice</field>
+            <field name="value">Invoice</field>
+            <field name="model">ekd.document.head.invoice_goods</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">010</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_goods_ref_inovice_tax">
+            <field name="key">ekd.document.head.invoice_tax</field>
+            <field name="value">Invoice Tax</field>
+            <field name="model">ekd.document.head.invoice_goods</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">020</field>
+        </record>
+        <record model="ir.dictions"
+            id="ekd_document_head_invoice_goods_ref_inovice_goods">
+            <field name="key">ekd.document.head.invoice_goods</field>
+            <field name="value">Invoice Goods</field>
+            <field name="model">ekd.document.head.invoice_goods</field>
+            <field name="pole">document_base</field>
+            <field name="sequence">030</field>
+        </record>
+
+    </data>
+</tryton>
